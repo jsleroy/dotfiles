@@ -63,11 +63,8 @@ fi
 #------------------------------------------------------------
 [ -d $HOME/bin ] && export PATH=$HOME/bin:$PATH
 
+[ -d $HOME/python ] && export PYTHONPATH=$HOME/python:$PYTHONPATH
 [ -f $HOME/.pystartup ] && export PYTHONSTARTUP=$HOME/.pystartup
-
-#------------------------------------------------------------
-# PYTHON
-#------------------------------------------------------------
 
 export PYTHONPATH=/projects/pr412_skylark/python-user-packages/lib/python2.6/site-packages:$PYTHONPATH
 export PATH=/projects/pr412_skylark/python-user-packages/bin:$PATH
@@ -206,9 +203,4 @@ alias cpplint='cpplint.py --filter=-whitespace/braces,-whitespace/newline'
 alias mozilla='firefox'
 
 export MANPATH=:$MANPATH:$HOME/share/man
-
-#------------------------------------------------------------
-# Some fun
-#------------------------------------------------------------
-
 
