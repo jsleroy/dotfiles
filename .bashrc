@@ -187,8 +187,6 @@ export CCACHE_DIR=/work/jealer01/work/.ccache
 # ALIAS
 #------------------------------------------------------------
 
-[ -f $HOME/.bash_alias ] && source $HOME/.bash_alias
-
 alias gdb='gdb -tui' #enable the text window interface if possible
 alias ls="BLOCK_SIZE=\'1 ls --color=auto -h" #enable thousands grouping and colour
 alias ll='ls -l'
