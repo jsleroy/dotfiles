@@ -92,10 +92,10 @@ let Tlist_WinWidth = 50
 " set tags+=. " /tmp
 
 "--------------------------------------------------------------------------------
-" Task list plugin
+" VimWiki
 "--------------------------------------------------------------------------------
 
-nnoremap <F3> :TaskList<cr>
+let g:vimwiki_folding = 1
 
 "--------------------------------------------------------------------------------
 " Completion
@@ -126,15 +126,11 @@ let g:SuperTabDefaultCompletionType = "context"
 autocmd Syntax c,cpp,vim,xml,html,xhtml,verilog,python setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,verilog,python normal zR
 
-map <buffer> f za
-map <buffer> F :call ToggleFold()<CR>
-
 " Foldind flip-flop function
 
 let b:folded = 0
-
 function! ToggleFold()
-    if( b:folded == 0 )
+    if ( b:folded == 0 )
         exec "normal! zM"
         let b:folded = 1
     else
@@ -142,6 +138,9 @@ function! ToggleFold()
         let b:folded = 0
     endif
 endfunction
+
+nmap <silent> <buffer> f za
+nmap <silent> <buffer> F :call ToggleFold()<CR>
 
 "--------------------------------------------------------------------------------
 " Misc.
@@ -170,15 +169,16 @@ set t_Co=256
 " Detect Console VIM is running
 " if has("gui_running")
 
-" if has("gui")
-"     if has("gui_gtk2")
+if has("gui")
+    if has("gui_gtk2")
+        set guifont=Monospace\ 9
 "         " Linux GUI
 "     elseif has("x11")
 "         " X11 GUI (e.g. gtk1)
 "     else
 "         " Windows GUI
-"     endif
-" endif
+    endif
+endif
 
 if has("gui_running")
     " colorscheme dante
@@ -191,10 +191,9 @@ if has("gui_running")
     set guioptions-=m " remove menu
     set guioptions-=T " remove toolbar
     " set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
-    " set guifont=Monospace\ 9
 else
     " colorscheme desert
-    set background=dark
+    " set background=dark
 endif
 
 "--------------------------------------------------------------------------------
