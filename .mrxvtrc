@@ -1,0 +1,102 @@
+#
+# SEE http://materm.svn.sourceforge.net/viewvc/materm/mrxvt05b/share/mrxvtrc.sample
+#
+
+# Goto the next tab:
+Mrxvt.macro.Ctrl+Page_Up: GotoTab -1
+Mrxvt.macro.Ctrl+Page_Down: GotoTab +1
+
+# Only show the tab bar if there is more than one tab.
+Mrxvt.autohideTabbar:		True
+
+# The number of tabs to attempt to keep visible. The width of tabs will shrink
+# to keep at least these many tabs visible.
+Mrxvt.minVisibleTabs:		8
+
+# The max width in chars for each tab (only used with x11 fonts, or if xftPFont
+# is not specified).
+# Mrxvt.maxTabWidth:		17
+
+# Make the terminal title the same as the active tab title.
+Mrxvt.syncTabTitle:		True
+Mrxvt.syncTabIcon:		True
+
+# Scroll a small amount
+Mrxvt.macro.Ctrl+Shift+Page_Up: Scroll -20
+Mrxvt.macro.Ctrl+Shift+Page_Down: Scroll +20
+
+# Create new tab
+Mrxvt.macro.Ctrl+Shift+t: NewTab
+
+# Don't scroll to the bottom every time some output is produced.
+Mrxvt.scrollTtyOutputInhibit:	true
+
+Mrxvt.xft:			1
+Mrxvt.xftFont:			Bitstream Vera Sans Mono
+Mrxvt.xftSize:			8.5
+Mrxvt.xftAntialias:		1
+
+# Font to use for tab bar / menus. This need not be mono-spaced ;).
+Mrxvt.xftPFont:			Bitstream Vera Sans Mono
+Mrxvt.xftPSize:			8.5
+
+Mrxvt.scrollBar:		true
+Mrxvt.scrollbarRight:		true
+Mrxvt.scrollbarStyle:		rxvt
+Mrxvt.bottomTabbar:             true
+
+# Number of lines to save in the scroll back buffer for all tabs
+Mrxvt.saveLines:		500000
+
+# Don't close the tab if the secondary screen is displayed (e.g. when running
+# vim).
+Mrxvt.protectSecondary:		True
+
+# Display menu
+Mrxvt.showMenu: True
+
+# Scroll to the bottom when a key is pressed.
+#Mrxvt.scrollTtyKeypress:	true
+
+#Disable resize font
+Mrxvt.macro.Ctrl+equal: Dummy
+Mrxvt.macro.Ctrl+minus: Dummy
+Mrxvt.macro.Shift+KP_Add: Dummy
+Mrxvt.macro.Shift+KP_Subtract: Dummy
+
+Mrxvt.macro.Ctrl+Shift+KP_Add: ResizeFont +1
+Mrxvt.macro.Ctrl+Shift+KP_Subtract: ResizeFont -1
+
+# Blank the mouse pointer on keystrokes or after 10 seconds of inactivity.
+Mrxvt.pointerBlank:		True
+Mrxvt.pointerBlankDelay:	10
+
+Mrxvt.cutChars:			:=/~#@?%&_-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0abcdefghijklmnopqrstuvwxyz
+
+#Mrxvt.background: #c8c8c8
+#Mrxvt.foreground: #000000
+Mrxvt.background: #262626
+Mrxvt.foreground: #ffffff
+
+Mrxvt.color0:   #000000
+Mrxvt.color1:   #cd0000
+Mrxvt.color2:   #00cd00
+Mrxvt.color3:   #cdcd00
+Mrxvt.color4:   #1e90ff
+Mrxvt.color5:   #cd00cd
+Mrxvt.color6:   #00cdcd
+Mrxvt.color7:   #e5e5e5
+Mrxvt.color8:   #4c4c4c
+Mrxvt.color9:   #ff0000
+Mrxvt.color10:  #00ff00
+Mrxvt.color11:  #ffff00
+Mrxvt.color12:  #4682b4
+Mrxvt.color13:  #ff00ff
+Mrxvt.color14:  #00ffff
+Mrxvt.color15:  #ffffff
+
+Mrxvt.cursorColor: green
+
+Mrxvt.visualBell: 1
+
+

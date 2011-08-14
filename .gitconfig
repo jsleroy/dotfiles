@@ -1,0 +1,30 @@
+[user]
+    name = Jean-Sebastien Leroy
+    email = jealer01@arm.com
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[core]
+    excludesfile = /home/jealer01/.gitexcludes
+    preloadindex = true
+[alias]
+    st = status
+    ci = commit
+    cam = commit -a -m
+    cb = checkout -b
+    br = branch -a
+    co = checkout
+    rbi = rebase --interactive
+    cp = cherry-pick
+    tkdiff = difftool --tool=tkdiff --no-prompt
+    meld = difftool --tool=meld --no-prompt
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+[tig]
+    show-author = abbreviated
+    show-rev-graph = yes
+    author-width = 15
+    tab-size = 4
+
+[push]
+	default = tracking
