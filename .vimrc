@@ -8,6 +8,8 @@ set nocompatible " get out VI compatible mode
 set hlsearch
 set incsearch
 
+set runtimepath=/work/jealer01/tools/vimwiki/src,$VIMRUNTIME
+
 syntax on
 
 "--------------------------------------------------------------------------------
@@ -96,6 +98,7 @@ let Tlist_WinWidth = 50
 "--------------------------------------------------------------------------------
 
 let g:vimwiki_folding = 1
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_export': 1}]
 
 "--------------------------------------------------------------------------------
 " Completion
