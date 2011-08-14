@@ -1,0 +1,27 @@
+#!/bin/sh
+
+EXCLUDE=("install" "vimrc.loumou" "bashrc.pierre" "README.rst")
+
+FILES=`ls`
+
+for exclude in ${EXCLUDE[@]}
+do
+    FILES=`echo $FILES | sed "s/\b$exclude\b//g"`
+done
+
+for filename in $FILES
+do
+    dest=$HOME"/."$filename
+    src=`pwd`"/"$filename
+    echo $src
+
+    if [ -e $dest ]
+    then
+        rm -rf $dest
+    elif [ -L $dest ]
+    then
+        unlink $dest
+    fi
+
+    ln -s $src $dest
+done
