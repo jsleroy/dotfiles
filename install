@@ -2,26 +2,70 @@
 
 EXCLUDE=("install" "vimrc.loumou" "bashrc.pierre" "README.rst")
 
+usage()
+{
+cat << EOF
+usage: $0 [OPTIONS]
+
+This script create symlinks in \$HOME for all files found in this directory.
+
+OPTIONS:
+    -h       Show this message
+    -e FILE  Exclude list file
+    -f       Force installation
+    -v       Verbose
+EOF
+}
+
+EXCLUDE_LIST=
+VERBOSE=0
+FORCE=0
+
+while getopts "hfe:" OPTION
+do
+     case $OPTION in
+         h)
+             usage
+             exit 1
+             ;;
+         e)
+             EXCLUDE_LIST=$OPTARG
+             ;;
+         f)
+             FORCE=1
+             ;;
+         v)
+             VERBOSE=1
+             ;;
+         ?)
+             usage
+             exit
+             ;;
+     esac
+done
+
 FILES=`ls`
 
+exit
+
+# Remove in $FILES items from $EXCLUDE
 for exclude in ${EXCLUDE[@]}
 do
     FILES=`echo $FILES | sed "s/\b$exclude\b//g"`
 done
 
+# Create symlinks
 for filename in $FILES
 do
     dest=$HOME"/."$filename
     src=`pwd`"/"$filename
     echo $src
 
-    if [ -e $dest ]
+    if [ -a $dest ]
     then
         rm -rf $dest
-    elif [ -L $dest ]
-    then
-        unlink $dest
     fi
 
     ln -s $src $dest
 done
+
