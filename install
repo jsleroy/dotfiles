@@ -81,11 +81,11 @@ do
             exit
         else
             info "Removing conflicting file" $dest
-            # rm -rf $dest
+            rm -rf $dest
         fi
     fi
 
     info "Creating symlink" $src "to" $dest
-    # ln -s $src $dest
+    ln -s $src $dest
 done
 
