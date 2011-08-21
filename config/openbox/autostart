@@ -46,5 +46,6 @@ fi
 tint2 &
 wicd-gtk &
 thinkhdaps &
+checkgmail &
 thunar --daemon &
 
