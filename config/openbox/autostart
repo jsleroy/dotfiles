@@ -45,5 +45,6 @@ fi
 
 tint2 &
 wicd-gtk &
+thinkhdaps &
 thunar --daemon &
 
