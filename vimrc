@@ -8,7 +8,7 @@ set nocompatible " get out VI compatible mode
 set hlsearch
 set incsearch
 
-set runtimepath=/work/jealer01/tools/vimwiki/src,$VIMRUNTIME
+" set runtimepath=/work/jealer01/tools/vimwiki/src,$VIMRUNTIME
 
 syntax on
 
