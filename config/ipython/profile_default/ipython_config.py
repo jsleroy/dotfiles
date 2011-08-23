@@ -183,7 +183,7 @@ c = get_config()
 # c.TerminalInteractiveShell.separate_in = '\n'
 
 # Set the color scheme (NoColor, Linux, or LightBG).
-# c.TerminalInteractiveShell.colors = 'Linux'
+c.TerminalInteractiveShell.colors = 'LightBG'
 
 # Autoindent IPython code entered interactively.
 # c.TerminalInteractiveShell.autoindent = True
