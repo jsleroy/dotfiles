@@ -127,6 +127,7 @@ let g:SuperTabDefaultCompletionType = "context"
 "--------------------------------------------------------------------------------
 
 autocmd Syntax c,cpp,vim,xml,html,xhtml,verilog,python setlocal foldmethod=syntax
+autocmd Syntax python setlocal foldmethod=indent
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,verilog,python normal zR
 
 " Foldind flip-flop function
