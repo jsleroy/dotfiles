@@ -44,7 +44,8 @@ if which /usr/lib/openbox/xdg-autostart >/dev/null 2>&1; then
 fi
 
 tint2 &
-wicd-gtk &
+volwheel &
+# wicd-gtk &
 thinkhdaps &
 checkgmail &
 thunar --daemon &
