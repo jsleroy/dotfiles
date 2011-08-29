@@ -7,6 +7,9 @@
 " Pathogen plugin to manage plugin in a single bundle directory
 runtime bundle/pathogen/autoload/pathogen.vim
 
+" Load plugins
+call pathogen#infect()
+
 set nocompatible " get out VI compatible mode
 set hlsearch
 set incsearch
