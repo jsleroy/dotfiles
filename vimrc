@@ -4,10 +4,14 @@
 "
 "--------------------------------------------------------------------------------
 
+" Pathogen plugin to manage plugin in a single bundle directory
+runtime bundle/pathogen/autoload/pathogen.vim
+
 set nocompatible " get out VI compatible mode
 set hlsearch
 set incsearch
 
+" Tips to change the runtime path
 " set runtimepath=/work/jealer01/tools/vimwiki/src,$VIMRUNTIME
 
 syntax on
