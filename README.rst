@@ -13,3 +13,11 @@ Follow these instructions to install dotfiles::
     cd dotfiles
     ./install
 
+.. NOTE::
+    Vim plugins are handled with git submodule in vim/bundle/ when possible
+    After cloning the dotfiles repository, you need to init and updates them::
+
+    cd $HOME/dotfiles
+    git submodule init
+    git submodule update
+
