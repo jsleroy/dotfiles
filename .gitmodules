@@ -7,3 +7,6 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
+[submodule "libui-sh"]
+	path = libui-sh
+	url = git://github.com/Dieterbe/libui-sh.git

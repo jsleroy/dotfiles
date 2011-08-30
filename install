@@ -1,6 +1,6 @@
 #!/bin/sh
 
-EXCLUDE=("install" "vimrc.loumou" "bashrc.pierre" "README.rst")
+EXCLUDE=("install" "vimrc.loumou" "bashrc.pierre" "README.rst" "libui-sh")
 
 usage()
 {
