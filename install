@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/bin/bash
+
+. libui-sh/libui.sh
+
+libui_sh_init
 
 EXCLUDE=("install" "vimrc.loumou" "bashrc.pierre" "README.rst" "libui-sh")
 
@@ -83,10 +87,7 @@ do
         if [ $FORCE -eq 0 ]
         then
             warning "$dest already exists"
-            read -p "continue/skip/exit ? "
-
-            [ "$REPLY" == "s" ] && continue
-            [ "$REPLY" == "e" ] && exit
+            ask_yesno "Overwrite ?" && continue
         else
             info "Deleting" $dest
             # rm -rf $dest
