@@ -13,3 +13,6 @@
 [submodule "vim/bundle/mark"]
 	path = vim/bundle/mark
 	url = git://github.com/vim-scripts/Mark--Karkat.git
+[submodule "vim/bundle/drawit"]
+	path = vim/bundle/drawit
+	url = git://github.com/vim-scripts/DrawIt.git
