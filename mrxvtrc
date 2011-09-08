@@ -31,32 +31,47 @@ Mrxvt.macro.Ctrl+Shift+t: NewTab
 # Don't scroll to the bottom every time some output is produced.
 Mrxvt.scrollTtyOutputInhibit:	true
 
-Mrxvt.xft:			1
-Mrxvt.xftFont:			Bitstream Vera Sans Mono
-Mrxvt.xftSize:			8.5
-Mrxvt.xftAntialias:		1
-
-# Font to use for tab bar / menus. This need not be mono-spaced ;).
-Mrxvt.xftPFont:			Bitstream Vera Sans Mono
-Mrxvt.xftPSize:			8.5
-
 Mrxvt.scrollBar:		true
 Mrxvt.scrollbarRight:		true
 Mrxvt.scrollbarStyle:		rxvt
+Mrxvt.scrollWithBuffer          true
+
+# Scroll to the bottom when a key is pressed.
+Mrxvt.scrollTtyKeypress:	true
+
+Mrxvt.xft:			1
+Mrxvt.xftFont:			Bitstream Vera Sans Mono
+Mrxvt.xftSize:			9
+Mrxvt.xftAntialias:		1
+
+# The options below are better set using ~/.fonts.config. Mrxvt will use the
+# defaults passed to the fontconfig library.
+#
+Mrxvt.xftHinting:		1
+Mrxvt.xftAutoHint:		1
+Mrxvt.xftGlobalAdvance:	        1
+Mrxvt.xftRGBA:		        rgb
+Mrxvt.xftSlowOutput:		1
+
+# Don't load a multi-char font. This will reduce the line space if your multi
+# char font has different dimensions than the regular font. You might need to
+# comment it out if you want to use XIM and non-english fonts.
+# Mrxvt.xftNomFont:		1
+
+# Font to use for tab bar / menus. This need not be mono-spaced ;).
+Mrxvt.xftPFont:			Bitstream Vera Sans Mono
+Mrxvt.xftPSize:			8
 Mrxvt.bottomTabbar:             true
 
 # Number of lines to save in the scroll back buffer for all tabs
-Mrxvt.saveLines:		500000
+Mrxvt.saveLines:		50000
 
 # Don't close the tab if the secondary screen is displayed (e.g. when running
 # vim).
 Mrxvt.protectSecondary:		True
 
 # Display menu
-Mrxvt.showMenu: True
-
-# Scroll to the bottom when a key is pressed.
-#Mrxvt.scrollTtyKeypress:	true
+Mrxvt.showMenu: False
 
 #Disable resize font
 Mrxvt.macro.Ctrl+equal: Dummy
@@ -73,10 +88,10 @@ Mrxvt.pointerBlankDelay:	10
 
 Mrxvt.cutChars:			:=/~#@?%&_-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0abcdefghijklmnopqrstuvwxyz
 
-#Mrxvt.background: #c8c8c8
-#Mrxvt.foreground: #000000
-Mrxvt.background: #262626
-Mrxvt.foreground: #ffffff
+Mrxvt.background: #c8c8c8
+Mrxvt.foreground: #000000
+# Mrxvt.background: #262626
+# Mrxvt.foreground: #ffffff
 
 Mrxvt.color0:   #000000
 Mrxvt.color1:   #cd0000
