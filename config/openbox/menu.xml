@@ -70,6 +70,13 @@
 				</command>
 			</action>
 		</item>
+		<item label="Mrxvt">
+			<action name="Execute">
+				<command>
+					mrxvt
+				</command>
+			</action>
+		</item>
 		<item label="Xterm">
 			<action name="Execute">
 				<command>
