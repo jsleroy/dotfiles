@@ -4,7 +4,7 @@
 
 libui_sh_init
 
-EXCLUDE=("install" "vimrc.loumou" "bashrc.pierre" "README.rst" "libui-sh")
+EXCLUDE=("install" "vimrc.loumou" "bashrc.pierre" "README.rst" "libui-sh" "mrxvtrc.cristian")
 
 usage()
 {
