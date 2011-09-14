@@ -90,11 +90,11 @@ do
             ask_yesno "Overwrite ?" && continue
         else
             info "Deleting" $dest
-            # rm -rf $dest
+            rm -rf $dest
         fi
     fi
 
     info "Creating symlink" $src "to" $dest
-    # ln -s $src $dest
+    ln -s $src $dest
 done
 
