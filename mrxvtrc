@@ -88,7 +88,7 @@ Mrxvt.pointerBlankDelay:	10
 
 Mrxvt.cutChars:			:=/~#@?%&_-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0abcdefghijklmnopqrstuvwxyz
 
-Mrxvt.background: #c8c8c8
+Mrxvt.background: #ffffff
 Mrxvt.foreground: #000000
 # Mrxvt.background: #262626
 # Mrxvt.foreground: #ffffff
