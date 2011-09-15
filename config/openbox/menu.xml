@@ -429,5 +429,6 @@
 				</prompt>
 			</action>
 		</item>
+                <menu id="doc-menu" label="Recent documents" execute="~/.config/openbox/obrecent.sh"/>
 	</menu>
 </openbox_menu>
