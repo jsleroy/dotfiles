@@ -331,6 +331,12 @@
         <command>kfmclient openProfile filemanagement</command>
       </action>
     </keybind>
+    <!-- My keybindings -->
+    <keybind key="W-space">
+        <action name="ShowMenu">
+            <menu>root-menu</menu>
+        </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
