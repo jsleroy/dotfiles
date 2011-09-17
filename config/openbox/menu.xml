@@ -139,6 +139,13 @@
 		</item>
 	</menu>
 	<menu id="apps-office-menu" label="Office">
+		<item label="PDF Viewer">
+			<action name="Execute">
+				<execute>
+					xpdf
+				</execute>
+			</action>
+		</item>
 		<item label="OpenOffice Base">
 			<action name="Execute">
 				<command>
@@ -356,26 +363,16 @@
 	<menu id="system-menu" label="System">
 		<item label="Openbox Configuration">
 			<action name="Execute">
-				<command>
+				<execute>
 					obconf
-				</command>
-				<startupnotify>
-					<enabled>
-						yes
-					</enabled>
-				</startupnotify>
+				</execute>
 			</action>
 		</item>
 		<item label="Openbox Menu">
 			<action name="Execute">
-				<command>
-					xfce-setting-show
-				</command>
-				<startupnotify>
-					<enabled>
-						yes
-					</enabled>
-				</startupnotify>
+				<execute>
+					obmenu
+				</execute>
 			</action>
 		</item>
 		<item label="Printers">
