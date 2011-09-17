@@ -56,20 +56,6 @@
 		</item>
 	</menu>
 	<menu id="apps-term-menu" label="Terminals">
-		<item label="Gnome terminal">
-			<action name="Execute">
-				<command>
-					gnome-terminal
-				</command>
-			</action>
-		</item>
-		<item label="XFCE terminal">
-			<action name="Execute">
-				<command>
-					terminal
-				</command>
-			</action>
-		</item>
 		<item label="Mrxvt">
 			<action name="Execute">
 				<command>
@@ -84,10 +70,17 @@
 				</command>
 			</action>
 		</item>
-		<item label="Mrxvt">
+		<item label="Gnome terminal">
 			<action name="Execute">
 				<command>
-					mrxvt	
+					gnome-terminal
+				</command>
+			</action>
+		</item>
+		<item label="XFCE terminal">
+			<action name="Execute">
+				<command>
+					terminal
 				</command>
 			</action>
 		</item>
@@ -196,6 +189,22 @@
 			</action>
 		</item>
 	</menu>
+	<menu id="apps-music-menu" label="Music">
+		<item label="TuxGuitar">
+			<action name="Execute">
+				<execute>
+					tuxguitar
+				</execute>
+			</action>
+		</item>
+		<item label="Impro-visor">
+			<action name="Execute">
+				<execute>
+					Impro-Visor.sh
+				</execute>
+			</action>
+		</item>
+	</menu>
 	<menu id="apps-multimedia-menu" label="Multimedia">
 		<item label="Amarok">
 			<action name="Execute">
@@ -293,33 +302,6 @@
 				</startupnotify>
 			</action>
 		</item>
-		<item label="Rox">
-			<action name="Execute">
-				<command>
-					rox
-				</command>
-				<startupnotify>
-					<enabled>
-						yes
-					</enabled>
-					<wmclass>
-						ROX-Filer
-					</wmclass>
-				</startupnotify>
-			</action>
-		</item>
-		<item label="PCMan File Manager">
-			<action name="Execute">
-				<command>
-					pcmanfm
-				</command>
-				<startupnotify>
-					<enabled>
-						yes
-					</enabled>
-				</startupnotify>
-			</action>
-		</item>
 	</menu>
 	<menu id="apps-graphics-menu" label="Graphics">
 		<item label="Gimp">
@@ -396,19 +378,11 @@
 				</startupnotify>
 			</action>
 		</item>
-		<item label="Manage Cups Printers">
+		<item label="Printers">
 			<action name="Execute">
-				<command>
-					xdg-open http://localhost:631/
-				</command>
-				<startupnotify>
-					<enabled>
-						no
-					</enabled>
-					<icon>
-						cups
-					</icon>
-				</startupnotify>
+				<execute>
+					system-config-printer
+				</execute>
 			</action>
 		</item>
 		<separator/>
@@ -423,6 +397,7 @@
 		<menu id="apps-graphics-menu"/>
 		<menu id="apps-net-menu"/>
 		<menu id="apps-office-menu"/>
+		<menu id="apps-music-menu"/>
 		<menu id="apps-multimedia-menu"/>
 		<menu id="apps-term-menu"/>
 		<menu id="apps-fileman-menu"/>
@@ -436,6 +411,7 @@
 				</prompt>
 			</action>
 		</item>
-                <menu id="doc-menu" label="Recent documents" execute="~/.config/openbox/obrecent.sh"/>
+		<separator/>
+		<menu execute="~/.config/openbox/obrecent.sh" id="doc-menu" label="Recent documents"/>
 	</menu>
 </openbox_menu>
