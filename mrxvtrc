@@ -34,7 +34,7 @@ Mrxvt.scrollTtyOutputInhibit:	true
 Mrxvt.scrollBar:		true
 Mrxvt.scrollbarRight:		true
 Mrxvt.scrollbarStyle:		rxvt
-Mrxvt.scrollWithBuffer          true
+Mrxvt.scrollWithBuffer:         true
 
 # Scroll to the bottom when a key is pressed.
 Mrxvt.scrollTtyKeypress:	true
@@ -88,27 +88,27 @@ Mrxvt.pointerBlankDelay:	10
 
 Mrxvt.cutChars:			:=/~#@?%&_-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0abcdefghijklmnopqrstuvwxyz
 
-Mrxvt.background: #c8c8c8
-Mrxvt.foreground: #000000
+!Mrxvt.background: #c8c8c8
+!Mrxvt.foreground: #000000
 # Mrxvt.background: #262626
 # Mrxvt.foreground: #ffffff
 
-Mrxvt.color0:   #000000
-Mrxvt.color1:   #cd0000
-Mrxvt.color2:   #00cd00
-Mrxvt.color3:   #cdcd00
-Mrxvt.color4:   #1e90ff
-Mrxvt.color5:   #cd00cd
-Mrxvt.color6:   #00cdcd
-Mrxvt.color7:   #e5e5e5
-Mrxvt.color8:   #4c4c4c
-Mrxvt.color9:   #ff0000
-Mrxvt.color10:  #00ff00
-Mrxvt.color11:  #ffff00
-Mrxvt.color12:  #4682b4
-Mrxvt.color13:  #ff00ff
-Mrxvt.color14:  #00ffff
-Mrxvt.color15:  #ffffff
+!Mrxvt.color0:   #000000
+!Mrxvt.color1:   #cd0000
+!Mrxvt.color2:   #00cd00
+!Mrxvt.color3:   #cdcd00
+!Mrxvt.color4:   #1e90ff
+!Mrxvt.color5:   #cd00cd
+!Mrxvt.color6:   #00cdcd
+!Mrxvt.color7:   #e5e5e5
+!Mrxvt.color8:   #4c4c4c
+!Mrxvt.color9:   #ff0000
+!Mrxvt.color10:  #00ff00
+!Mrxvt.color11:  #ffff00
+!Mrxvt.color12:  #4682b4
+!Mrxvt.color13:  #ff00ff
+!Mrxvt.color14:  #00ffff
+!Mrxvt.color15:  #ffffff
 
 Mrxvt.cursorColor: green
 
