@@ -25,3 +25,6 @@
 [submodule "vim/bundle/xoria256"]
 	path = vim/bundle/xoria256
 	url = git://github.com/vim-scripts/xoria256.vim.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git
