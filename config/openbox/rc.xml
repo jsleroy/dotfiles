@@ -8,34 +8,34 @@
   </resistance>
   <focus>
     <focusNew>yes</focusNew>
-    <!-- always try to focus new windows when they appear. other rules do
+<!-- always try to focus new windows when they appear. other rules do
        apply -->
     <followMouse>no</followMouse>
-    <!-- move focus to a window when you move the mouse into it -->
+<!-- move focus to a window when you move the mouse into it -->
     <focusLast>yes</focusLast>
-    <!-- focus the last used window when changing desktops, instead of the one
+<!-- focus the last used window when changing desktops, instead of the one
        under the mouse pointer. when followMouse is enabled -->
     <underMouse>no</underMouse>
-    <!-- move focus under the mouse, even when the mouse is not moving -->
+<!-- move focus under the mouse, even when the mouse is not moving -->
     <focusDelay>200</focusDelay>
-    <!-- when followMouse is enabled, the mouse must be inside the window for
+<!-- when followMouse is enabled, the mouse must be inside the window for
        this many milliseconds (1000 = 1 sec) before moving focus to it -->
     <raiseOnFocus>no</raiseOnFocus>
-    <!-- when followMouse is enabled, and a window is given focus by moving the
+<!-- when followMouse is enabled, and a window is given focus by moving the
        mouse into it, also raise the window -->
   </focus>
   <placement>
     <policy>Smart</policy>
-    <!-- 'Smart' or 'UnderMouse' -->
+<!-- 'Smart' or 'UnderMouse' -->
     <center>yes</center>
-    <!-- whether to place windows in the center of the free area found or
+<!-- whether to place windows in the center of the free area found or
        the top left corner -->
     <monitor>Primary</monitor>
-    <!-- with Smart placement on a multi-monitor system, try to place new windows
+<!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is, 'Primary' - only on the primary monitor -->
     <primaryMonitor>1</primaryMonitor>
-    <!-- The monitor where Openbox should place popup dialogs such as the
+<!-- The monitor where Openbox should place popup dialogs such as the
        focus cycling popup, or the desktop switch popup.  It can be an index
        from 1, specifying a particular monitor.  Or it can be one of the
        following: 'Mouse' - where the mouse is, or
@@ -44,7 +44,7 @@
   <theme>
     <name>Clearlooks</name>
     <titleLayout>NLDISMC</titleLayout>
-    <!--
+<!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
       L: window label (AKA title).
@@ -59,56 +59,56 @@
     <font place="ActiveWindow">
       <name>sans</name>
       <size>8</size>
-      <!-- font size in points -->
+<!-- font size in points -->
       <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
+<!-- 'bold' or 'normal' -->
       <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+<!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
       <name>sans</name>
       <size>8</size>
-      <!-- font size in points -->
+<!-- font size in points -->
       <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
+<!-- 'bold' or 'normal' -->
       <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+<!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>normal</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+      <name>Sans</name>
+      <size>8</size>
+<!-- font size in points -->
+      <weight>Normal</weight>
+<!-- 'bold' or 'normal' -->
+      <slant>Normal</slant>
+<!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>normal</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+      <name>Sans</name>
+      <size>8</size>
+<!-- font size in points -->
+      <weight>Normal</weight>
+<!-- 'bold' or 'normal' -->
+      <slant>Normal</slant>
+<!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>sans</name>
       <size>9</size>
-      <!-- font size in points -->
+<!-- font size in points -->
       <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
+<!-- 'bold' or 'normal' -->
       <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+<!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>sans</name>
       <size>9</size>
-      <!-- font size in points -->
+<!-- font size in points -->
       <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
+<!-- 'bold' or 'normal' -->
       <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+<!-- 'italic' or 'normal' -->
     </font>
     <font place="OnScreenDisplay">
       <name>Sans</name>
@@ -118,7 +118,7 @@
     </font>
   </theme>
   <desktops>
-    <!-- this stuff is only used at startup, pagers allow you to change them
+<!-- this stuff is only used at startup, pagers allow you to change them
        during a session
 
        these are default values to use when other ones are not already set
@@ -129,32 +129,32 @@
     <number>3</number>
     <firstdesk>1</firstdesk>
     <names>
-      <!-- set names up here if you want to, like this:
+<!-- set names up here if you want to, like this:
     <name>desktop 1</name>
     <name>desktop 2</name>
     -->
     </names>
     <popupTime>875</popupTime>
-    <!-- The number of milliseconds to show the popup for when switching
+<!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
   <resize>
     <drawContents>yes</drawContents>
     <popupShow>Nonpixel</popupShow>
-    <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
+<!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
     <popupPosition>Center</popupPosition>
-    <!-- 'Center', 'Top', or 'Fixed' -->
+<!-- 'Center', 'Top', or 'Fixed' -->
     <popupFixedPosition>
-      <!-- these are used if popupPosition is set to 'Fixed' -->
+<!-- these are used if popupPosition is set to 'Fixed' -->
       <x>10</x>
-      <!-- positive number for distance from left edge, negative number for
+<!-- positive number for distance from left edge, negative number for
          distance from right edge, or 'Center' -->
       <y>10</y>
-      <!-- positive number for distance from top edge, negative number for
+<!-- positive number for distance from top edge, negative number for
          distance from bottom edge, or 'Center' -->
     </popupFixedPosition>
   </resize>
-  <!-- You can reserve a portion of your screen where windows will not cover when
+<!-- You can reserve a portion of your screen where windows will not cover when
      they are maximized, or when they are initially placed.
      Many programs reserve space automatically, but you can use this in other
      cases. -->
@@ -166,25 +166,25 @@
   </margins>
   <dock>
     <position>TopLeft</position>
-    <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
+<!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
     <noStrut>no</noStrut>
     <stacking>Above</stacking>
-    <!-- 'Above', 'Normal', or 'Below' -->
+<!-- 'Above', 'Normal', or 'Below' -->
     <direction>Vertical</direction>
-    <!-- 'Vertical' or 'Horizontal' -->
+<!-- 'Vertical' or 'Horizontal' -->
     <autoHide>no</autoHide>
     <hideDelay>300</hideDelay>
-    <!-- in milliseconds (1000 = 1 second) -->
+<!-- in milliseconds (1000 = 1 second) -->
     <showDelay>300</showDelay>
-    <!-- in milliseconds (1000 = 1 second) -->
+<!-- in milliseconds (1000 = 1 second) -->
     <moveButton>Middle</moveButton>
-    <!-- 'Left', 'Middle', 'Right' -->
+<!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-    <!-- Keybindings for desktop switching -->
+<!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
         <to>left</to>
@@ -256,7 +256,7 @@
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <!-- Keybindings for windows -->
+<!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>
     </keybind>
@@ -270,7 +270,7 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
-    <!-- Keybindings for window switching -->
+<!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="NextWindow">
         <finalactions>
@@ -300,7 +300,7 @@
         </finalactions>
       </action>
     </keybind>
-    <!-- Keybindings for window switching with the arrow keys -->
+<!-- Keybindings for window switching with the arrow keys -->
     <keybind key="W-S-Right">
       <action name="DirectionalCycleWindows">
         <direction>right</direction>
@@ -321,7 +321,7 @@
         <direction>down</direction>
       </action>
     </keybind>
-    <!-- Keybindings for running applications -->
+<!-- Keybindings for running applications -->
     <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
@@ -331,24 +331,24 @@
         <command>kfmclient openProfile filemanagement</command>
       </action>
     </keybind>
-    <!-- My keybindings -->
+<!-- My keybindings -->
     <keybind key="W-space">
-        <action name="ShowMenu">
-            <menu>root-menu</menu>
-        </action>
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
     </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
-    <!-- number of pixels the mouse must move before a drag begins -->
+<!-- number of pixels the mouse must move before a drag begins -->
     <doubleClickTime>200</doubleClickTime>
-    <!-- in milliseconds (1000 = 1 second) -->
+<!-- in milliseconds (1000 = 1 second) -->
     <screenEdgeWarpTime>400</screenEdgeWarpTime>
-    <!-- Time before changing desktops when the pointer touches the edge of the
+<!-- Time before changing desktops when the pointer touches the edge of the
        screen while moving a window, in milliseconds (1000 = 1 second).
        Set this to 0 to disable warping -->
     <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
-    <!-- Set this to TRUE to move the mouse pointer across the desktop when
+<!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
     <context name="Frame">
       <mousebind button="A-Left" action="Press">
@@ -637,7 +637,7 @@
       </mousebind>
     </context>
     <context name="Root">
-      <!-- Menus -->
+<!-- Menus -->
       <mousebind button="Middle" action="Press">
         <action name="ShowMenu">
           <menu>client-list-combined-menu</menu>
@@ -683,7 +683,7 @@
        submenu will not be hidden until a different submenu is opened --&gt;
   <applicationIcons>yes</applicationIcons><!-- controls if icons appear in the client-list-(combined-)menu --><manageDesktops>yes</manageDesktops><!-- show the manage desktops section in the client-list-(combined-)menu --></menu>
   <applications>
-    <!--
+<!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
   # you may use one or more of the name/class/role/title/type rules to specify
