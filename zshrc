@@ -5,7 +5,10 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+
+ZSH_THEME="philips"
+
+# ZSH_THEME="robbyrussell"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -29,3 +32,36 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+eval `dircolors -b`
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=50000
+export SAVEHIST=50000
+
+export EDITOR="vim"
+
+export TERM=xterm-256color
+export MAKEFLAGS='-j3'
+
+export GIT_PS1_SHOWDIRTYSTATE=YES
+export GIT_PS1_SHOWSTASHSTATE=YES
+
+[[ -d $HOME/bin ]]        && export PATH=$HOME/bin:$PATH
+[[ -d $HOME/share/man ]]  && export MANPATH=:$MANPATH:$HOME/share/man
+[[ -d $HOME/python ]]     && export PYTHONPATH=$HOME/python:$PYTHONPATH
+[[ -f $HOME/.pystartup ]] && export PYTHONSTARTUP=$HOME/.pystartup
+
+alias gdb='gdb -tui' #enable the text window interface if possible
+alias ls="BLOCK_SIZE=\'1 ls --color=auto -h" #enable thousands grouping and colour
+alias ll='ls -l'
+alias lla='ls -l -A'
+alias la='ls -A'
+alias l='ls -CF'
+alias vi='vim'
+alias lsload='lsload -R "order[]" | fgrep -v login | fgrep -v unavail | sort -n -k 6'
+alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
+alias cpplint='cpplint.py --filter=-whitespace/braces,-whitespace/newline'
+alias mozilla='firefox'
+
+
