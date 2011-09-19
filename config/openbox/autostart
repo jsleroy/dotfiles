@@ -1,3 +1,4 @@
+#!/bin/sh
 # This shell script is run before Openbox launches.
 # Environment variables set here are passed to the Openbox session.
 
@@ -45,8 +46,12 @@ fi
 
 tint2 &
 volwheel &
-# wicd-gtk &
 thinkhdaps &
 checkgmail &
+parcellite &
+system-config-printer-applet &
 thunar --daemon &
+
+# Seems to be launched by the daemon
+# wicd-gtk &
 

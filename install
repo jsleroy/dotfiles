@@ -1,11 +1,19 @@
 #!/bin/bash
+#-------------------------------------------------------------------------------
+#
+# Install script
+#
+#-------------------------------------------------------------------------------
 
-. libui-sh/libui.sh
-
-libui_sh_init
-
+# Exclude list (files not to be installed)
 EXCLUDE=("install" "vimrc.loumou" "bashrc.pierre" "README.rst" "libui-sh" "mrxvtrc.cristian")
 
+# Include the UI library
+. libui-sh/libui.sh
+
+# Help message
+# Add this option
+# -e FILE  Exclude list file
 usage()
 {
 cat << EOF
@@ -15,49 +23,34 @@ This script create symlinks in \$HOME for all files found in this directory.
 
 OPTIONS:
     -h       Show this message
-    -e FILE  Exclude list file
+    -g       GUI mode
     -f       Force installation
     -v       Verbose
 EOF
 }
 
-info()
-{
-    if [ $VERBOSE -eq 1 ]
-    then
-        echo $@
-    fi
-}
-
-error()
-{
-    echo "ERROR:" $@
-}
-
-warning()
-{
-    echo "WARNING:" $@
-}
-
-EXCLUDE_LIST=
 VERBOSE=0
 FORCE=0
+UI="cli"
 
-while getopts "vhfe:" OPTION
+FILES=`ls`
+
+# Parse command line options
+while getopts "vhfg" OPTION
 do
      case $OPTION in
          h)
              usage
              exit 1
              ;;
-         e)
-             EXCLUDE_LIST=$OPTARG
-             ;;
          f)
              FORCE=1
              ;;
          v)
              VERBOSE=1
+             ;;
+         g)
+             UI="dia"
              ;;
          ?)
              usage
@@ -66,7 +59,8 @@ do
      esac
 done
 
-FILES=`ls`
+# Setup the UI library
+libui_sh_init $UI
 
 # Remove in $FILES items from $EXCLUDE
 for exclude in ${EXCLUDE[@]}
@@ -74,27 +68,26 @@ do
     FILES=`echo $FILES | sed "s/\b$exclude\b//g"`
 done
 
-# Create symlinks
+# Installation
 for filename in $FILES
 do
     dest=$HOME"/."$filename
     src=`pwd`"/"$filename
 
-    info "Installing" $src
+    inform "Installing $src"
 
     if [ -a $dest ]
     then
         if [ $FORCE -eq 0 ]
         then
-            warning "$dest already exists"
-            ask_yesno "Overwrite ?" && continue
-        else
-            info "Deleting" $dest
-            # rm -rf $dest
+            show_warning "File exists" $dest
+            ask_yesno "Overwrite ?" || continue
         fi
+        echo "Deleting file"
+        rm -rf $dest
     fi
 
-    info "Creating symlink" $src "to" $dest
-    # ln -s $src $dest
+    inform "Creating symlink $src to $dest"
+    ln -s $src $dest
 done
 
