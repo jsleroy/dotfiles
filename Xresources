@@ -102,3 +102,5 @@ xpdf*foreground:        black
 xpdf*background:        white
 xpdf*urlCommand:        /usr/bin/firefox %s
 
+#include ".Xresources.colors"
+
