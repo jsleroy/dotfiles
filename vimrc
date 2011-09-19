@@ -166,6 +166,14 @@ let g:easytags_always_enabled  = 1
 let g:easytags_include_members = 1
 
 "--------------------------------------------------------------------------------
+" Solarized
+"--------------------------------------------------------------------------------
+syntax enable
+set background=light
+colorscheme solarized
+call togglebg#map("<F5>")
+
+"--------------------------------------------------------------------------------
 " GUI settings
 "--------------------------------------------------------------------------------
 
@@ -174,6 +182,10 @@ map <silent><F11> :PREVCOLOR<cr>
 
 set t_Co=256
 
+set guioptions=aiceh " simple dialog, GUI tabs
+set guioptions-=m " remove menu
+set guioptions-=T " remove toolbar
+
 " Detect GVIM is running
 " if has("gui_running")
 
@@ -181,14 +193,15 @@ set t_Co=256
 " if has("gui_running")
 
 if has("gui")
-    if has("gui_gtk2")
-        set guifont=Monospace\ 9
+    set guifont=Monospace\ 9
+"    if has("gui_gtk2")
+"       set guifont=Monospace\ 9
 "         " Linux GUI
 "     elseif has("x11")
 "         " X11 GUI (e.g. gtk1)
 "     else
 "         " Windows GUI
-    endif
+"    endif
 endif
 
 if has("gui_running")
@@ -198,11 +211,8 @@ if has("gui_running")
     set lines=80
     set columns=180
     set mousehide " hide mouse cursor when typing
-    set guioptions=aiceh " simple dialog, GUI tabs
-    set guioptions-=m " remove menu
-    set guioptions-=T " remove toolbar
     " set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
-else
+" else
     " colorscheme desert
     " set background=dark
 endif
