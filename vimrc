@@ -168,10 +168,10 @@ let g:easytags_include_members = 1
 "--------------------------------------------------------------------------------
 " Solarized
 "--------------------------------------------------------------------------------
-syntax enable
-set background=light
-colorscheme solarized
-call togglebg#map("<F5>")
+" syntax enable
+" set background=light
+" colorscheme solarized
+" call togglebg#map("<F5>")
 
 "--------------------------------------------------------------------------------
 " GUI settings
