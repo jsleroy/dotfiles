@@ -139,7 +139,14 @@
 		</item>
 	</menu>
 	<menu id="apps-office-menu" label="Office">
-		<item label="PDF Viewer">
+		<item label="Evince">
+			<action name="Execute">
+				<execute>
+					evince
+				</execute>
+			</action>
+		</item>
+		<item label="Xpdf">
 			<action name="Execute">
 				<execute>
 					xpdf
