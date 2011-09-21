@@ -1,36 +1,41 @@
-!------------------------------------------------------------
-! urxvt
-!------------------------------------------------------------
 
-urxvt*font:             xft:lime:pixelsize=5:antialias=true
-urxvt*boldFont:         xft:lime:pixelsize=5:antialias=true
-urxvt*termName:         rxvt-unicode
-urxvt*background:       #171c1f
-urxvt*foreground:       #ebebeb
-urxvt*scrollBar:        false
-urxvt*matcher.button:   1
-urxvt*cursorBlink:      true
-urxvt*cursorUnderline:  true
-urxvt*cursorColor:      #d6dadf
-urxvt*colorBD:          #998164
-urxvt*internalBorder:   3
+#define FONT -b&h-lucidatypewriter-bold-r-normal-sans-12-120-75-75-m-70-iso8859-1
 
-urxvt*transparent:	true
-urxvt*allow_bold:       true
+xman*font: FONT
 
 !------------------------------------------------------------
 ! Xft
 !------------------------------------------------------------
 
-Xft.dpi: 96
-Xft.autohint: 1
-!Xft.lcdfilter:  lcddefault
-Xft.lcdfilter:  lcdlegacy
-!Xft.hintstyle:  hintfull
-Xft.hintstyle:  hintslight
-Xft.hinting: 1
-Xft.antialias: 1
-!Xft.rgba: rgb
+Xft.dpi:        96
+Xft.autohint:   true
+!Xft.lcdfilter: lcddefault
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+Xft.antialias:  true
+Xft.rgba:       rgb
+
+!Xft.lcdfilter:  lcdlegacy
+!Xft.hintstyle:  hintslight
+
+!------------------------------------------------------------
+! urxvt
+!------------------------------------------------------------
+
+urxvt*font:            xft:lime:pixelsize=5:antialias=true
+urxvt*boldFont:        xft:lime:pixelsize=5:antialias=true
+urxvt*termName:        rxvt-unicode
+urxvt*scrollBar:       false
+urxvt*matcher.button:  1
+urxvt*cursorBlink:     true
+urxvt*cursorUnderline: true
+urxvt*cursorColor:     #d6dadf
+urxvt*colorBD:         #998164
+urxvt*internalBorder:  3
+urxvt*transparent:     true
+urxvt*allow_bold:      true
+!urxvt*background:     #171c1f
+!urxvt*foreground:     #ebebeb
 
 !------------------------------------------------------------
 ! Xcursor
@@ -38,47 +43,15 @@ Xft.antialias: 1
 
 ! NOTE: themes available in ~/.icons and /usr/share/icons/
 
-Xcursor.theme: Vanilla-DMZ-AA
-! Xcursor.size:  22
-
-!------------------------------------------------------------
-! Colors
-!------------------------------------------------------------
-
-! tangoesque scheme
-!*background: #111111
-!*foreground: #babdb6
-! Black (not tango) + DarkGrey
-!*color0:  #000000
-!*color8:  #555753
-!! DarkRed + Red
-!*color1:  #ff6565
-!*color9:  #ff8d8d
-!! DarkGreen + Green
-!*color2:  #93d44f
-!*color10: #c8e7a8
-!! DarkYellow + Yellow
-!*color3:  #eab93d
-!*color11: #ffc123
-!! DarkBlue + Blue
-!*color4:  #204a87
-!*color12: #3465a4
-!! DarkMangenta + Mangenta
-!*color5:  #ce5c00
-!*color13: #f57900
-!!DarkCyan + Cyan (both not tango)
-!*color6:  #89b6e2
-!*color14: #46a4ff
-!! LightGrey + White
-!*color7:  #cccccc
-!*color15: #ffffff
+!Xcursor.theme: Vanilla-DMZ-AA
+!Xcursor.size:  22
 
 !------------------------------------------------------------
 ! xterm
 !------------------------------------------------------------
 
 xterm*geometry:           80x25
-!xterm*faceName:           terminus:pixelsize=12
+!xterm*faceName:          terminus:pixelsize=12
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 xterm*dynamicColors:      true
 xterm*utf8:               2
@@ -96,11 +69,18 @@ xterm*toolBar:            false
 ! xpdf
 !------------------------------------------------------------
 
-xpdf*enableFreetype:    yes
-xpdf*antialias:         yes
-xpdf*foreground:        black
-xpdf*background:        white
-xpdf*urlCommand:        /usr/bin/firefox %s
+xpdf*enableFreetype: yes
+xpdf*antialias:      yes
+xpdf*urlCommand:     /usr/bin/firefox %s
+xpdf*foreground:     black
+xpdf*background:     white
 
-! #include ".Xresources.colors"
+!------------------------------------------------------------
+! MTI
+!------------------------------------------------------------
+
+ModelSim*foreground: black
+ModelSim*background: white
+
+#include ".Xresources.colors"
 
