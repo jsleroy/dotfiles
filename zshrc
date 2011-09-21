@@ -33,6 +33,13 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+source .zshrc.arm
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+setopt hist_ignore_all_dups
+
 eval `dircolors -b`
 
 export HISTFILE=~/.zsh_history
@@ -52,16 +59,16 @@ export GIT_PS1_SHOWSTASHSTATE=YES
 [[ -d $HOME/python ]]     && export PYTHONPATH=$HOME/python:$PYTHONPATH
 [[ -f $HOME/.pystartup ]] && export PYTHONSTARTUP=$HOME/.pystartup
 
-alias gdb='gdb -tui' #enable the text window interface if possible
-alias ls="BLOCK_SIZE=\'1 ls --color=auto -h" #enable thousands grouping and colour
-alias ll='ls -l'
-alias lla='ls -l -A'
-alias la='ls -A'
-alias l='ls -CF'
-alias vi='vim'
-alias lsload='lsload -R "order[]" | fgrep -v login | fgrep -v unavail | sort -n -k 6'
-alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
-alias cpplint='cpplint.py --filter=-whitespace/braces,-whitespace/newline'
-alias mozilla='firefox'
+alias -g gdb='gdb -tui' #enable the text window interface if possible
+alias -g ls="BLOCK_SIZE=\'1 ls --color=auto -h" #enable thousands grouping and colour
+alias -g ll='ls -l'
+alias -g lla='ls -l -A'
+alias -g la='ls -A'
+alias -g l='ls -CF'
+alias -g vi='vim'
+alias -g lsload='lsload -R "order[]" | fgrep -v login | fgrep -v unavail | sort -n -k 6'
+alias -g grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
+alias -g cpplint='cpplint.py --filter=-whitespace/braces,-whitespace/newline'
+alias -g mozilla='firefox'
 
 
