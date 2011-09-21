@@ -46,10 +46,10 @@ Mrxvt.xftAntialias:		1
 
 # The options below are better set using ~/.fonts.config. Mrxvt will use the
 # defaults passed to the fontconfig library.
-#
+
 Mrxvt.xftHinting:		1
 Mrxvt.xftAutoHint:		1
-Mrxvt.xftGlobalAdvance:	        1
+Mrxvt.xftGlobalAdvance: 	1
 Mrxvt.xftRGBA:		        rgb
 Mrxvt.xftSlowOutput:		1
 
