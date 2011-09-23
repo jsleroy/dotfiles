@@ -33,16 +33,16 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-source .zshrc.arm
+source $HOME/.zshrc.arm
 
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' cache-path $HOME/.zsh/cache
 
 setopt hist_ignore_all_dups
 
 eval `dircolors -b`
 
-export HISTFILE=~/.zsh_history
+export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
 
