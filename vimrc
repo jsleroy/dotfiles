@@ -36,6 +36,10 @@ set wildmenu                   " turn on cmd line completion wild style
 set wildignore=*.o,*.obj,*.pyc
 " set wildmode=list:longest
 
+" Suffixes that get lower priority when doing tab completion for filenames.
+" These are files we are not likely to want to edit or read.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
 if has('unix')
     " Unix-like platform (including Cygwin)
     set backupdir=/tmp " where to put backup files
@@ -215,6 +219,9 @@ if has("gui_running")
 " else
     " colorscheme desert
     " set background=dark
+    " Make shift-insert work like in Xterm
+    map <S-Insert> <MiddleMouse>
+    map! <S-Insert> <MiddleMouse>
 endif
 
 "--------------------------------------------------------------------------------
