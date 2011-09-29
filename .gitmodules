@@ -37,3 +37,6 @@
 [submodule "bash_it"]
 	path = bash_it
 	url = git://github.com/revans/bash-it.git
+[submodule "vim/bundle/verilog"]
+	path = vim/bundle/verilog
+	url = git://github.com/vim-scripts/verilog_systemverilog.vim.git
