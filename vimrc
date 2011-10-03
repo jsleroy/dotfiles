@@ -18,6 +18,7 @@ set incsearch
 " set runtimepath=/work/jealer01/tools/vimwiki/src,$VIMRUNTIME
 
 syntax on
+syntax enable
 
 "--------------------------------------------------------------------------------
 " General
@@ -51,7 +52,7 @@ endif
 " append line to keep windows synchronized and ignore whitespace differences
 set diffopt=filler,iwhite
 
-"When .vimrc is edited, reload it
+" Automatic configuration reload
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 
 " Spell checker
@@ -158,26 +159,6 @@ nmap <silent> <buffer> f za
 nmap <silent> <buffer> F :call ToggleFold()<CR>
 
 "--------------------------------------------------------------------------------
-" Misc.
-"--------------------------------------------------------------------------------
-
-let g:load_doxygen_syntax = 1
-
-let g:GetLatestVimScripts_allowautoinstall = 1
-
-let g:easytags_by_filetype     = 1
-let g:easytags_always_enabled  = 1
-let g:easytags_include_members = 1
-
-"--------------------------------------------------------------------------------
-" Solarized
-"--------------------------------------------------------------------------------
-" syntax enable
-" set background=light
-" colorscheme solarized
-" call togglebg#map("<F5>")
-
-"--------------------------------------------------------------------------------
 " GUI settings
 "--------------------------------------------------------------------------------
 
@@ -209,9 +190,15 @@ if has("gui")
 endif
 
 if has("gui_running")
+    " Make shift-insert work like in Xterm
+    map <S-Insert> <MiddleMouse>
+    map! <S-Insert> <MiddleMouse>
     " colorscheme dante
     " colorscheme desert256
     " colorscheme desertEx
+    " set background=light
+    colorscheme solarized
+    call togglebg#map("<F5>")
     set lines=80
     set columns=180
     set mousehide " hide mouse cursor when typing
@@ -219,9 +206,6 @@ if has("gui_running")
 " else
     " colorscheme desert
     " set background=dark
-    " Make shift-insert work like in Xterm
-    map <S-Insert> <MiddleMouse>
-    map! <S-Insert> <MiddleMouse>
 endif
 
 "--------------------------------------------------------------------------------
