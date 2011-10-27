@@ -138,9 +138,12 @@ let g:SuperTabDefaultCompletionType = "context"
 " Syntax folding
 "--------------------------------------------------------------------------------
 
-autocmd Syntax c,cpp,vim,xml,html,xhtml,verilog,python setlocal foldmethod=syntax
-autocmd Syntax python setlocal foldmethod=indent
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,verilog,python normal zR
+"autocmd Syntax c,cpp,vim,xml,html,xhtml,verilog,python setlocal foldmethod=syntax
+"autocmd Syntax python setlocal foldmethod=indent
+"autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,verilog,python normal zR
+
+au BufReadPost *.sv set syntax=verilog_systemverilog
+au BufReadPost *.svh set syntax=verilog_systemverilog
 
 " Foldind flip-flop function
 
