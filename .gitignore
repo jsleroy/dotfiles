@@ -1,3 +1,4 @@
+pktoolsrc
 config/autostart/
 config/gtk-2.0/gtkfilechooser
 config/ipython/profile_default/history.sqlite
