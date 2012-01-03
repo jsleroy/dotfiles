@@ -9,7 +9,12 @@ if (($?prompt) || !($?term) || ($?SSH_CLIENT)) then
     set remote
 endif
 
-source ~/.cshrc.arm
+source /home/jealer01/.cshrc.arm
+
+# source /home/jealer01/.aliases
+alias ls="ls --color=auto -h" #enable thousands grouping and colour
+alias ll='ls -l'
+alias lla='ls -l -A'
 
 ######################################################
 #       Customization                                #
@@ -45,5 +50,5 @@ set ignoreeof		# stop EOF shell logout
 set filec		# filename complettion
 set norebind		
 
-set prompt = "%{\033[00;33m%}%B[%h] %{\033[00;37m%}%.2%{\033[01;35m%}%# "
+set prompt="%{\033[00;33m%}%B[%h] %{\033[00;37m%}%.2%{\033[01;35m%}%# "
 

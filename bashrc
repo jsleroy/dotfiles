@@ -151,15 +151,5 @@ fi
 # ALIAS
 #------------------------------------------------------------
 
-alias gdb='gdb -tui' #enable the text window interface if possible
-alias ls="BLOCK_SIZE=\'1 ls --color=auto -h" #enable thousands grouping and colour
-alias ll='ls -l'
-alias lla='ls -l -A'
-alias la='ls -A'
-alias l='ls -CF'
-alias vi='vim'
-alias lsload='lsload -R 'order[]' | fgrep -v login | fgrep -v unavail | sort -n -k 6'
-alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
-alias cpplint='cpplint.py --filter=-whitespace/braces,-whitespace/newline'
-alias mozilla='firefox'
+[ -e $HOME/.aliases ] && source $HOME/.aliases
 
