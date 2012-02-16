@@ -65,6 +65,8 @@ xterm*jumpScroll:         true
 xterm*multiScroll:        true
 xterm*toolBar:            false
 
+xterm*charClass: 45-47:48, 40-41:48
+
 !------------------------------------------------------------
 ! xpdf
 !------------------------------------------------------------
