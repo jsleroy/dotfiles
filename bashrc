@@ -14,9 +14,6 @@
 
 export TERM=xterm-256color
 
-# for tmux: export 256color
-[ -n "$TMUX" ] && export TERM=screen-256color
-
 export MAKEFLAGS='-j3'
 
 export GIT_PS1_SHOWDIRTYSTATE=YES
