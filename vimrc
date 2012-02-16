@@ -168,7 +168,7 @@ nmap <silent> <buffer> F :call ToggleFold()<CR>
 map <silent><F12> :NEXTCOLOR<cr>
 map <silent><F11> :PREVCOLOR<cr>
 
-" set t_Co=256
+set t_Co=256
 
 set guioptions=aiceh " simple dialog, GUI tabs
 set guioptions-=m " remove menu
