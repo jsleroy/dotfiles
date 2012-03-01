@@ -43,3 +43,6 @@
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode
 	url = git://github.com/klen/python-mode.git
+[submodule "dircolors-solarized"]
+	path = dircolors-solarized
+	url = git://github.com/seebi/dircolors-solarized.git
