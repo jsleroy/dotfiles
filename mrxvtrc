@@ -90,8 +90,8 @@ Mrxvt.cutChars:			:=/~#@?%&_-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0abcdefghijklm
 
 !Mrxvt.background: #c8c8c8
 !Mrxvt.foreground: #000000
-Mrxvt.background: #ffffff
-Mrxvt.foreground: #000000
+!Mrxvt.background: #ffffff
+!Mrxvt.foreground: #000000
 # Mrxvt.background: #262626
 # Mrxvt.foreground: #ffffff
 
