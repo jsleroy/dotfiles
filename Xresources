@@ -1,7 +1,7 @@
 
-#define FONT -b&h-lucidatypewriter-bold-r-normal-sans-12-120-75-75-m-70-iso8859-1
+! #define FONT -b&h-lucidatypewriter-bold-r-normal-sans-12-120-75-75-m-70-iso8859-1
 
-xman*font: FONT
+! xman*font: FONT
 
 !------------------------------------------------------------
 ! Xft
