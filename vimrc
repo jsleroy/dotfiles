@@ -37,6 +37,8 @@ set wildmenu                   " turn on cmd line completion wild style
 set wildignore=*.o,*.obj,*.pyc
 " set wildmode=list:longest
 
+set cc=+1
+
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
