@@ -88,32 +88,29 @@ Mrxvt.pointerBlankDelay:	10
 
 Mrxvt.cutChars:			:=/~#@?%&_-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0abcdefghijklmnopqrstuvwxyz
 
-!Mrxvt.background: #c8c8c8
-!Mrxvt.foreground: #000000
-!Mrxvt.background: #ffffff
-!Mrxvt.foreground: #000000
-# Mrxvt.background: #262626
-# Mrxvt.foreground: #ffffff
-
-!Mrxvt.color0:   #000000
-!Mrxvt.color1:   #cd0000
-!Mrxvt.color2:   #00cd00
-!Mrxvt.color3:   #cdcd00
-!Mrxvt.color4:   #1e90ff
-!Mrxvt.color5:   #cd00cd
-!Mrxvt.color6:   #00cdcd
-!Mrxvt.color7:   #e5e5e5
-!Mrxvt.color8:   #4c4c4c
-!Mrxvt.color9:   #ff0000
-!Mrxvt.color10:  #00ff00
-!Mrxvt.color11:  #ffff00
-!Mrxvt.color12:  #4682b4
-!Mrxvt.color13:  #ff00ff
-!Mrxvt.color14:  #00ffff
-!Mrxvt.color15:  #ffffff
-
-Mrxvt.cursorColor: green
-
 Mrxvt.visualBell: 1
 
+Mrxvt.fading: 40
+Mrxvt.fadeColor: #fdf6e3
+Mrxvt.cursorColor: #586e75
+Mrxvt.pointerColorBackground: #93a1a1
+Mrxvt.pointerColorForeground: #586e75
+Mrxvt.background: #fdf6e3
+Mrxvt.foreground: #839496
+Mrxvt.color0: #eee8d5
+Mrxvt.color8: #fdf6e3
+Mrxvt.color1: #dc322f
+Mrxvt.color9: #cb4b16
+Mrxvt.color2: #859900
+Mrxvt.color10: #93a1a1
+Mrxvt.color3: #b58900
+Mrxvt.color11: #839496
+Mrxvt.color4: #268bd2
+Mrxvt.color12: #657b83
+Mrxvt.color5: #d33682
+Mrxvt.color13: #6c71c4
+Mrxvt.color6: #2aa198
+Mrxvt.color14: #586e75
+Mrxvt.color7: #073642
+Mrxvt.color15: #002b36
 
