@@ -133,6 +133,10 @@ let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_export': 1}]
 " au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " set completeopt=menuone,menu,longest,preview
 
+"--------------------------------------------------------------------------------
+" Supertab settings
+"--------------------------------------------------------------------------------
+
 " lets SuperTab decide which completion mode to use
 let g:SuperTabDefaultCompletionType = "context"
 
@@ -162,6 +166,68 @@ endfunction
 
 nmap <silent> <buffer> f za
 nmap <silent> <buffer> F :call ToggleFold()<CR>
+
+"--------------------------------------------------------------------------------
+" Python mode settings
+"--------------------------------------------------------------------------------
+
+" Choices are pep8 / pylint / mccabe
+let g:pymode_lint_checker = "pyflakes"
+
+" Disable pylint checking every save
+let g:pymode_lint_write = 1
+
+" Run linter on the fly
+let g:pymode_lint_onfly = 1
+
+" Auto open cwindow if errors be finded
+let g:pymode_lint_cwindow = 1
+
+" Show error message if cursor placed at the error line
+let g:pymode_lint_message = 1
+
+" Hold cursor in current window
+" when quickfix is open
+let g:pymode_lint_hold = 0
+
+" Enable pymode's custom syntax highlighting
+"let g:pymode_syntax = 1
+
+" Enable all python highlightings
+"let g:pymode_syntax_all = 1
+
+" Highlight "print" as function
+"let g:pymode_syntax_print_as_function = 1
+
+" Highlight indentation errors
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+
+" Highlight trailing spaces
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Highlight string formatting
+"let g:pymode_syntax_string_formatting = g:pymode_syntax_all
+
+" Highlight str.format syntax
+"let g:pymode_syntax_string_format = g:pymode_syntax_all
+
+" Highlight string.Template syntax
+"let g:pymode_syntax_string_templates = g:pymode_syntax_all
+
+" Highlight doc-tests
+"let g:pymode_syntax_doctests = g:pymode_syntax_all
+
+" Highlight builtin objects (__doc__, self, etc)
+"let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
+
+" Highlight builtin functions
+"let g:pymode_syntax_builtin_funcs = g:pymode_syntax_all
+
+" Highlight exceptions
+"let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
+
+" For fast machines
+"let g:pymode_syntax_slow_sync = 0
 
 "--------------------------------------------------------------------------------
 " GUI settings
@@ -204,8 +270,8 @@ if has("gui_running")
     " set background=light
     colorscheme solarized
     call togglebg#map("<F5>")
-    set lines=80
-    set columns=180
+    set lines=40
+    set columns=80
     set mousehide " hide mouse cursor when typing
     " set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
 " else
