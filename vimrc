@@ -102,8 +102,8 @@ endif
 
 if has("gui_running")
     " Make shift-insert work like in Xterm
-    map <S-Insert> <MiddleMouse>
-    map! <S-Insert> <MiddleMouse>
+    " map <S-Insert> <MiddleMouse>
+    " map! <S-Insert> <MiddleMouse>
     " colorscheme dante
     " colorscheme desert256
     " colorscheme desertEx
@@ -168,6 +168,7 @@ colorscheme solarized
 " Foldind flip-flop function
 
 let b:folded = 0
+
 function! ToggleFold()
     if ( b:folded == 0 )
         exec "normal! zM"
@@ -296,7 +297,12 @@ let g:pymode_lint_hold = 1
 
 " For fast machines
 "let g:pymode_syntax_slow_sync = 0
+"
+" Enable python folding
+let g:pymode_folding = 1
 
+" Enable python objects and motion
+let g:pymode_motion = 1
 
 "-----------------------------------------------------------------------------
 " Color plugin settings

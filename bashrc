@@ -6,6 +6,9 @@
 # Source ARM definitions
 [ -e $HOME/.bashrc.arm ] && source $HOME/.bashrc.arm
 
+export LANG=en_US.utf-8
+export LC_ALL=en_US.utf-8
+
 [ -z "$PS1" ] && return
 
 #------------------------------------------------------------
