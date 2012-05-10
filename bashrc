@@ -17,7 +17,7 @@ export LC_ALL=en_US.utf-8
 
 export TERM=xterm-256color
 
-export MAKEFLAGS='-j3'
+# export MAKEFLAGS='-j3'
 
 export GIT_PS1_SHOWDIRTYSTATE=YES
 export GIT_PS1_SHOWSTASHSTATE=YES
@@ -38,8 +38,8 @@ set -o ignoreeof # ctrl-D will not exit the shell anymore
 export IGNOREEOF=1
 
 # default file creation permissuin
-# user = all; group = r/w; others = none
-umask 0027
+# user = all; group = none; others = none
+umask 077
 
 # editor for svn, ...
 export EDITOR=vim

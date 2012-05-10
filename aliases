@@ -26,4 +26,5 @@ alias mozilla='firefox'
 # alias bkillnorm 'bjobs | grep normal | awk '"'"'{print $1}'"'"' | xargs bkill'
 # alias bkillrun 'bjobs | grep RUN | grep normal | awk '"'"'{print $1}'"'"' | xargs bkill'
 
+alias g='gvim --servername GVIM --remote-tab-silent'
 

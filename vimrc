@@ -29,7 +29,6 @@ set incsearch
 set autochdir                  " always switch to current directory
 set backspace=indent,eol,start " make backspace a bit more flexible
 set clipboard+=unnamed         " share wimdows clipboard
-set backup                     " make backup files
 set mouse=a                    " use mouse everywhere
 set noerrorbells               " don't make noise
 set wildmenu                   " turn on cmd line completion wild style
@@ -78,15 +77,15 @@ set t_Co=256
 set guioptions=aiceh " simple dialog, GUI tabs
 set guioptions-=m " remove menu
 set guioptions-=T " remove toolbar
+set nobackup
 " set spell
 
-if has('unix')
-    " Unix-like platform (including Cygwin)
-    set backupdir=/tmp " where to put backup files
-    set directory=/tmp " where to put swap files
-else
-    " Windows platform
-endif
+" if has('unix')
+"     " Unix-like platform (including Cygwin)
+"     set directory=/tmp " where to put swap files
+" else
+"     " Windows platform
+" endif
 
 if has("gui")
     set guifont=Monospace\ 9
@@ -100,6 +99,9 @@ if has("gui")
 "    endif
 endif
 
+set background=dark
+
+" GVIM settings
 if has("gui_running")
     " Make shift-insert work like in Xterm
     " map <S-Insert> <MiddleMouse>
@@ -107,9 +109,8 @@ if has("gui_running")
     " colorscheme dante
     " colorscheme desert256
     " colorscheme desertEx
-    " set background=light
-    set lines=40
-    set columns=80
+    " set lines=40
+    " set columns=80
     set mousehide " hide mouse cursor when typing
     " set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
 " else
@@ -132,6 +133,8 @@ au BufRead,BufNewFile *.py set tabstop=4
 au BufReadPost *.sv set syntax=verilog_systemverilog
 au BufReadPost *.svh set syntax=verilog_systemverilog
 
+" M4ified Verilog
+au BufReadPost *.v.m4 set syntax=verilog_systemverilog
 
 "-----------------------------------------------------------------------------
 " Colorscheme settings
@@ -239,15 +242,17 @@ let g:SuperTabDefaultCompletionType = "context"
 "-----------------------------------------------------------------------------
 " Python mode settings
 "-----------------------------------------------------------------------------
+" Load pylint code plugin
+let g:pymode_lint = 1
 
 " Choices are pep8 / pylint / mccabe
 let g:pymode_lint_checker = "pyflakes"
 
 " Disable pylint checking every save
-let g:pymode_lint_write = 1
+let g:pymode_lint_write = 0
 
 " Run linter on the fly
-let g:pymode_lint_onfly = 1
+let g:pymode_lint_onfly = 0
 
 " Auto open cwindow if errors be finded
 let g:pymode_lint_cwindow = 1
@@ -259,50 +264,26 @@ let g:pymode_lint_message = 1
 " when quickfix is open
 let g:pymode_lint_hold = 1
 
+" Place error signs
+let g:pymode_lint_signs = 1
+
 " Enable pymode's custom syntax highlighting
 "let g:pymode_syntax = 1
 
 " Enable all python highlightings
 "let g:pymode_syntax_all = 1
 
-" Highlight "print" as function
-"let g:pymode_syntax_print_as_function = 1
-
-" Highlight indentation errors
-"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-
-" Highlight trailing spaces
-"let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-" Highlight string formatting
-"let g:pymode_syntax_string_formatting = g:pymode_syntax_all
-
-" Highlight str.format syntax
-"let g:pymode_syntax_string_format = g:pymode_syntax_all
-
-" Highlight string.Template syntax
-"let g:pymode_syntax_string_templates = g:pymode_syntax_all
-
-" Highlight doc-tests
-"let g:pymode_syntax_doctests = g:pymode_syntax_all
-
-" Highlight builtin objects (__doc__, self, etc)
-"let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
-
-" Highlight builtin functions
-"let g:pymode_syntax_builtin_funcs = g:pymode_syntax_all
-
-" Highlight exceptions
-"let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
+" Load rope plugin
+let g:pymode_rope = 0
 
 " For fast machines
-"let g:pymode_syntax_slow_sync = 0
-"
+let g:pymode_syntax_slow_sync = 1
+
 " Enable python folding
-let g:pymode_folding = 1
+let g:pymode_folding = 0
 
 " Enable python objects and motion
-let g:pymode_motion = 1
+let g:pymode_motion = 0
 
 "-----------------------------------------------------------------------------
 " Color plugin settings
