@@ -37,7 +37,7 @@ set wildignore=*.o,*.obj,*.pyc
 set ttyfast
 " Disable the stupid pydoc preview window for the omni completion
 set completeopt-=preview
-set cc=+1
+set cc=81
 
 " Tips to change the runtime path
 " set runtimepath=/work/jealer01/tools/vimwiki/src,$VIMRUNTIME
