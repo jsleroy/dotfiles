@@ -164,9 +164,9 @@ colorscheme solarized
 " Syntax folding
 "-----------------------------------------------------------------------------
 
-"autocmd Syntax c,cpp,vim,xml,html,xhtml,verilog,python setlocal foldmethod=syntax
-"autocmd Syntax python setlocal foldmethod=indent
-"autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,verilog,python normal zR
+autocmd Syntax c,cpp,vim,xml,html,xhtml,verilog,python setlocal fdm=syntax
+" autocmd Syntax python setlocal foldmethod=indent
+" autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,verilog,python normal zR
 
 " Foldind flip-flop function
 
