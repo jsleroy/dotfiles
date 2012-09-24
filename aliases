@@ -28,3 +28,5 @@ alias mozilla='firefox'
 
 alias g='gvim --servername GVIM --remote-tab-silent'
 
+alias tree='tree -C'
+
