@@ -73,7 +73,7 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=8
 set nowrap
-set t_Co=256
+" set t_Co=256
 set guioptions=aiceh " simple dialog, GUI tabs
 set guioptions-=m " remove menu
 set guioptions-=T " remove toolbar
