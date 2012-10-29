@@ -128,12 +128,12 @@ function small_pwd {
     echo $newPWD
 }
 
+CLUSTER="30;47m"
+
 if [ $location == $sophia ]; then
-    CLUSTER="30;47m"
+    CLUSTER="30;44m"
 elif [ $location == $cambridge ]; then
     CLUSTER="30;42m"
-else
-    CLUSTER="30;44m"
 fi
 
 PS1='\[\e[${CLUSTER}\]\h\[\e[0;0m\]:\[\e[01;32m\]\t\[\e[0m\]:\[\e[34m\]$(small_pwd)\[\e[0m\]> '
@@ -156,4 +156,3 @@ fi
 #------------------------------------------------------------
 
 [ -e $HOME/.aliases ] && source $HOME/.aliases
-
