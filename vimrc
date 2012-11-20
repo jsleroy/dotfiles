@@ -199,6 +199,7 @@ autocmd BufWritePost ~/.vimrc source ~/.vimrc
 "-----------------------------------------------------------------------------
 
 let g:tagbar_usearrows = 1
+let g:tagbar_left = 1
 nnoremap <F2> :TagbarToggle<cr>
 "nnoremap <leader>l :TagbarToggle<cr>
 
