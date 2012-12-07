@@ -39,7 +39,7 @@ export IGNOREEOF=1
 
 # default file creation permissuin
 # user = all; group = none; others = none
-umask 077
+umask 027
 
 # editor for svn, ...
 export EDITOR=vim
