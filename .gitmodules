@@ -64,3 +64,6 @@
 [submodule "vim/bundle/visualstar"]
 	path = vim/bundle/visualstar
 	url = git://github.com/vim-scripts/visualstar.vim.git
+[submodule "xresources-solarized"]
+	path = xresources-solarized
+	url = git://github.com/solarized/xresources.git
