@@ -1,5 +1,11 @@
 # .bashrc
 
+
+# If not running interactively, don't do anything!
+[[ $- != *i* ]] && return
+
+eval `dircolors ~/.dir_colors`
+
 export TERM=xterm-256color
 
 # Source global definitions
@@ -72,17 +78,6 @@ ulimit -c unlimited
 # PROMPT
 #------------------------------------------------------------
 
-# Define some colors first:
-black='\e[0;30m'
-red='\e[0;31m'
-green='\e[0;32m'
-yellow='\e[0;33m'
-blue='\e[0;34m'
-magenta='\e[0;35m'
-cyan='\e[0;36m'
-white='\e[0;37m'
-nc='\e[0m'
-
 function small_pwd {
     local pwdmaxlen=30
     local trunc_symbol="..."
@@ -104,6 +99,11 @@ elif [ $location == $cambridge ]; then
     CLUSTER="30;42m"
 fi
 
+PS1='\[\e[${CLUSTER}\]\h\[\e[0;0m\]:\[\e[01;32m\]\t\[\e[0m\]:\[\e[0;33m\]$(small_pwd)\[\e[0m\]> '
+PS2="> "
+PS3="> "
+PS4="+ "
+
 #------------------------------------------------------------
 # CCACHE
 #------------------------------------------------------------
@@ -121,7 +121,3 @@ fi
 #------------------------------------------------------------
 
 [ -e $HOME/.aliases ] && source $HOME/.aliases
-
-[ -z "$PS1" ] && return
-
-PS1='\[\e[${CLUSTER}\]\h\[\e[0;0m\]:\[\e[01;32m\]\t\[\e[0m\]:\[\e[34m\]$(small_pwd)\[\e[0m\]> '
