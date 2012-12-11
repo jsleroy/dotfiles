@@ -1,5 +1,7 @@
 # .bashrc
 
+export TERM=xterm-256color
+
 # Source global definitions
 [ -f /etc/bashrc ] && . /etc/bashrc
 
@@ -9,13 +11,9 @@
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
 
-[ -z "$PS1" ] && return
-
 #------------------------------------------------------------
 # SETTINGS
 #------------------------------------------------------------
-
-export TERM=xterm-256color
 
 # export MAKEFLAGS='-j3'
 
@@ -74,36 +72,6 @@ ulimit -c unlimited
 # PROMPT
 #------------------------------------------------------------
 
-function hbar()
-{
-    eval printf '%.0s$2' {1..$1}
-}
-
-function prompt_command()
-{
-    local sv=$?
-
-    local GRAY='\033[1;30m'
-    local LIGHT_GRAY='\033[0;37m'
-    local CYAN='\033[0;36m'
-    local LIGHT_CYAN='\033[1;36m'
-    local RED='\033[1;31m'
-    local NO_COLOUR='\033[0m'
-
-    [[ $1 = yes ]] && echo -en $GRAY
-    local cols=`tput cols`
-    cols=${cols:-50}
-    # hbar $[ $cols - 5 ] "─" # unicode version
-    hbar $[ $cols - 5 ] "_"
-
-    [[ $1 = yes ]] && [ "a$sv" != "a0" ] && echo -en $RED
-
-    printf "% 3d" $sv
-
-    #echo -en $NO_COLOUR
-    #echo -en $CYAN
-}
-
 # Define some colors first:
 black='\e[0;30m'
 red='\e[0;31m'
@@ -136,9 +104,6 @@ elif [ $location == $cambridge ]; then
     CLUSTER="30;42m"
 fi
 
-PS1='\[\e[${CLUSTER}\]\h\[\e[0;0m\]:\[\e[01;32m\]\t\[\e[0m\]:\[\e[34m\]$(small_pwd)\[\e[0m\]> '
-# PS1='$(prompt_command yes)\n'$PS1
-
 #------------------------------------------------------------
 # CCACHE
 #------------------------------------------------------------
@@ -156,3 +121,7 @@ fi
 #------------------------------------------------------------
 
 [ -e $HOME/.aliases ] && source $HOME/.aliases
+
+[ -z "$PS1" ] && return
+
+PS1='\[\e[${CLUSTER}\]\h\[\e[0;0m\]:\[\e[01;32m\]\t\[\e[0m\]:\[\e[34m\]$(small_pwd)\[\e[0m\]> '
