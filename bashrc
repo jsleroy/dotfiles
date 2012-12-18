@@ -59,8 +59,8 @@ ulimit -c unlimited
 # COMPLETION
 #------------------------------------------------------------
 
-[ -e $HOME/etc/bash_completion ] && export BASH_COMPLETION=$HOME/etc/bash_completion
-[ -e $HOME/.bash_completion.d ] && export BASH_COMPLETION_DIR=$HOME/.bash_completion.d
+[ -e $HOME/etc/bash_completion ] && [ -z "$BASH_COMPLETION" ] && export BASH_COMPLETION=$HOME/etc/bash_completion
+[ -e $HOME/.bash_completion.d ] && [ -z "$BASH_COMPLETION_DIR" ] && export BASH_COMPLETION_DIR=$HOME/.bash_completion.d
 [ ! -z $BASH_COMPLETION ] && source $BASH_COMPLETION
 
 #------------------------------------------------------------
