@@ -67,3 +67,6 @@
 [submodule "xresources-solarized"]
 	path = xresources-solarized
 	url = git://github.com/solarized/xresources.git
+[submodule "liquidprompt"]
+	path = liquidprompt
+	url = git://github.com/nojhan/liquidprompt.git
