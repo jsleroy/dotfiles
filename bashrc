@@ -75,36 +75,6 @@ ulimit -c unlimited
 [ -d $HOME/dotfiles/gnome-terminal-colors-solarized/ ] && export PATH=$HOME/dotfiles/gnome-terminal-colors-solarized/:$PATH
 
 #------------------------------------------------------------
-# PROMPT
-#------------------------------------------------------------
-
-function small_pwd {
-    local pwdmaxlen=30
-    local trunc_symbol="..."
-    if [ ${#PWD} -gt $pwdmaxlen ]
-    then
-        local pwdoffset=$(( ${#PWD} - $pwdmaxlen ))
-        newPWD="${trunc_symbol}${PWD:$pwdoffset:$pwdmaxlen}"
-    else
-        newPWD=${PWD}
-    fi
-    echo $newPWD
-}
-
-CLUSTER="30;47m"
-
-if [ $location == $sophia ]; then
-    CLUSTER="30;44m"
-elif [ $location == $cambridge ]; then
-    CLUSTER="30;42m"
-fi
-
-PS1='\[\e[${CLUSTER}\]\h\[\e[0;0m\]:\[\e[01;32m\]\t\[\e[0m\]:\[\e[0;33m\]$(small_pwd)\[\e[0m\]> '
-PS2="> "
-PS3="> "
-PS4="+ "
-
-#------------------------------------------------------------
 # CCACHE
 #------------------------------------------------------------
 
@@ -121,3 +91,9 @@ fi
 #------------------------------------------------------------
 
 [ -e $HOME/.aliases ] && source $HOME/.aliases
+
+#------------------------------------------------------------
+# PS1
+#------------------------------------------------------------
+
+source ~/dotfiles/liquidprompt/liquidprompt
