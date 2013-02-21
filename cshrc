@@ -2,16 +2,12 @@
 # ~/.cshrc
 #
 
-# source /arm/scratch/pktools/init/init.csh
-# pk reload
-
 if (($?prompt) || !($?term) || ($?SSH_CLIENT)) then
     set remote
 endif
 
-source /home/jealer01/.cshrc.arm
+source ~/.cshrc.arm
 
-# source /home/jealer01/.aliases
 alias ls="ls --color=auto -h" #enable thousands grouping and colour
 alias ll='ls -l'
 alias lla='ls -l -A'
