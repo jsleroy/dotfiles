@@ -1,9 +1,5 @@
 # .bashrc
 
-
-# If not running interactively, don't do anything!
-[[ $- != *i* ]] && return
-
 eval `dircolors ~/.dir_colors`
 
 export TERM=xterm-256color
@@ -16,6 +12,9 @@ export TERM=xterm-256color
 
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
+
+# If not running interactively, don't do anything!
+[[ $- != *i* ]] && return
 
 #------------------------------------------------------------
 # SETTINGS
