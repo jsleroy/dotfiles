@@ -10,16 +10,11 @@
     preloadindex = true
 [alias]
     st = status
-    ci = commit
-    cam = commit -a -m
     cb = checkout -b
     br = branch -a
     co = checkout
-    rbi = rebase --interactive
     cp = cherry-pick
-    tkdiff = difftool --tool=tkdiff --no-prompt
-    meld = difftool --tool=meld --no-prompt
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [tig]
     show-author = abbreviated
     show-rev-graph = yes
@@ -27,6 +22,6 @@
     tab-size = 4
 
 [push]
-	default = tracking
+    default = tracking
 [rerere]
-	enabled = 1
+    enabled = 1
