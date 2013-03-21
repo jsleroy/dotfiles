@@ -10,7 +10,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 " Load plugins
 call pathogen#infect()
 
-
 "-----------------------------------------------------------------------------
 " General
 "-----------------------------------------------------------------------------
@@ -38,6 +37,8 @@ set ttyfast
 " Disable the stupid pydoc preview window for the omni completion
 set completeopt-=preview
 set cc=81
+
+set encoding=utf-8 " Necessary to show Unicode glyphs
 
 " Tips to change the runtime path
 " set runtimepath=/work/jealer01/tools/vimwiki/src,$VIMRUNTIME
@@ -73,7 +74,7 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=8
 set nowrap
-" set t_Co=256
+set t_Co=256
 set guioptions=aiceh " simple dialog, GUI tabs
 set guioptions-=m " remove menu
 set guioptions-=T " remove toolbar
@@ -285,6 +286,17 @@ let g:pymode_folding = 0
 
 " Enable python objects and motion
 let g:pymode_motion = 0
+
+"-----------------------------------------------------------------------------
+" Powerline settings
+"-----------------------------------------------------------------------------
+
+" let g:Powerline_symbols = 'unicode'
+" let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'compatible'
+" let g:Powerline_theme = 'solarized256'
+
+let g:Powerline_colorscheme = 'solarized'
 
 "-----------------------------------------------------------------------------
 " Color plugin settings
