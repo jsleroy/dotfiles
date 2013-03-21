@@ -1,8 +1,19 @@
+# Ignore PK configuration
 pktoolsrc
-config/autostart/
-config/gtk-2.0/gtkfilechooser
-config/ipython/profile_default/history.sqlite
-vim/.netrwhist
-config/vlc/vlc-qt-interface.conf
-config/Trolltech.conf
 
+# Ignore VIM swap files anywhere in the tree
+*.sw[opnm]
+
+# Ignore all files in config/
+config/
+
+# Except the ones we explicitely wants to track
+!config/Terminal/terminalrc
+!config/openbox/
+!config/nitrogen/
+!config/meld/
+!config/ipython/
+!config/byobu/
+!config/gitg/
+!config/htop/
+!config/archey3.cfg
