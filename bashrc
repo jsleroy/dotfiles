@@ -20,7 +20,7 @@ export LC_ALL=en_US.utf-8
 # SETTINGS
 #------------------------------------------------------------
 
-# export MAKEFLAGS='-j3'
+export MAKEFLAGS='-j8'
 
 export GIT_PS1_SHOWDIRTYSTATE=YES
 export GIT_PS1_SHOWSTASHSTATE=YES
@@ -86,16 +86,18 @@ if hash ccache 2>&- ; then
 fi
 
 #------------------------------------------------------------
+# PS1
+#------------------------------------------------------------
+
+unset PROMPT_COMMAND
+
+source ~/dotfiles/liquidprompt/liquidprompt
+
+#------------------------------------------------------------
 # ALIAS
 #------------------------------------------------------------
 
 [ -e $HOME/.aliases ] && source $HOME/.aliases
-
-#------------------------------------------------------------
-# PS1
-#------------------------------------------------------------
-
-source ~/dotfiles/liquidprompt/liquidprompt
 
 # Less Colors for Man Pages
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
