@@ -5,11 +5,14 @@
 #
 #-------------------------------------------------------------------------------
 
-# Exclude list (files not to be installed)
-EXCLUDE=("install" "vimrc.loumou" "bashrc.pierre" "README.rst" "libui-sh" "mrxvtrc.cristian" "gnome-terminal-colors-solarized")
+source install.rc
 
 # Include the UI library
 . libui-sh/libui.sh
+
+# Add script and configuration file to the exclude list
+name=$0
+EXCLUDE=( ${name##./} "install.rc" ${EXCLUDE[@]} )
 
 # Help message
 # Add this option

@@ -1,0 +1,4 @@
+
+# Exclude list (files not to be installed)
+EXCLUDE=("vimrc.loumou"
+         "README.rst" "libui-sh" "gnome-terminal-colors-solarized")
