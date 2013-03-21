@@ -99,7 +99,7 @@ if has("gui")
 "    endif
 endif
 
-set background=dark
+set background=light
 
 " GVIM settings
 if has("gui_running")
