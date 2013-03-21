@@ -60,7 +60,7 @@ LP_COLOR_JOB_Z="$BOLD_YELLOW"   # Sleeping (Ctrl-Z)
 LP_COLOR_ERR="$PURPLE"
 
 # Prompt mark
-LP_COLOR_MARK="$BOLD_WHITE"     # as user
+LP_COLOR_MARK="$BOLD_CYAN"     # as user
 LP_COLOR_MARK_ROOT="$BOLD_RED"  # as root
 
 # Current user
@@ -81,7 +81,7 @@ LP_COLOR_NOWRITE="$RED"  # do not have write permission
 
 # VCS
 LP_COLOR_UP="$GREEN"        # repository is up to date / a push have been made
-LP_COLOR_COMMITS="$YELLOW"  # some commits have not been pushed
+LP_COLOR_COMMITS="$CYAN"  # some commits have not been pushed
 LP_COLOR_CHANGES="$RED"     # there is some changes to commit
 LP_COLOR_DIFF="$PURPLE"     # number of lines impacted by current changes
 
