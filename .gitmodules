@@ -67,12 +67,12 @@
 [submodule "xresources-solarized"]
 	path = xresources-solarized
 	url = git://github.com/solarized/xresources.git
-[submodule "liquidprompt"]
-	path = liquidprompt
-	url = git://github.com/nojhan/liquidprompt.git
 [submodule "xfce4-terminal-colors-solarized"]
 	path = xfce4-terminal-colors-solarized
 	url = git://github.com/sgerrand/xfce4-terminal-colors-solarized.git
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "liquidprompt"]
+	path = liquidprompt
+	url = https://github.com/jsleroy/liquidprompt.git
