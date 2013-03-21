@@ -81,10 +81,10 @@ xpdf*background:     white
 ! MTI
 !------------------------------------------------------------
 
-#include ".Xresources.colors"
-
 ModelSim*foreground: black
 ModelSim*background: white
 
 Questa*foreground: black
 Questa*background: white
+
+#include ".Xresources.colors"
