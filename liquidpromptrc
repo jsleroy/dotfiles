@@ -8,6 +8,8 @@
 #source ~/code/liquidprompt/nojhan.theme
 #source ~/code/liquidprompt/nojhan.ps1
 
+source ~/.liquidprompt/liquid.theme
+
 #############
 # BEHAVIOUR #
 #############
