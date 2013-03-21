@@ -1,36 +1,45 @@
 [submodule "vim/bundle/pathogen"]
 	path = vim/bundle/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
+        ignore = untracked
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+        ignore = untracked
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
+        ignore = untracked
 [submodule "libui-sh"]
 	path = libui-sh
 	url = git://github.com/Dieterbe/libui-sh.git
 [submodule "vim/bundle/mark"]
 	path = vim/bundle/mark
 	url = git://github.com/vim-scripts/Mark--Karkat.git
+        ignore = untracked
 [submodule "vim/bundle/drawit"]
 	path = vim/bundle/drawit
 	url = git://github.com/vim-scripts/DrawIt.git
+        ignore = untracked
 [submodule "vim/bundle/align"]
 	path = vim/bundle/align
 	url = git://github.com/vim-scripts/Align.git
+        ignore = untracked
 [submodule "vim/bundle/vimwiki"]
 	path = vim/bundle/vimwiki
 	url = git://github.com/vim-scripts/vimwiki.git
+        ignore = untracked
 [submodule "vim/bundle/xoria256"]
 	path = vim/bundle/xoria256
 	url = git://github.com/vim-scripts/xoria256.vim.git
+        ignore = untracked
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vim/bundle/solarized"]
 	path = vim/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+        ignore = untracked
 [submodule "gnome-terminal-colors-solarized"]
 	path = gnome-terminal-colors-solarized
 	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
@@ -40,30 +49,38 @@
 [submodule "vim/bundle/verilog"]
 	path = vim/bundle/verilog
 	url = git://github.com/vim-scripts/verilog_systemverilog.vim.git
+        ignore = untracked
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode
 	url = git://github.com/klen/python-mode.git
+        ignore = untracked
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = git://github.com/seebi/dircolors-solarized.git
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+        ignore = untracked
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+        ignore = untracked
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
+        ignore = untracked
 [submodule "vim/bundle/csapprox"]
 	path = vim/bundle/csapprox
 	url = git://github.com/godlygeek/csapprox.git
+        ignore = untracked
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+        ignore = untracked
 [submodule "vim/bundle/visualstar"]
 	path = vim/bundle/visualstar
 	url = git://github.com/vim-scripts/visualstar.vim.git
+        ignore = untracked
 [submodule "xresources-solarized"]
 	path = xresources-solarized
 	url = git://github.com/solarized/xresources.git
@@ -73,6 +90,7 @@
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
+        ignore = untracked
 [submodule "liquidprompt"]
 	path = liquidprompt
 	url = https://github.com/jsleroy/liquidprompt.git
