@@ -93,6 +93,9 @@ LP_ENABLE_TIME=1
 # recommended value is 0
 # See LP_TITLE_OPEN and LP_TITLE_CLOSE to change escape characters to adapt this
 # feature to your specific terminal.
-LP_ENABLE_TITLE=1
+
+# Test for TTY terminal and force to 0
+# While not implemented force to 0 for all terminal
+LP_ENABLE_TITLE=0
 
 # vim: set et sts=4 sw=4 tw=120 ft=sh:
