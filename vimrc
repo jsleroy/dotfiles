@@ -100,8 +100,6 @@ if has("gui")
 "    endif
 endif
 
-set background=light
-
 " GVIM settings
 if has("gui_running")
     " Make shift-insert work like in Xterm
@@ -141,13 +139,15 @@ au BufReadPost *.v.m4 set syntax=verilog_systemverilog
 " Colorscheme settings
 "-----------------------------------------------------------------------------
 
+colorscheme solarized
+
 " Transparent backgournd
 "let g:solarized_termtrans=0
 
 " For degraded mode
 "let g:solarized_degrade=1
 
-"let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 
 " Increase contrast
 "let g:solarized_contrast="high"
@@ -158,8 +158,7 @@ au BufReadPost *.v.m4 set syntax=verilog_systemverilog
 " Switch between light/dark background
 call togglebg#map("<F5>")
 
-colorscheme solarized
-
+set background=light
 
 "-----------------------------------------------------------------------------
 " Syntax folding
@@ -294,9 +293,8 @@ let g:pymode_motion = 0
 " let g:Powerline_symbols = 'unicode'
 " let g:Powerline_symbols = 'fancy'
 " let g:Powerline_symbols = 'compatible'
-" let g:Powerline_theme = 'solarized256'
-
-let g:Powerline_colorscheme = 'solarized'
+let g:Powerline_theme = 'solarized256'
+" let g:Powerline_colorscheme = 'solarized'
 
 "-----------------------------------------------------------------------------
 " Color plugin settings
