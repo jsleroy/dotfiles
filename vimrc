@@ -293,8 +293,8 @@ let g:pymode_motion = 0
 " let g:Powerline_symbols = 'unicode'
 " let g:Powerline_symbols = 'fancy'
 " let g:Powerline_symbols = 'compatible'
-let g:Powerline_theme = 'solarized256'
-" let g:Powerline_colorscheme = 'solarized'
+let g:Powerline_colorscheme = 'solarized'
+" let g:Powerline_theme = 'solarized256'
 
 "-----------------------------------------------------------------------------
 " Color plugin settings
