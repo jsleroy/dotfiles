@@ -22,20 +22,23 @@ Xft.rgba:       rgb
 ! urxvt
 !------------------------------------------------------------
 
-urxvt*font:            xft:lime:pixelsize=5:antialias=true
-urxvt*boldFont:        xft:lime:pixelsize=5:antialias=true
-urxvt*termName:        rxvt-unicode
-urxvt*scrollBar:       false
-urxvt*matcher.button:  1
-urxvt*cursorBlink:     true
-urxvt*cursorUnderline: true
-urxvt*cursorColor:     #d6dadf
-urxvt*colorBD:         #998164
-urxvt*internalBorder:  3
-urxvt*transparent:     true
-urxvt*allow_bold:      true
-!urxvt*background:     #171c1f
-!urxvt*foreground:     #ebebeb
+!URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
+!URxvt*.font:            xft:lime:pixelsize=9:antialias=true
+!URxvt*.boldFont:        xft:lime:pixelsize=9:antialias=true
+URxvt*.font: xft:monaco:size=10
+URxvt*.termName:        rxvt-unicode
+URxvt*.scrollBar:       false
+URxvt*.matcher.button:  1
+URxvt*.cursorBlink:     true
+URxvt*.cursorUnderline: true
+URxvt*.cursorColor:     #d6dadf
+URxvt*.colorBD:         #998164
+URxvt*.internalBorder:  3
+URxvt*.transparent:     true
+URxvt*.allow_bold:      true
+!URxvt*background:     #171c1f
+!URxvt*foreground:     #ebebeb
+!
 
 !------------------------------------------------------------
 ! Xcursor
@@ -50,41 +53,41 @@ urxvt*allow_bold:      true
 ! xterm
 !------------------------------------------------------------
 
-xterm*geometry:           80x25
-!xterm*faceName:          terminus:pixelsize=12
-!xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
-xterm*dynamicColors:      true
-xterm*utf8:               2
-xterm*eightBitInput:      true
-xterm*saveLines:          512
-xterm*scrollTtyKeypress:  true
-xterm*scrollTtyOutput:    false
-xterm*scrollBar:          true
-xterm*rightScrollBar:     true
-xterm*jumpScroll:         true
-xterm*multiScroll:        true
-xterm*toolBar:            false
+xterm*.geometry:           80x25
+!xterm*.faceName:          terminus:pixelsize=12
+!xterm*.font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+xterm*.dynamicColors:      true
+xterm*.utf8:               2
+xterm*.eightBitInput:      true
+xterm*.saveLines:          512
+xterm*.scrollTtyKeypress:  true
+xterm*.scrollTtyOutput:    false
+xterm*.scrollBar:          true
+xterm*.rightScrollBar:     true
+xterm*.jumpScroll:         true
+xterm*.multiScroll:        true
+xterm*.toolBar:            false
 
-xterm*charClass: 45-47:48, 40-41:48
+xterm*.charClass: 45-47:48, 40-41:48
 
 !------------------------------------------------------------
 ! xpdf
 !------------------------------------------------------------
 
-xpdf*enableFreetype: yes
-xpdf*antialias:      yes
-xpdf*urlCommand:     /usr/bin/firefox %s
-xpdf*foreground:     black
-xpdf*background:     white
+xpdf*.enableFreetype: yes
+xpdf*.antialias:      yes
+xpdf*.urlCommand:     /usr/bin/firefox %s
+xpdf*.foreground:     black
+xpdf*.background:     white
 
 !------------------------------------------------------------
 ! MTI
 !------------------------------------------------------------
 
-ModelSim*foreground: black
-ModelSim*background: white
+ModelSim*.foreground: black
+ModelSim*.background: white
 
-Questa*foreground: black
-Questa*background: white
+Questa*.foreground: black
+Questa*.background: white
 
 #include ".Xresources.colors"
