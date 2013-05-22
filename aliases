@@ -1,6 +1,6 @@
 
 alias gdb='gdb -tui' #enable the text window interface if possible
-alias ls="ls --color=auto -h" #enable thousands grouping and colour
+alias ls="ls -u --color=auto -h" #enable thousands grouping and colour
 alias ll='ls -l'
 alias lla='ls -l -A'
 alias la='ls -A'
