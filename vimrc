@@ -88,6 +88,27 @@ set nobackup
 "     " Windows platform
 " endif
 
+"-----------------------------------------------------------------------------
+" Extension specific settings
+"-----------------------------------------------------------------------------
+
+" Python source code
+au BufRead,BufNewFile *.py set expandtab
+au BufRead,BufNewFile *.py set shiftwidth=4
+au BufRead,BufNewFile *.py set softtabstop=4
+au BufRead,BufNewFile *.py set tabstop=4
+
+" SystemVerilog
+au BufReadPost *.sv set syntax=verilog_systemverilog
+au BufReadPost *.svh set syntax=verilog_systemverilog
+
+" M4ified Verilog
+au BufReadPost *.v.m4 set syntax=verilog_systemverilog
+
+"-----------------------------------------------------------------------------
+" Colorscheme settings
+"-----------------------------------------------------------------------------
+
 if has("gui")
     set guifont=Monospace\ 9
 "    if has("gui_gtk2")
@@ -117,28 +138,7 @@ if has("gui_running")
     " set background=dark
 endif
 
-
-"-----------------------------------------------------------------------------
-" Extension specific settings
-"-----------------------------------------------------------------------------
-
-" Python source code
-au BufRead,BufNewFile *.py set expandtab
-au BufRead,BufNewFile *.py set shiftwidth=4
-au BufRead,BufNewFile *.py set softtabstop=4
-au BufRead,BufNewFile *.py set tabstop=4
-
-" SystemVerilog
-au BufReadPost *.sv set syntax=verilog_systemverilog
-au BufReadPost *.svh set syntax=verilog_systemverilog
-
-" M4ified Verilog
-au BufReadPost *.v.m4 set syntax=verilog_systemverilog
-
-"-----------------------------------------------------------------------------
-" Colorscheme settings
-"-----------------------------------------------------------------------------
-
+set background=dark
 colorscheme solarized
 
 " Transparent backgournd
@@ -157,8 +157,6 @@ colorscheme solarized
 
 " Switch between light/dark background
 call togglebg#map("<F5>")
-
-set background=light
 
 "-----------------------------------------------------------------------------
 " Syntax folding
