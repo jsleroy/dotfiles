@@ -1,7 +1,5 @@
 
-! #define FONT -b&h-lucidatypewriter-bold-r-normal-sans-12-120-75-75-m-70-iso8859-1
-
-! xman*font: FONT
+#include ".Xresources.colors"
 
 !------------------------------------------------------------
 ! Xft
@@ -9,7 +7,7 @@
 
 Xft.dpi:        96
 Xft.autohint:   true
-!Xft.lcdfilter: lcddefault
+Xft.lcdfilter:  lcddefault
 Xft.hinting:    true
 Xft.hintstyle:  hintfull
 Xft.antialias:  true
@@ -22,7 +20,9 @@ Xft.rgba:       rgb
 ! urxvt
 !------------------------------------------------------------
 
-!URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
+!URxvt*.background:     #171c1f
+!URxvt*.foreground:     #ebebeb
+!URxvt*.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
 !URxvt*.font:            xft:lime:pixelsize=9:antialias=true
 !URxvt*.boldFont:        xft:lime:pixelsize=9:antialias=true
 URxvt*.font: xft:monaco:size=10
@@ -36,9 +36,6 @@ URxvt*.colorBD:         #998164
 URxvt*.internalBorder:  3
 URxvt*.transparent:     true
 URxvt*.allow_bold:      true
-!URxvt*background:     #171c1f
-!URxvt*foreground:     #ebebeb
-!
 
 !------------------------------------------------------------
 ! Xcursor
@@ -53,22 +50,21 @@ URxvt*.allow_bold:      true
 ! xterm
 !------------------------------------------------------------
 
-xterm*.geometry:           80x25
-!xterm*.faceName:          terminus:pixelsize=12
-!xterm*.font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
-xterm*.dynamicColors:      true
-xterm*.utf8:               2
-xterm*.eightBitInput:      true
-xterm*.saveLines:          512
-xterm*.scrollTtyKeypress:  true
-xterm*.scrollTtyOutput:    false
-xterm*.scrollBar:          true
-xterm*.rightScrollBar:     true
-xterm*.jumpScroll:         true
-xterm*.multiScroll:        true
-xterm*.toolBar:            false
-
-xterm*.charClass: 45-47:48, 40-41:48
+XTerm*.geometry:           80x25
+!XTerm*.faceName:          terminus:pixelsize=12
+!XTerm*.font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+XTerm*.dynamicColors:      true
+XTerm*.utf8:               2
+XTerm*.eightBitInput:      true
+XTerm*.saveLines:          512
+XTerm*.scrollTtyKeypress:  true
+XTerm*.scrollTtyOutput:    false
+XTerm*.scrollBar:          true
+XTerm*.rightScrollBar:     true
+XTerm*.jumpScroll:         true
+XTerm*.multiScroll:        true
+XTerm*.toolBar:            false
+XTerm*.charClass: 45-47:48, 40-41:48
 
 !------------------------------------------------------------
 ! xpdf
@@ -86,8 +82,5 @@ xpdf*.background:     white
 
 ModelSim*.foreground: black
 ModelSim*.background: white
-
 Questa*.foreground: black
 Questa*.background: white
-
-#include ".Xresources.colors"
