@@ -1,32 +1,10 @@
 
 alias gdb='gdb -tui' #enable the text window interface if possible
 alias ls="ls --color=auto -h" #enable thousands grouping and colour
-alias ll='ls -l'
-alias lla='ls -l -A'
-alias la='ls -A'
-alias l='ls -CF'
-alias vi='vim'
-alias lsload='lsload -R 'order[]' | fgrep -v login | fgrep -v unavail | sort -n -k 6'
+alias ll='ls -lX'
+alias lla='ls -lAX'
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
 alias cpplint='cpplint.py --filter=-whitespace/braces,-whitespace/newline'
 alias mozilla='firefox'
 
-# alias bi     "bsub -I -R solaris"
-# alias bil    'bsub -I -R linux'
-# alias bil32  'bsub -I -R "select[linux && os32]"'
-# alias bil64  'bsub -I -R "select[linux && os64]"'
-# 
-# alias bilf   'bsub -I -R amd64'
-# alias bif    'bsub -I -R "select[cpuf > 300]"'
-# alias bsubn  "bsub -o /dev/null"
-# 
-# alias lsload 'lsload -R 'order[]' | fgrep -v login | fgrep -v unavail | sort -n +5'
-# 
-# alias bkillpend 'bjobs | grep PEND | awk '"'"'{print $1}'"'"' | xargs bkill'
-# alias bkillnorm 'bjobs | grep normal | awk '"'"'{print $1}'"'"' | xargs bkill'
-# alias bkillrun 'bjobs | grep RUN | grep normal | awk '"'"'{print $1}'"'"' | xargs bkill'
-
 alias g='gvim --servername GVIM --remote-tab-silent'
-
-alias tree='tree -C'
-
