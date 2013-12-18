@@ -27,7 +27,7 @@ set nocp
 set nocompatible " get out VI compatible mode
 set hlsearch
 set incsearch
-set autochdir                  " always switch to current directory
+" set autochdir                  " always switch to current directory
 set backspace=indent,eol,start " make backspace a bit more flexible
 set clipboard+=unnamed         " share wimdows clipboard
 set mouse=a                    " use mouse everywhere
@@ -93,6 +93,12 @@ set nobackup
 "-----------------------------------------------------------------------------
 " Extension specific settings
 "-----------------------------------------------------------------------------
+
+" C/C++ source code
+autocmd Syntax c,cpp set expandtab
+autocmd Syntax c,cpp set shiftwidth=2
+autocmd Syntax c,cpp set softtabstop=2
+autocmd Syntax c,cpp set tabstop=2
 
 " Python source code
 au BufRead,BufNewFile *.py set expandtab
