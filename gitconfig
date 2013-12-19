@@ -20,8 +20,9 @@
     show-rev-graph = yes
     author-width = 15
     tab-size = 4
-
 [push]
     default = tracking
 [rerere]
     enabled = 1
+[include]
+    path = ~/.gitconfig.arm
