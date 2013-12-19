@@ -252,9 +252,16 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " let g:Powerline_symbols = 'unicode'
 " let g:Powerline_symbols = 'fancy'
-" let g:Powerline_symbols = 'compatible'
+let g:Powerline_symbols = 'compatible'
 " let g:Powerline_colorscheme = 'solarized'
 " let g:Powerline_theme = 'solarized256'
+
+
+"-----------------------------------------------------------------------------
+" NetRW settings
+"-----------------------------------------------------------------------------
+
+let g:netrw_liststyle = 3
 
 "-----------------------------------------------------------------------------
 " Color plugin settings
