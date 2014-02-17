@@ -33,7 +33,7 @@ set mouse=a
 
 " Turn on command line completion wild style
 set wildmenu
-set wildmode=longest:full
+" set wildmode=longest:full
 " set wildmode=list:longest
 
 set hlsearch
@@ -123,7 +123,7 @@ set smartindent
 set cindent
 set formatoptions=tcroq
 
-" set spell
+set spell
 " set showcmd
 " set t_Co=256
 " set statusline=%f%m%r[%L][%04l,%04v]
@@ -166,7 +166,7 @@ if has("gui_running")
 endif
 
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 
 " Switch between light/dark background
 call togglebg#map("<F5>")
