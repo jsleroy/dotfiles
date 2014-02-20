@@ -165,11 +165,9 @@ if has("gui_running")
     set mousehide
 endif
 
-set background=dark
-" colorscheme solarized
-
-" Switch between light/dark background
-call togglebg#map("<F5>")
+" set background=dark
+set t_co=256
+colorscheme xoria256
 
 
 "-----------------------------------------------------------------------------
@@ -205,3 +203,5 @@ let g:Powerline_symbols = 'compatible'
 "-----------------------------------------------------------------------------
 
 let g:netrw_liststyle = 3
+
+let g:mwDefaultHighlightingPalette = 'extended'
