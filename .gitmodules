@@ -11,7 +11,7 @@
 	url = git://github.com/Dieterbe/libui-sh.git
 [submodule "vim/bundle/mark"]
 	path = vim/bundle/mark
-	url = git://github.com/vim-scripts/Mark--Karkat.git
+	url = git@github.com:peterjmorgan/mark-2.8.0.git
         ignore = untracked
 [submodule "vim/bundle/drawit"]
 	path = vim/bundle/drawit
