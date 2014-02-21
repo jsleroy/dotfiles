@@ -28,16 +28,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "vim/bundle/solarized"]
-	path = vim/bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-        ignore = untracked
-[submodule "gnome-terminal-colors-solarized"]
-	path = gnome-terminal-colors-solarized
-	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
-[submodule "dircolors-solarized"]
-	path = dircolors-solarized
-	url = git://github.com/seebi/dircolors-solarized.git
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
@@ -46,20 +36,10 @@
 	path = vim/bundle/csapprox
 	url = git://github.com/godlygeek/csapprox.git
         ignore = untracked
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-        ignore = untracked
 [submodule "vim/bundle/visualstar"]
 	path = vim/bundle/visualstar
 	url = git://github.com/vim-scripts/visualstar.vim.git
         ignore = untracked
-[submodule "xresources-solarized"]
-	path = xresources-solarized
-	url = git://github.com/solarized/xresources.git
-[submodule "xfce4-terminal-colors-solarized"]
-	path = xfce4-terminal-colors-solarized
-	url = git://github.com/sgerrand/xfce4-terminal-colors-solarized.git
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
