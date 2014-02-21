@@ -71,8 +71,6 @@ ulimit -c unlimited
 [ -d $HOME/python ]     && export PYTHONPATH=$HOME/python:$PYTHONPATH
 [ -f $HOME/.pystartup ] && export PYTHONSTARTUP=$HOME/.pystartup
 
-[ -d $HOME/dotfiles/gnome-terminal-colors-solarized/ ] && export PATH=$HOME/dotfiles/gnome-terminal-colors-solarized/:$PATH
-
 #------------------------------------------------------------
 # CCACHE
 #------------------------------------------------------------
