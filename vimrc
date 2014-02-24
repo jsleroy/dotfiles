@@ -134,6 +134,8 @@ set spell
 " Automatic configuration reload
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 
+:nmap <F1> <nop>
+
 "-----------------------------------------------------------------------------
 " Extension specific settings
 "-----------------------------------------------------------------------------
