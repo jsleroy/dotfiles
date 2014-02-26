@@ -157,6 +157,11 @@ let g:load_doxygen_syntax=1
 " Colorscheme settings
 "-----------------------------------------------------------------------------
 
+" set background=dark
+set t_co=256
+"colorscheme xoria256
+colorscheme darkmate
+
 if has("gui")
     set guifont=Monospace\ 9
 endif
@@ -166,10 +171,6 @@ if has("gui_running")
     " Hide mouse cursor when typing
     set mousehide
 endif
-
-" set background=dark
-set t_co=256
-colorscheme xoria256
 
 
 "-----------------------------------------------------------------------------
