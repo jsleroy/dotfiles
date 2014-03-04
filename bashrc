@@ -1,7 +1,5 @@
 # .bashrc
 
-eval `dircolors ~/.dir_colors`
-
 export TERM=xterm-256color
 
 # Source global definitions
