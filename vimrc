@@ -11,7 +11,6 @@ set nocompatible
 runtime bundle/pathogen/autoload/pathogen.vim
 
 " Load plugins
-filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -26,7 +25,9 @@ syntax on
 syntax enable
 
 " Enable filetype plugin
-filetype indent plugin on
+filetype on
+filetype indent on
+filetype plugin on
 
 " Mouse always enabled
 set mouse=a
@@ -147,7 +148,6 @@ autocmd Syntax c,cpp set softtabstop=2
 autocmd Syntax c,cpp set tabstop=2
 
 " M4ified Verilog
-" au BufReadPost *.v.m4 set syntax=verilog
 autocmd Syntax *.v.m4 set syntax=verilog
 
 " Show doxygen syntax highligthing
