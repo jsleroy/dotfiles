@@ -1,5 +1,9 @@
 # .bashrc
 
+# default file creation permissuin
+# user = all; group = none; others = none
+umask 027
+
 export TERM=xterm-256color
 
 # Source global definitions
@@ -20,12 +24,10 @@ export LC_ALL=en_US.utf-8
 
 export MAKEFLAGS='-j8'
 
-export GIT_PS1_SHOWDIRTYSTATE=YES
-export GIT_PS1_SHOWSTASHSTATE=YES
-
 # Make Bash append rather than overwrite the history on disk:
 shopt -s histappend
 export HISTIGNORE="&:ls:[bf]g:exit"
+export HISTSIZE=10000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -34,15 +36,6 @@ shopt -s checkwinsize
 # When changing directory small typos can be ignored by Bash
 shopt -s cdspell
 
-# Need ctrl-d twice before exiting
-set -o ignoreeof # ctrl-D will not exit the shell anymore
-export IGNOREEOF=1
-
-# default file creation permissuin
-# user = all; group = none; others = none
-umask 027
-
-# editor for svn, ...
 export EDITOR=vim
 
 # for developing: http://udrepper.livejournal.com/11429.html
@@ -62,36 +55,27 @@ ulimit -c unlimited
 [ -f $HOME/.pystartup ] && export PYTHONSTARTUP=$HOME/.pystartup
 
 #------------------------------------------------------------
-# CCACHE
-#------------------------------------------------------------
-
-if hash ccache 2>&- ; then
-    export CCACHE_DIR=/tmp/.ccache
-    alias g++="ccache g++"
-    alias gcc="ccache gcc"
-    alias cc="ccache cc"
-    alias c++="ccache c++"
-fi
-
-#------------------------------------------------------------
 # PS1
 #------------------------------------------------------------
 
 unset PROMPT_COMMAND
-
 source ~/dotfiles/liquidprompt/liquidprompt
 
 #------------------------------------------------------------
 # ALIAS
 #------------------------------------------------------------
 
-[ -e $HOME/.aliases ] && source $HOME/.aliases
+if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
-# Less Colors for Man Pages
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias tree='tree --dirsfirst -C'
+alias mozilla='firefox'
