@@ -8,10 +8,10 @@
 [core]
     excludesfile = /home/jealer01/.gitexcludes
     preloadindex = true
+[branch]
+    autosetupmerge = false
 [alias]
     st = status
-    cb = checkout -b
-    br = branch -a
     co = checkout
     cp = cherry-pick
     lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
