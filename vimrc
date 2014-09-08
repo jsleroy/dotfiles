@@ -124,9 +124,8 @@ set smartindent
 set cindent
 set formatoptions=tcroq
 
-set spell
+" set spell
 " set showcmd
-" set t_Co=256
 " set statusline=%f%m%r[%L][%04l,%04v]
 
 " Check file changes
@@ -147,8 +146,10 @@ autocmd Syntax c,cpp set shiftwidth=2
 autocmd Syntax c,cpp set softtabstop=2
 autocmd Syntax c,cpp set tabstop=2
 
-" M4ified Verilog
-autocmd Syntax *.v.m4 set syntax=verilog
+augroup filetypedetect
+    au BufRead,BufNewFile *.proto   setfiletype proto
+    au BufRead,BufNewFile *.v.m4    setfiletype verilog
+augroup END
 
 " Show doxygen syntax highligthing
 let g:load_doxygen_syntax=1
@@ -158,9 +159,10 @@ let g:load_doxygen_syntax=1
 "-----------------------------------------------------------------------------
 
 " set background=dark
-set t_co=256
-"colorscheme xoria256
-colorscheme darkmate
+" set t_co=256
+set t_Co=256
+colorscheme xoria256
+" colorscheme darkmate
 
 if has("gui")
     set guifont=Monospace\ 9
