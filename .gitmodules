@@ -40,10 +40,6 @@
 	path = vim/bundle/visualstar
 	url = git://github.com/vim-scripts/visualstar.vim.git
         ignore = untracked
-[submodule "vim/bundle/powerline"]
-	path = vim/bundle/powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
-        ignore = untracked
 [submodule "liquidprompt"]
 	path = liquidprompt
 	url = https://github.com/jsleroy/liquidprompt.git
@@ -53,3 +49,6 @@
 [submodule "vim/bundle/darkmate"]
 	path = vim/bundle/darkmate
 	url = git@github.com:yearofmoo/Vim-Darkmate.git
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline

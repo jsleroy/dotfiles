@@ -94,7 +94,7 @@ LP_COLOR_DISCHARGING_ABOVE="$YELLOW"  # discharging but above threshold
 LP_COLOR_DISCHARGING_UNDER="$RED"     # discharging and under threshold
 
 # Time
-LP_COLOR_TIME="$BLUE"
+LP_COLOR_TIME="$BOLD_YELLOW"
 
 # Color maps (battery and load levels)
 # Range from 0 (nothing special) to 9 (alert)

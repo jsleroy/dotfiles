@@ -91,13 +91,13 @@ set scrolloff=4
 " Show matching brackets
 set showmatch
 
-"How many tenths of a second to blink
+" How many tenths of a second to blink
 set mat=2
 
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set lbr
 
 " Keep each line on its own line
@@ -140,16 +140,10 @@ autocmd BufWritePost ~/.vimrc source ~/.vimrc
 " Extension specific settings
 "-----------------------------------------------------------------------------
 
-" C/C++ source code
-autocmd Syntax c,cpp set expandtab
-autocmd Syntax c,cpp set shiftwidth=2
-autocmd Syntax c,cpp set softtabstop=2
-autocmd Syntax c,cpp set tabstop=2
-
-augroup filetypedetect
-    au BufRead,BufNewFile *.proto   setfiletype proto
-    au BufRead,BufNewFile *.v.m4    setfiletype verilog
-augroup END
+au BufRead,BufNewFile *.proto set filetype=proto
+au BufRead,BufNewFile *.v.m4  set filetype=verilog
+au BufRead,BufNewFile *.v     set filetype=verilog
+au BufRead,BufNewFile *.sv    set filetype=systemverilog
 
 " Show doxygen syntax highligthing
 let g:load_doxygen_syntax=1
@@ -159,13 +153,12 @@ let g:load_doxygen_syntax=1
 "-----------------------------------------------------------------------------
 
 " set background=dark
-" set t_co=256
 set t_Co=256
-colorscheme xoria256
+" colorscheme xoria256
 " colorscheme darkmate
 
 if has("gui")
-    set guifont=Monospace\ 9
+  set guifont=Monospace\ 9
 endif
 
 " GVIM settings
@@ -193,14 +186,8 @@ let g:SuperTabDefaultCompletionType = "context"
 
 
 "-----------------------------------------------------------------------------
-" Powerline settings
+" Airline settings
 "-----------------------------------------------------------------------------
-
-let g:Powerline_symbols = 'compatible'
-" let g:Powerline_symbols = 'unicode'
-" let g:Powerline_symbols = 'fancy'
-" let g:Powerline_colorscheme = 'solarized'
-" let g:Powerline_theme = 'solarized256'
 
 
 "-----------------------------------------------------------------------------
