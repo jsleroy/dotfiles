@@ -148,6 +148,10 @@ au BufRead,BufNewFile *.sv    set filetype=systemverilog
 " Show doxygen syntax highligthing
 let g:load_doxygen_syntax=1
 
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
 "-----------------------------------------------------------------------------
 " Colorscheme settings
 "-----------------------------------------------------------------------------
@@ -155,7 +159,7 @@ let g:load_doxygen_syntax=1
 " set background=dark
 set t_Co=256
 " colorscheme xoria256
-" colorscheme darkmate
+colorscheme darkmate
 
 if has("gui")
   set guifont=Monospace\ 9
@@ -188,6 +192,9 @@ let g:SuperTabDefaultCompletionType = "context"
 "-----------------------------------------------------------------------------
 " Airline settings
 "-----------------------------------------------------------------------------
+
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
 
 "-----------------------------------------------------------------------------
