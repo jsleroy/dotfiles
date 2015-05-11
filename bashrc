@@ -79,3 +79,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias tree='tree --dirsfirst -C'
 alias mozilla='firefox'
+
+lsext() {
+  find $1 -type f | cut -d '.' -f2- | sort -u
+}
