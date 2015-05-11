@@ -24,3 +24,5 @@
     enabled = 1
 [include]
     path = ~/.gitconfig.arm
+[push]
+    default = nothing
