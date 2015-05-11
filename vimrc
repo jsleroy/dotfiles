@@ -158,8 +158,9 @@ set completeopt=menuone,longest,preview
 
 " set background=dark
 set t_Co=256
-" colorscheme xoria256
-colorscheme darkmate
+colorscheme xoria256
+" colorscheme darkmate
+" colorscheme inkpot
 
 if has("gui")
   set guifont=Monospace\ 9
