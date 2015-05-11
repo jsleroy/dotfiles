@@ -9,6 +9,7 @@
 [submodule "libui-sh"]
   path = libui-sh
   url = git://github.com/Dieterbe/libui-sh.git
+  ignore = untracked
 [submodule "vim/bundle/mark"]
   path = vim/bundle/mark
   url = git@github.com:peterjmorgan/mark-2.8.0.git
@@ -36,6 +37,8 @@
 [submodule "vim/bundle/jedi"]
 	path = vim/bundle/jedi
 	url = https://github.com/davidhalter/jedi-vim.git
+  ignore = untracked
 [submodule "vim/bundle/drawit"]
 	path = vim/bundle/drawit
 	url = git@github.com:hrj/vim-DrawIt.git
+  ignore = untracked
