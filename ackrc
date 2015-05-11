@@ -1,1 +1,3 @@
-
+--type-set=sb:ext:sb
+--type-set=proto:ext:proto
+--type-set=scap:ext:scap
