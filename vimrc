@@ -140,6 +140,7 @@ autocmd BufWritePost ~/.vimrc source ~/.vimrc
 " Extension specific settings
 "-----------------------------------------------------------------------------
 
+au BufRead,BufNewFile *.bco   set filetype=json
 au BufRead,BufNewFile *.proto set filetype=proto
 au BufRead,BufNewFile *.v.m4  set filetype=verilog
 au BufRead,BufNewFile *.v     set filetype=verilog
@@ -151,6 +152,9 @@ let g:load_doxygen_syntax=1
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
+
+autocmd FileType c setlocal foldmethod=syntax
+autocmd FileType cpp setlocal foldmethod=syntax
 
 "-----------------------------------------------------------------------------
 " Colorscheme settings
