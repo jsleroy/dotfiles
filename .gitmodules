@@ -21,3 +21,6 @@
 [submodule "vim/bundle/visual-star"]
 	path = vim/bundle/visual-star
 	url = git@github.com:bronson/vim-visual-star-search.git
+[submodule "vim/bundle/xoria256"]
+	path = vim/bundle/xoria256
+	url = git@github.com:vim-scripts/xoria256.vim.git
