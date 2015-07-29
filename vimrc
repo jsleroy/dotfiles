@@ -67,11 +67,6 @@ set listchars=tab:>-,trail:- " show tabs and trailing
 
 "Highlight current line/column
 set cursorline
-" if has("gui_running")
-"   set cursorline
-"   hi cursorline guibg=Grey10
-"   hi CursorColumn guibg=Grey10
-"endif
 
 " Always show the status line
 set laststatus=2
@@ -124,10 +119,6 @@ set smartindent
 set cindent
 set formatoptions=tcroq
 
-" set spell
-" set showcmd
-" set statusline=%f%m%r[%L][%04l,%04v]
-
 " Check file changes
 :au CursorHold * checktime
 
@@ -160,9 +151,7 @@ autocmd FileType cpp setlocal foldmethod=syntax
 " Colorscheme settings
 "-----------------------------------------------------------------------------
 
-" set background=dark
 set t_Co=256
-colorscheme xoria256
 " colorscheme darkmate
 " colorscheme inkpot
 
@@ -172,8 +161,10 @@ endif
 
 " GVIM settings
 if has("gui_running")
-    " Hide mouse cursor when typing
-    set mousehide
+  " Hide mouse cursor when typing
+  set mousehide
+else
+  set background=dark
 endif
 
 
