@@ -152,21 +152,13 @@ autocmd FileType cpp setlocal foldmethod=syntax
 "-----------------------------------------------------------------------------
 
 set t_Co=256
-" colorscheme darkmate
-" colorscheme inkpot
+colorscheme xoria256
 
 if has("gui")
-  set guifont=Monospace\ 9
-endif
-
-" GVIM settings
-if has("gui_running")
+  set guifont=DejaVu\ Sans\ Mono\ 9
   " Hide mouse cursor when typing
   set mousehide
-else
-  set background=dark
 endif
-
 
 "-----------------------------------------------------------------------------
 " Tagbar settings
