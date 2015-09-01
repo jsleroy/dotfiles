@@ -23,9 +23,6 @@ autocmd!
 
 syntax on
 syntax enable
-
-" Enable filetype plugin
-filetype on
 filetype indent on
 filetype plugin on
 
@@ -34,7 +31,7 @@ set mouse=a
 
 " Turn on command line completion wild style
 set wildmenu
-" set wildmode=longest:full
+set wildmode=longest:full
 " set wildmode=list:longest
 
 set hlsearch
@@ -59,7 +56,7 @@ set encoding=utf-8
 set suffixes=.bak,~,.swp,.o
 
 " Append line to keep windows synchronized and ignore whitespace differences
-set diffopt=filler,iwhite
+set diffopt=filler
 
 " Highlight special characters
 set list
@@ -119,6 +116,9 @@ set smartindent
 set cindent
 set formatoptions=tcroq
 
+"disable switch/case and namespace indent
+set cinoptions=l1,N-s
+
 " Check file changes
 :au CursorHold * checktime
 
@@ -126,6 +126,11 @@ set formatoptions=tcroq
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 
 :nmap <F1> <nop>
+
+set completeopt=menuone,longest,preview
+set pumheight=15
+" imap <Tab> <C-P>
+" let g:SuperTabDefaultCompletionType="context"
 
 "-----------------------------------------------------------------------------
 " Extension specific settings
@@ -140,12 +145,13 @@ au BufRead,BufNewFile *.sv    set filetype=systemverilog
 " Show doxygen syntax highligthing
 let g:load_doxygen_syntax=1
 
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
+au FileType python setl shiftwidth=4
+au FileType python setl tabstop=4
 
-autocmd FileType c setlocal foldmethod=syntax
-autocmd FileType cpp setlocal foldmethod=syntax
+au FileType verilog set textwidth=105
+
+au FileType c,cpp setl foldmethod=syntax
+au FileType c,cpp set textwidth=80
 
 "-----------------------------------------------------------------------------
 " Colorscheme settings
@@ -155,26 +161,12 @@ set t_Co=256
 colorscheme xoria256
 
 if has("gui")
+  set mousehide " hide mouse cursor when typing
+  set guioptions+=m  "show menu bar
+  set guioptions-=T  "hide toolbar
+  set guioptions-=r  "hide scrollbar
   set guifont=DejaVu\ Sans\ Mono\ 9
-  " Hide mouse cursor when typing
-  set mousehide
 endif
-
-"-----------------------------------------------------------------------------
-" Tagbar settings
-"-----------------------------------------------------------------------------
-
-let g:tagbar_usearrows = 1
-let g:tagbar_left = 1
-nnoremap <F2> :TagbarToggle<cr>
-
-
-"-----------------------------------------------------------------------------
-" Supertab settings
-"-----------------------------------------------------------------------------
-
-" lets SuperTab decide which completion mode to use
-let g:SuperTabDefaultCompletionType = "context"
 
 
 "-----------------------------------------------------------------------------
@@ -190,5 +182,4 @@ let g:airline_right_sep=''
 "-----------------------------------------------------------------------------
 
 let g:netrw_liststyle = 3
-
 let g:mwDefaultHighlightingPalette = 'extended'
