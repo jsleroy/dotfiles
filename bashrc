@@ -54,8 +54,8 @@ ulimit -c unlimited
 # PS1
 #------------------------------------------------------------
 
-unset PROMPT_COMMAND
-source ~/dotfiles/liquidprompt/liquidprompt
+# unset PROMPT_COMMAND
+source ~/dotfiles/ps1.sh
 
 #------------------------------------------------------------
 # ALIAS
