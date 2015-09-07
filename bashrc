@@ -1,9 +1,5 @@
 # .bashrc
 
-# default file creation permissuin
-# user = all; group = none; others = none
-umask 027
-
 export TERM=xterm-256color
 
 # Source global definitions
