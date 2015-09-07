@@ -7,6 +7,8 @@ pktoolsrc
 # Ignore all files in config/
 config/
 
+vim/bundle
+
 # Except the ones we explicitely wants to track
 !config/Terminal/terminalrc
 !config/openbox/

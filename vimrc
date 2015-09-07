@@ -1,37 +1,44 @@
-"-----------------------------------------------------------------------------
-"
-" .vimrc
-"
-"-----------------------------------------------------------------------------
-
-" Get out VI compatible mode
 set nocompatible
+filetype off
 
-" Pathogen plugin manager
-runtime bundle/pathogen/autoload/pathogen.vim
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Load plugins
-call pathogen#infect()
-call pathogen#helptags()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-scripts/xoria256.vim'
+Plugin 'bling/vim-airline'
+Plugin 'ervandew/supertab'
+Plugin 'gmarik/hlmatch.git'
+Plugin 'vim-scripts/Mark--Karkat'
+" mark
+
+call vundle#end()
+
+filetype plugin indent on
 
 "-----------------------------------------------------------------------------
 " General
 "-----------------------------------------------------------------------------
 
+" Automatic configuration reload
+autocmd BufWritePost ~/.vimrc source ~/.vimrc
+
+" Check file changes
+au CursorHold * checktime
+
 " Remove existing autocmd
-autocmd!
+" autocmd!
 
 syntax on
 syntax enable
-filetype indent on
-filetype plugin on
 
 " Mouse always enabled
 set mouse=a
 
 " Turn on command line completion wild style
 set wildmenu
-set wildmode=longest:full
+" set wildmode=longest:full
 " set wildmode=list:longest
 
 set hlsearch
@@ -92,11 +99,15 @@ set softtabstop=2
 set tabstop=2
 set lbr
 
+set splitbelow
+" set splitright
+
 " Keep each line on its own line
 set nowrap
 
-" Turn backup off
+" Turn backup and swap off
 set nobackup
+set noswapfile
 
 " Simple dialog and gui tabs
 set guioptions=aiceh
@@ -119,18 +130,13 @@ set formatoptions=tcroq
 "disable switch/case and namespace indent
 set cinoptions=l1,N-s
 
-" Check file changes
-:au CursorHold * checktime
-
-" Automatic configuration reload
-autocmd BufWritePost ~/.vimrc source ~/.vimrc
-
-:nmap <F1> <nop>
+nmap <F1> <nop>
 
 set completeopt=menuone,longest,preview
 set pumheight=15
-" imap <Tab> <C-P>
-" let g:SuperTabDefaultCompletionType="context"
+"imap <tab> <c-n>
+"imap <Tab> <C-P>
+let g:SuperTabDefaultCompletionType="context"
 
 "-----------------------------------------------------------------------------
 " Extension specific settings
@@ -153,6 +159,9 @@ au FileType verilog set textwidth=105
 au FileType c,cpp setl foldmethod=syntax
 au FileType c,cpp set textwidth=80
 
+augroup commit
+  autocmd FileType gitcommit,cvs setlocal spell textwidth=72 colorcolumn=73
+augroup END
 "-----------------------------------------------------------------------------
 " Colorscheme settings
 "-----------------------------------------------------------------------------
