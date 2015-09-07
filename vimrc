@@ -1,6 +1,11 @@
 set nocompatible
 filetype off
 
+if !isdirectory("~/.vim/bundle/Vundle.vim/.git")
+else
+  !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+endif
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -9,9 +14,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/xoria256.vim'
 Plugin 'bling/vim-airline'
 Plugin 'ervandew/supertab'
-Plugin 'gmarik/hlmatch.git'
+Plugin 'gmarik/hlmatch.vim'
 Plugin 'vim-scripts/Mark--Karkat'
-" mark
 
 call vundle#end()
 
