@@ -12,10 +12,12 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/xoria256.vim'
-Plugin 'bling/vim-airline'
 Plugin 'ervandew/supertab'
 Plugin 'gmarik/hlmatch.vim'
 Plugin 'vim-scripts/Mark--Karkat'
+" Plugin 'bling/vim-airline'
+Plugin 'edkolev/promptline.vim'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()
 
@@ -75,9 +77,6 @@ set listchars=tab:>-,trail:- " show tabs and trailing
 
 "Highlight current line/column
 set cursorline
-
-" Always show the status line
-set laststatus=2
 
 set lazyredraw
 
@@ -183,12 +182,15 @@ endif
 
 
 "-----------------------------------------------------------------------------
-" Airline settings
+" LightLine/Airline/Promptline settings
 "-----------------------------------------------------------------------------
 
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+set laststatus=2
 
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
+
+let g:promptline_powerline_symbols=0
 
 "-----------------------------------------------------------------------------
 " NetRW settings
