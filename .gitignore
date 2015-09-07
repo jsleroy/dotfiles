@@ -9,6 +9,8 @@ config/
 
 vim/bundle
 
+ps1.sh
+
 # Except the ones we explicitely wants to track
 !config/Terminal/terminalrc
 !config/openbox/

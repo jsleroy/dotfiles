@@ -15,9 +15,9 @@ Plugin 'vim-scripts/xoria256.vim'
 Plugin 'ervandew/supertab'
 Plugin 'gmarik/hlmatch.vim'
 Plugin 'vim-scripts/Mark--Karkat'
-" Plugin 'bling/vim-airline'
 Plugin 'edkolev/promptline.vim'
 Plugin 'itchyny/lightline.vim'
+" Plugin 'bling/vim-airline'
 
 call vundle#end()
 
@@ -163,7 +163,7 @@ au FileType c,cpp setl foldmethod=syntax
 au FileType c,cpp set textwidth=80
 
 augroup commit
-  autocmd FileType gitcommit,cvs setlocal spell textwidth=72 colorcolumn=73
+  autocmd FileType gitcommit,cvs setlocal spell textwidth=70 colorcolumn=71
 augroup END
 "-----------------------------------------------------------------------------
 " Colorscheme settings
@@ -191,6 +191,17 @@ set laststatus=2
 " let g:airline_right_sep=''
 
 let g:promptline_powerline_symbols=0
+
+let g:promptline_preset = {
+        \'a': [ promptline#slices#host(), promptline#slices#user() ],
+        \'b': [ '\w' ],
+        \'c' : [ promptline#slices#vcs_branch() ],
+        \'z' : [ '\$' ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
+
+if !filereadable($HOME . '/dotfiles/ps1.sh')
+  PromptlineSnapshot! ~/dotfiles/ps1.sh lightline
+endif
 
 "-----------------------------------------------------------------------------
 " NetRW settings
