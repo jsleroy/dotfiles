@@ -190,12 +190,16 @@ set laststatus=2
 " let g:airline_left_sep=''
 " let g:airline_right_sep=''
 
-let g:promptline_powerline_symbols=0
+" if $SESSION == "ubuntu"
+" else
+  let g:promptline_powerline_symbols=0
+" endif
 
 let g:promptline_preset = {
         \'a': [ promptline#slices#host(), promptline#slices#user() ],
         \'b': [ '\w' ],
-        \'c' : [ promptline#slices#vcs_branch() ],
+        \'c' : [ promptline#slices#vcs_branch(), ],
+        \'x' : [ promptline#slices#git_status(), ],
         \'z' : [ '\$' ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
