@@ -190,21 +190,18 @@ set laststatus=2
 " let g:airline_left_sep=''
 " let g:airline_right_sep=''
 
-" if $SESSION == "ubuntu"
-" else
-  let g:promptline_powerline_symbols=0
-" endif
-
+let g:promptline_powerline_symbols=0
+let g:promptline_symbols = { 'dir_sep' : '/' }
 let g:promptline_preset = {
         \'a': [ promptline#slices#host(), promptline#slices#user() ],
-        \'b': [ '\w' ],
+        \'b': [ promptline#slices#cwd() ],
         \'c' : [ promptline#slices#vcs_branch(), ],
         \'x' : [ promptline#slices#git_status(), ],
-        \'z' : [ '\$' ],
+        \'z' : [ '$' ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
-if !filereadable($HOME . '/dotfiles/ps1.sh')
-  PromptlineSnapshot! ~/dotfiles/ps1.sh lightline
+if !filereadable($HOME . '/dotfiles/promptline.sh')
+  PromptlineSnapshot! ~/dotfiles/promptline.sh lightline
 endif
 
 "-----------------------------------------------------------------------------
