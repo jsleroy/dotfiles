@@ -55,9 +55,7 @@ ulimit -c unlimited
 #------------------------------------------------------------
 
 eval `dircolors -b`
-
-# source ~/dotfiles/promptline.sh
-
+source ~/dotfiles/promptline.sh
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]:+${FUNCNAME[0]}():} '
 
 #------------------------------------------------------------
