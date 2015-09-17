@@ -54,14 +54,14 @@ ulimit -c unlimited
 # PS1
 #------------------------------------------------------------
 
-source ~/dotfiles/promptline.sh
+# source ~/dotfiles/promptline.sh
 
 #------------------------------------------------------------
 # ALIAS
 #------------------------------------------------------------
 
 if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
+    eval `dircolors -b`
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias grep='grep --color=auto'

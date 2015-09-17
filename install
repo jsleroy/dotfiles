@@ -1,18 +1,18 @@
 #!/bin/bash
 #-------------------------------------------------------------------------------
-#
-# Install script
-#
+# dotfiles installation script
 #-------------------------------------------------------------------------------
+
+set -e
 
 source install.rc
 
-# Include the UI library
-. libui-sh/libui.sh
-
 # Add script and configuration file to the exclude list
-name=$0
-EXCLUDE=( ${name##./} "install.rc" ${EXCLUDE[@]} )
+NAME=$0
+EXCLUDE=( ${NAME##./} install.rc ${EXCLUDE[@]} )
+
+echo ${EXCLUDE[@]}
+exit
 
 # Help message
 # Add this option
@@ -26,71 +26,49 @@ This script create symlinks in \$HOME for all files found in this directory.
 
 OPTIONS:
     -h       Show this message
-    -g       GUI mode
     -f       Force installation
-    -v       Verbose
+    -v       Increase verbosity
 EOF
 }
 
 VERBOSE=0
 FORCE=0
-UI="cli"
-
 FILES=`ls`
 
 # Parse command line options
 while getopts "vhfg" OPTION
 do
-     case $OPTION in
-         h)
-             usage
-             exit 1
-             ;;
-         f)
-             FORCE=1
-             ;;
-         v)
-             VERBOSE=1
-             ;;
-         g)
-             UI="dia"
-             ;;
-         ?)
-             usage
-             exit
-             ;;
-     esac
+  case $OPTION in
+    h) usage; exit 1 ;;
+    f) FORCE=1 ;;
+    v) VERBOSE=1 ;;
+    ?) usage; exit ;;
+  esac
 done
 
-# Setup the UI library
-libui_sh_init $UI
-
 # Remove in $FILES items from $EXCLUDE
-for exclude in ${EXCLUDE[@]}
-do
+for exclude in ${EXCLUDE[@]}; do
     FILES=`echo $FILES | sed "s/\b$exclude\b//g"`
 done
 
 # Installation
 for filename in $FILES
 do
-    dest=$HOME"/."$filename
-    src=`pwd`"/"$filename
+    src=$(readlink -f $(pwd)/$filename)
+    dst=$(readlink -f $HOME/.$filename)
 
-    inform "Installing $src"
+    echo $src "->" $dst
 
-    if [ -a $dest ]
-    then
-        if [ $FORCE -eq 0 ]
-        then
-            show_warning "File exists" $dest
-            ask_yesno "Overwrite ?" || continue
-        fi
-        echo "Deleting file"
-        rm -rf $dest
-    fi
+    # if [ -a $dst ]; then
+    #     if [ $FORCE -eq 0 ]; then
+    #         # show_warning "File exists" $dest
+    #         # ask_yesno "Overwrite ?" || continue
+    #     fi
+    #     echo "Deleting file"
+    #     rm -rf $dest
+    # fi
 
-    inform "Creating symlink $src to $dest"
-    ln -s $src $dest
+    # inform "Creating symlink $src to $dest"
+    # ln -s $src $dest
 done
 

@@ -15,9 +15,7 @@ Plugin 'vim-scripts/xoria256.vim'
 Plugin 'ervandew/supertab'
 Plugin 'gmarik/hlmatch.vim'
 Plugin 'vim-scripts/Mark--Karkat'
-Plugin 'edkolev/promptline.vim'
 Plugin 'itchyny/lightline.vim'
-" Plugin 'bling/vim-airline'
 
 call vundle#end()
 
@@ -133,6 +131,8 @@ set formatoptions=tcroq
 "disable switch/case and namespace indent
 set cinoptions=l1,N-s
 
+set laststatus=2
+
 nmap <F1> <nop>
 
 set completeopt=menuone,longest,preview
@@ -165,6 +165,7 @@ au FileType c,cpp set textwidth=80
 augroup commit
   autocmd FileType gitcommit,cvs setlocal spell textwidth=70 colorcolumn=71
 augroup END
+
 "-----------------------------------------------------------------------------
 " Colorscheme settings
 "-----------------------------------------------------------------------------
@@ -178,30 +179,6 @@ if has("gui")
   set guioptions-=T  "hide toolbar
   set guioptions-=r  "hide scrollbar
   set guifont=DejaVu\ Sans\ Mono\ 9
-endif
-
-
-"-----------------------------------------------------------------------------
-" LightLine/Airline/Promptline settings
-"-----------------------------------------------------------------------------
-
-set laststatus=2
-
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
-
-let g:promptline_powerline_symbols=0
-let g:promptline_symbols = { 'dir_sep' : '/' }
-let g:promptline_preset = {
-        \'a': [ promptline#slices#host(), promptline#slices#user() ],
-        \'b': [ promptline#slices#cwd() ],
-        \'c' : [ promptline#slices#vcs_branch(), ],
-        \'x' : [ promptline#slices#git_status(), ],
-        \'z' : [ '$' ],
-        \'warn' : [ promptline#slices#last_exit_code() ]}
-
-if !filereadable($HOME . '/dotfiles/promptline.sh')
-  PromptlineSnapshot! ~/dotfiles/promptline.sh lightline
 endif
 
 "-----------------------------------------------------------------------------
