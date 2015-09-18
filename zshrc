@@ -75,6 +75,8 @@ setopt menu_complete
 setopt correct
 setopt correctall
 
+zstyle ':completion:*' rehash true
+
 #-------------------------------------------------------------------------------
 # History
 #-------------------------------------------------------------------------------
@@ -133,116 +135,71 @@ setopt auto_param_slash
 # as candidates for resumption of an existing job.
 setopt auto_resume
 
+source $HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
+
+source $HOME/dotfiles/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# bind UP and DOWN arrow keys
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# bind UP and DOWN arrow keys (compatibility fallback
+# for Ubuntu 12.04, Fedora 21, and MacOSX 10.9 users)
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# bind P and N for EMACS mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 #-------------------------------------------------------------------------------
 # Prompt
 #-------------------------------------------------------------------------------
 
-autoload -Uz colors && colors
-autoload -Uz promptinit && promptinit
+autoload -Uz colors
+autoload -Uz vcs_info
 
 setopt prompt_subst
-source ~/.git-prompt.sh
+colors
 
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILE=1
-GIT_PS1_SHOWUPSTREAM="auto"
-GIT_PS1_STATESEPARATOR="|"
-GIT_PS1_DESCRIBE_STYLE="default"
-GIT_PS1_SHOWCOLORHINTS=1
+zstyle ':vcs_info:*' enable git svn hg
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' check-for-staged-changes true
 
-precmd() {
-  __git_ps1 "[%n@%m %~]" " %#%(?.. %?) "
+zstyle ':vcs_info:*' stagedstr   "%{$fg_no_bold[green]%}+%{$reset_color%}"
+zstyle ':vcs_info:*' unstagedstr "%{$fg_no_bold[red]%}-%{$reset_color%}"
+
+vcs_info_format="(%s:%{$fg_no_bold[yellow]%}%b%{$reset_color%}%u%c%m)"
+
+zstyle ':vcs_info:*' actionformats "${vcs_info_format}%{$fg_no_bold[red]%}%a%{$reset_color%}"
+zstyle ':vcs_info:*' formats       "${vcs_info_format}"
+
+precmd () {
+  vcs_info
+
+  [[ -n ${git_prompt} ]] && pwd_len=5 || pwd_len=3
+
+  header_prompt="[%n@%m]"
+  pwd_prompt="%{$fg_bold[white]%}%${pwd_len}~%{$reset_color%}"
+  git_prompt=${vcs_info_msg_0_}
+  status_prompt="%(?. . %{$fg_bold[red]%}%?%{$reset_color%} )"
 }
 
-# export PS1='[%n@%m %~]$(__git_ps1 " (%s)") %#%(?.. %?) '
+PS1='${header_prompt} ${pwd_prompt} ${git_prompt} %#${status_prompt}'
 
-# rst="%{$reset_color%}"
-# pcc[1]="%{$reset_color${fg_no_bold[red]}%}"
-# pcc[2]="%{$reset_color${fg_no_bold[magenta]}%}"
-# 
-# test -x $(which dircolors) && test -f ~/.dir_colors && eval "`dircolors -b ~/.dir_colors`"
-# 
-# #preexec
-# if [ "$TERM" != "linux" ]; then
-# 	preexec () {
-# 		print -Pn "\e]0;%n@%m: $1\a"
-# 	}
-# fi
-# 
-# precmd () {
-# 	if [ "$TERM" != "linux" ]; then
-# 		print -Pn "\e]0;%n@%m: %~\a"
-# 	fi
-# 
-# 	[ -n "$_VCSPROMPT_NONE" ] && return
-# 
-# 	local git_dir branch
-# 	psvar=()
-# 	if [ "$(git rev-parse --is-bare-repository 2>/dev/null)" = "false" ]; then
-# 		git_dir=$(git rev-parse --git-dir)
-# 		if [ -d "$git_dir/rebase-apply" ]; then
-# 			if [ -f "$git_dir/rebase-apply/rebasing" ]; then
-# 				psvar[2]="rebase"
-# 			elif [ -f "$git_dir/rebase-apply/applying" ]; then
-# 				psvar[2]="am"
-# 			else
-# 				psvar[2]="am/rebase"
-# 			fi
-# 			branch="$(git symbolic-ref HEAD 2>/dev/null)"
-# 		elif [ -d "$git_dir/rebase-merge/" ]; then
-# 			if [ -f "$git_dir/rebase-merge/interactive" ]; then
-# 				psvar[2]="rebase -i"
-# 			else
-# 				psvar[2]="rebase -m"
-# 			fi
-# 			read -r branch < "$git_dir/rebase-merge/head-name"
-# 		elif [ -f "$git_dir/MERGE_HEAD" ]; then
-# 			psvar[2]="merge"
-# 			branch="$(git symbolic-ref HEAD 2>/dev/null)"
-# 		else
-# 			test -f "$git_dir/BISECT_LOG" && psvar[2]="bisect"
-# 			branch="$(git symbolic-ref HEAD 2>/dev/null)" || \
-# 			  branch="$(git describe --exact-match HEAD 2>/dev/null)" || \
-# 			  branch="$(read -re -k 7 -u 0 < "$git_dir/HEAD")..."
-# 		fi
-# 		psvar[1]="${branch#refs/heads/}"
-# 
-# 		UC=""
-# 		if [ ! -n "$_VCSPROMPT_FAST" ]; then
-# 			git diff --exit-code > /dev/null 2>&1
-# 			[ $? -eq 1 ] && UC="*"
-# 		fi
-# 		git diff --cached --exit-code > /dev/null 2>&1
-# 		[ $? -eq 1 ] && UC="$UC+"
-# 		[ -n "$UC" ] && psvar[2]="${psvar[2]}$UC"
-# 	elif [ -d .svn ]; then
-# 		git_dir=$(svn info | grep Revision)
-# 		psvar[1]="svn|${git_dir/Revision: /r}"
-# 	fi
-# }
-# 
-# add_prompt=
-# 
-# if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-# 	debian_chroot=$(cat /etc/debian_chroot)
-# 	add_prompt=" $fg[green]${debian_chroot:+($debian_chroot)}$rst"
-# fi
-# 
-# [ -n "$SSH_CONNECTION" ] && add_prompt="${add_prompt} @%m"
-# 
-# if [ -n "$WINDOW" ]; then
-# 	screen_no=$(ls -1 /var/run/screen/S-$USER | grep -n $STY)
-# 	add_prompt="${add_prompt} (#${screen_no%:*}:${WINDOW})"
-# fi
-# 
-# if [ "`id -u`" -eq 0 ]; then
-# 	export PS1="[%T %~]%# "
-# else
-# 	export PS1="${pcc[1]}[%T${add_prompt-} ${pcc[2]}%~%(1v.:%U%1v%(2v.|%B%2v%b.)%u.)${pcc[1]}]%#$rst "
-# fi
-# 
-# unset pcc add_prompt rst debian_chroot screen_no
+unset vcs_info_format
+unset header_prompt
+unset git_prompt
+unset pwd_prompt
+unset status_prompt
+unset pwd_len
 
 #-------------------------------------------------------------------------------
 # Alias
