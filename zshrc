@@ -137,15 +137,26 @@ setopt auto_resume
 # Prompt
 #-------------------------------------------------------------------------------
 
-export ZLE_RPROMPT_INDENT=0
-export RPROMPT="%{*%}"
-
 autoload -Uz colors && colors
+autoload -Uz promptinit && promptinit
 
-source ~/dotfiles/promptline.sh
+setopt prompt_subst
+source ~/.git-prompt.sh
 
-# autoload -Uz promptinit && promptinit
-# 
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILE=1
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_STATESEPARATOR="|"
+GIT_PS1_DESCRIBE_STYLE="default"
+GIT_PS1_SHOWCOLORHINTS=1
+
+precmd() {
+  __git_ps1 "[%n@%m %~]" " %#%(?.. %?) "
+}
+
+# export PS1='[%n@%m %~]$(__git_ps1 " (%s)") %#%(?.. %?) '
+
 # rst="%{$reset_color%}"
 # pcc[1]="%{$reset_color${fg_no_bold[red]}%}"
 # pcc[2]="%{$reset_color${fg_no_bold[magenta]}%}"
