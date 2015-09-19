@@ -176,7 +176,7 @@ zstyle ':vcs_info:*' check-for-staged-changes true
 zstyle ':vcs_info:*' stagedstr   "%{$fg_no_bold[green]%}*%{$reset_color%}"
 zstyle ':vcs_info:*' unstagedstr "%{$fg_no_bold[red]%}*%{$reset_color%}"
 
-vcs_info_format="(%s:%{$fg_no_bold[yellow]%}%b%{$reset_color%}%u%c%m)"
+vcs_info_format="(%s:%{$fg_no_bold[cyan]%}%b%{$reset_color%}%u%c%m)"
 
 zstyle ':vcs_info:*' actionformats "${vcs_info_format}%{$fg_no_bold[red]%}%a%{$reset_color%}"
 zstyle ':vcs_info:*' formats       "${vcs_info_format}"
@@ -185,16 +185,22 @@ precmd () {
   vcs_info
 
   local pwd_len
-  [[ -n ${git_prompt} ]] && pwd_len=5 || pwd_len=3
+
+  if [[ -n ${vcs_info_msg_0_} ]]; then
+    pwd_len=5
+    git_prompt=" ${vcs_info_msg_0_} ±"
+  else
+    pwd_len=3
+    git_prompt=" %#"
+  fi
 
   local pwd_prompt="%{$fg_bold[white]%}%${pwd_len}~%{$reset_color%}"
 
-  header_prompt="%{$fg_bold[yellow]%}%t%{$reset_color%} [%n@%m ${pwd_prompt}]"
-  git_prompt=${vcs_info_msg_0_}
+  header_prompt="%{$fg_bold[yellow]%}%t%{$reset_color%} [%n@%U%m%u ${pwd_prompt}]"
   status_prompt="%(?. . %{$fg_bold[red]%}%?%{$reset_color%} )"
 }
 
-PS1='${header_prompt} ${git_prompt} %#${status_prompt}'
+PS1='${header_prompt}${git_prompt}${status_prompt}'
 
 unset vcs_info_format
 unset header_prompt
