@@ -7,7 +7,7 @@ pktoolsrc
 # Ignore all files in config/
 config/
 
-vim/bundle
+vim/
 
 ps1.sh
 
