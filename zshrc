@@ -46,11 +46,11 @@ zstyle ':completion:*' use-compctl false
 
 zstyle ':completion:*' menu select
 
-zstyle ':completion:*' format "%f%B--- %U%d%u%b"
-zstyle ':completion:*:corrections' format "%f%B--- %d (errors %e)%b"
-zstyle ':completion:*:descriptions' format "%f%B--- %d%b"
-zstyle ':completion:*:messages' format "%f%B%U--- %d%u%b"
-zstyle ':completion:*:warnings' format "%f%B%F{red}--- no match for: %f%d%b"
+zstyle ':completion:*' format "%B%F{white}--- %U%d%u%f%b"
+zstyle ':completion:*:corrections' format "%B%F{white}--- %d (errors %e)%f%b"
+zstyle ':completion:*:descriptions' format "%B%F{white}--- %d%f%b"
+zstyle ':completion:*:messages' format "%B%F{white}%U--- %d%u%f%b"
+zstyle ':completion:*:warnings' format "%B%F{red}--- no match for: %f%d%b"
 
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
@@ -168,10 +168,10 @@ zstyle ':vcs_info:*' enable git svn hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' check-for-staged-changes true
 
-zstyle ':vcs_info:*' stagedstr   "%F{green}*%f"
-zstyle ':vcs_info:*' unstagedstr "%F{red}*%f"
+zstyle ':vcs_info:*' stagedstr   "%B%F{green}*%f%b"
+zstyle ':vcs_info:*' unstagedstr "%B%F{red}*%f%b"
 
-vcs_info_format="(%s:%B%F{cyan}%b%%b%f%u%c%m)"
+vcs_info_format="(%s:%B%F{cyan}%b%f%%b%u%c%m)"
 
 zstyle ':vcs_info:*' actionformats "${vcs_info_format}%F{red}%a%f"
 zstyle ':vcs_info:*' formats       "${vcs_info_format}"
