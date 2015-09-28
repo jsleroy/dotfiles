@@ -29,9 +29,6 @@ ulimit -c unlimited
 
 autoload -Uz compinit && compinit
 
-# Completion cache
-rst="%{$reset_color%}"
-
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh_cache
 
@@ -49,11 +46,11 @@ zstyle ':completion:*' use-compctl false
 
 zstyle ':completion:*' menu select
 
-zstyle ':completion:*' format "$rst%B--- %U%d%u%b"
-zstyle ':completion:*:corrections' format "$rst%B--- %d (errors %e)%b"
-zstyle ':completion:*:descriptions' format "$rst%B--- %d%b"
-zstyle ':completion:*:messages' format "$rst%B%U--- %d%u%b"
-zstyle ':completion:*:warnings' format "$rst%B$fg[red]%}--- no match for: $fg[white]%d%b"
+zstyle ':completion:*' format "%f%B--- %U%d%u%b"
+zstyle ':completion:*:corrections' format "%f%B--- %d (errors %e)%b"
+zstyle ':completion:*:descriptions' format "%f%B--- %d%b"
+zstyle ':completion:*:messages' format "%f%B%U--- %d%u%b"
+zstyle ':completion:*:warnings' format "%f%B%F{red}--- no match for: %f%d%b"
 
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
@@ -67,8 +64,6 @@ zstyle ':completion:*:killall:*'   force-list always
 
 # Complete SSH hosts
 zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-
-unset rst
 
 setopt auto_menu
 setopt menu_complete
@@ -173,12 +168,12 @@ zstyle ':vcs_info:*' enable git svn hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' check-for-staged-changes true
 
-zstyle ':vcs_info:*' stagedstr   "%{$fg_no_bold[green]%}*%{$reset_color%}"
-zstyle ':vcs_info:*' unstagedstr "%{$fg_no_bold[red]%}*%{$reset_color%}"
+zstyle ':vcs_info:*' stagedstr   "%F{green}*%f"
+zstyle ':vcs_info:*' unstagedstr "%F{red}*%f"
 
-vcs_info_format="(%s:%{$fg_no_bold[cyan]%}%b%{$reset_color%}%u%c%m)"
+vcs_info_format="(%s:%B%F{cyan}%b%%b%f%u%c%m)"
 
-zstyle ':vcs_info:*' actionformats "${vcs_info_format}%{$fg_no_bold[red]%}%a%{$reset_color%}"
+zstyle ':vcs_info:*' actionformats "${vcs_info_format}%F{red}%a%f"
 zstyle ':vcs_info:*' formats       "${vcs_info_format}"
 
 precmd () {
@@ -194,10 +189,10 @@ precmd () {
     git_prompt=" %#"
   fi
 
-  local pwd_prompt="%{$fg_bold[white]%}%${pwd_len}~%{$reset_color%}"
+  local pwd_prompt="%B%F{white}%${pwd_len}~%f%b"
 
-  header_prompt="%{$fg_bold[yellow]%}%t%{$reset_color%} [%n@%U%m%u ${pwd_prompt}]"
-  status_prompt="%(?. . %{$fg_bold[red]%}%?%{$reset_color%} )"
+  header_prompt="%B%F{yellow}%t%f%b [%n@%U%m%u ${pwd_prompt}]"
+  status_prompt="%(?. . %B%F{red}%?%f%b )"
 }
 
 PS1='${header_prompt}${git_prompt}${status_prompt}'
