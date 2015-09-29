@@ -173,7 +173,7 @@ zstyle ':vcs_info:*' check-for-staged-changes true
 zstyle ':vcs_info:*' stagedstr   "%B%F{green}*%f%b"
 zstyle ':vcs_info:*' unstagedstr "%B%F{red}*%f%b"
 
-vcs_info_format="(%s:%B%F{cyan}%b%f%%b%u%c%m)"
+vcs_info_format="(%s:%F{cyan}%b%f%u%c%m)"
 
 zstyle ':vcs_info:*' actionformats "${vcs_info_format}%F{red}%a%f"
 zstyle ':vcs_info:*' formats       "${vcs_info_format}"
