@@ -53,7 +53,7 @@ do
 done
 
 # Installation
-for filename in $FILES
+for filename in ${FILES[@]}
 do
     src=$(readlink -f $(pwd)/$filename)
     dst=$HOME/.$filename
