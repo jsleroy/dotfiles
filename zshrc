@@ -8,7 +8,7 @@
 
 # Vi/Emacs mode
 # bindkey -v
-bindkey -e
+# bindkey -e
 
 # Core dumps
 ulimit -c unlimited

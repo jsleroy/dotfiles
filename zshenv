@@ -25,7 +25,7 @@ export MANPATH=$(MANPATH= manpath)
 export MANWIDTH=80
 export EDITOR=vim
 export VISUAL=$EDITOR
-export TERM=xterm-256color
+#export TERM=xterm-256color
 
 export FULLNAME="Albin Tonnerre"
 export EMAIL='albin.tonnerre@gmail.com'
