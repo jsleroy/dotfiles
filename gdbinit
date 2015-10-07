@@ -7,5 +7,5 @@
 # set print demangle on
 # set print asm-demangle on
 # set demangle-style auto
-set print object on
-set history save on
+# set print object on
+# set history save on
