@@ -154,11 +154,13 @@ autoload -Uz colors
 autoload -Uz vcs_info
 
 setopt prompt_subst
+
 colors
 
 zstyle ':vcs_info:*' enable git svn hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' check-for-staged-changes true
+zstyle ':vcs_info:*' get-revision true
 
 zstyle ':vcs_info:*' stagedstr   "%B%F{green}*%f%b"
 zstyle ':vcs_info:*' unstagedstr "%B%F{red}*%f%b"
@@ -168,31 +170,54 @@ vcs_info_format="(%s:%F{cyan}%b%f%u%c%m)"
 zstyle ':vcs_info:*' actionformats "${vcs_info_format}%F{red}%a%f"
 zstyle ':vcs_info:*' formats       "${vcs_info_format}"
 
+unset vcs_info_format
+
+zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
+
+# git: display untracked files
++vi-git-untracked() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+    git status --porcelain | grep '??' &> /dev/null ; then
+      #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
+      hook_com[staged]+='?'
+  fi
+}
+
+# git: compare local changes to remote changes
++vi-git-st() {
+  # local ahead behind
+  # local -a gitstatus
+
+  # for git < 1.7
+  # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
+  # ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+  # (( $ahead )) && gitstatus+=( "+${ahead}" )
+
+  # for git < 1.7
+  # behind=$(git rev-list HEAD..origin/${hook_com[branch]} | wc -l)
+  # behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+  # (( $behind )) && gitstatus+=( "-${behind}" )
+
+  # hook_com[misc]+=${(j:/:)gitstatus}
+}
+
 precmd () {
   vcs_info
 
-  local pwd_len
+  header_prompt="%B%F{yellow}%t%f%b [%n@%U%m%u %B%F{white}%${pwd_len}~%f%b]"
+  status_prompt="%(?. . %B%F{red}%?%f%b )"
 
   if [[ -n ${vcs_info_msg_0_} ]]; then
-    pwd_len=5
-    git_prompt=" ${vcs_info_msg_0_} ±"
-  else
     pwd_len=3
+    git_prompt=" ${vcs_info_msg_0_} %#"
+
+  else
+    pwd_len=6
     git_prompt=" %#"
   fi
 
-  local pwd_prompt="%B%F{white}%${pwd_len}~%f%b"
-
-  header_prompt="%B%F{yellow}%t%f%b [%n@%U%m%u ${pwd_prompt}]"
-  status_prompt="%(?. . %B%F{red}%?%f%b )"
+  PS1='${header_prompt}${git_prompt}${status_prompt}'
 }
-
-PS1='${header_prompt}${git_prompt}${status_prompt}'
-
-unset vcs_info_format
-unset header_prompt
-unset git_prompt
-unset status_prompt
 
 #-------------------------------------------------------------------------------
 # Alias

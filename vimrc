@@ -180,10 +180,3 @@ if has("gui")
   set guioptions-=r  "hide scrollbar
   set guifont=DejaVu\ Sans\ Mono\ 9
 endif
-
-"-----------------------------------------------------------------------------
-" NetRW settings
-"-----------------------------------------------------------------------------
-
-let g:netrw_liststyle = 3
-let g:mwDefaultHighlightingPalette = 'extended'
