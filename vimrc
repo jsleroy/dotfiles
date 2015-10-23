@@ -1,8 +1,8 @@
 set nocompatible
 filetype off
 
-if !isdirectory($HOME . '/.vim/bundle/vundle')
-  execute '!git clone https://github.com/VundleVim/Vundle.vim.git "' . $HOME . '/.vim/bundle/vundle"'
+if !isdirectory($HOME . '/.vim/bundle/Vundle.vim')
+  execute '!git clone https://github.com/VundleVim/Vundle.vim.git "' . $HOME . '/.vim/bundle/Vundle.vim"'
 endif
 
 " set the runtime path to include Vundle and initialize
