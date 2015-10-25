@@ -21,49 +21,43 @@ usage: $0 [OPTIONS]
 This script create symlinks in \$HOME for all files found in this directory.
 
 OPTIONS:
-    -h       Show this message
-    -f       Force installation
-    -v       Increase verbosity
+    -u  uninstall dotfiles
+    -v  increase verbosity
+    -h  show this message and exit
 EOF
 }
 
-VERBOSE=0
-FORCE=0
-FILES=`ls`
+UNINSTALL=0
 
 # Parse command line options
-while getopts "vhfg" OPTION
+while getopts "uvh" OPTION
 do
   case $OPTION in
-    h) usage; exit 1 ;;
-    f) FORCE=1 ;;
-    v) VERBOSE=1 ;;
-    ?) usage; exit ;;
+    u) UNINSTALL=1;;
+    v) set -x;;
+    h) usage; exit 0;;
+    ?) usage; exit 1;;
   esac
 done
 
-# Remove in $FILES items from $EXCLUDE
-# for exclude in ${EXCLUDE[@]}; do
-#     FILES=`echo $FILES | sed "s/\b$exclude\b//g"`
-# done
+FILES=`ls`
 
 for exclude in ${EXCLUDE[@]}
 do
    FILES=(${FILES[@]/$exclude})
 done
 
-# Installation
 for filename in ${FILES[@]}
 do
     src=$(readlink -f $(pwd)/$filename)
     dst=$HOME/.$filename
 
-    if [ -L $dst ]; then
+    if [ $UNINSTALL -eq 1 ]; then
       unlink $dst
-    elif [ -a $dst ]; then
-      mv $dst ${src}.old
+    else
+      [ -L $dst ] && unlink $dst
+      [ -a $dst ] && mv $dst ${src}.old
+      ln -s $src $dst
     fi
-
-    ln -s $src $dst
 done
 
