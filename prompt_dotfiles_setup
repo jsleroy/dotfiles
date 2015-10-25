@@ -1,0 +1,76 @@
+pmodload 'helper'
+
+function prompt_dotfiles_pwd {
+  local pwd="${PWD/#$HOME/~}"
+
+  if [[ "$pwd" == (#m)[/~] ]]; then
+    _prompt_dotfiles_pwd="$MATCH"
+    unset MATCH
+  else
+    _prompt_dotfiles_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
+  fi
+}
+
+function prompt_dotfiles_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  prompt_dotfiles_pwd
+
+  if (( $+functions[git-info] )); then
+    git-info
+  fi
+}
+
+function prompt_dotfiles_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling git-info before each command.
+  add-zsh-hook precmd prompt_dotfiles_precmd
+
+  # Set editor-info parameters.
+  zstyle ':prezto:module:editor:info:completing' \
+    format '%B%F{red}...%f%b'
+
+  zstyle ':prezto:module:editor:info:keymap:primary' \
+    format '%B%(?.%{%F{white}%} .%{%F{red}%} )❯%f%b'
+
+  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' \
+    format ' %F{red}!%f'
+
+  zstyle ':prezto:module:editor:info:keymap:alternate' format ' I'
+
+  # Set git-info parameters.
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:clean'      format '%F{green}'
+  zstyle ':prezto:module:git:info:dirty'      format '%F{red}'
+  zstyle ':prezto:module:git:info:action'     format ' %%B%F{yellow}%s%f%%b'
+  zstyle ':prezto:module:git:info:ahead'      format '+%A'
+  zstyle ':prezto:module:git:info:behind'     format '-%B'
+  zstyle ':prezto:module:git:info:added'      format '%%B%F{green}+%f%%b'
+  zstyle ':prezto:module:git:info:branch'     format '%b%f%%b'
+  zstyle ':prezto:module:git:info:commit'     format '%.7c'
+  zstyle ':prezto:module:git:info:position'   format '%p'
+  zstyle ':prezto:module:git:info:modified'   format '%%B%F{red}+%f%%b'
+  zstyle ':prezto:module:git:info:deleted'    format '%%B%F{red}-%f%%b'
+  zstyle ':prezto:module:git:info:stashed'    format '%%B%F{yellow}s%f%%b'
+  zstyle ':prezto:module:git:info:untracked'  format '%%B%F{red}.%f%%b'
+  zstyle ':prezto:module:git:info:keys'       format \
+    'prompt' ' (%C%D$(coalesce "%b" "%p" "%c") %A%B %S%a%d%m%r%U%u)%s'
+
+  PROMPT='[%n@%U%m%u] %B%F{white}${_prompt_dotfiles_pwd}%f%b${git_info:+${(e)git_info[prompt]}}${editor_info[keymap]} '
+  PROMPT2='... '
+  PROMPT3='(?) '
+
+  RPROMPT='${editor_info[overwrite]}${VIM:+" %B%F{green}V%f%b"}'
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_dotfiles_setup "$@"
+
+# vim: set ft=zsh:
