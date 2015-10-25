@@ -50,8 +50,8 @@ function prompt_dotfiles_setup {
   zstyle ':prezto:module:git:info:clean'      format '%F{green}'
   zstyle ':prezto:module:git:info:dirty'      format '%F{red}'
   zstyle ':prezto:module:git:info:action'     format ' %%B%F{yellow}%s%f%%b'
-  zstyle ':prezto:module:git:info:ahead'      format '+%A'
-  zstyle ':prezto:module:git:info:behind'     format '-%B'
+  zstyle ':prezto:module:git:info:ahead'      format ' +%A'
+  zstyle ':prezto:module:git:info:behind'     format ' -%B'
   zstyle ':prezto:module:git:info:added'      format '%%B%F{green}+%f%%b'
   zstyle ':prezto:module:git:info:branch'     format '%b%f%%b'
   zstyle ':prezto:module:git:info:commit'     format '%.7c'
@@ -61,7 +61,7 @@ function prompt_dotfiles_setup {
   zstyle ':prezto:module:git:info:stashed'    format '%%B%F{yellow}s%f%%b'
   zstyle ':prezto:module:git:info:untracked'  format '%%B%F{red}.%f%%b'
   zstyle ':prezto:module:git:info:keys'       format \
-    'prompt' ' (%C%D$(coalesce "%b" "%p" "%c") %A%B %S%a%d%m%r%U%u)%s'
+    'prompt' ' (%C%D$(coalesce "%b" "%p" "%c")%A%B%S%a%d%m%r%U%u)%s'
 
   PROMPT='[%n@%U%m%u] %B%F{white}${_prompt_dotfiles_pwd}%f%b${git_info:+${(e)git_info[prompt]}}${editor_info[keymap]} '
   PROMPT2='... '

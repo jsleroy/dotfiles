@@ -53,7 +53,7 @@ do
     dst=$HOME/.$filename
 
     if [ $UNINSTALL -eq 1 ]; then
-      unlink $dst
+      [ -L $dst ] && unlink $dst
     else
       [ -L $dst ] && unlink $dst
       [ -a $dst ] && mv $dst ${src}.old
