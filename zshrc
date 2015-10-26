@@ -28,7 +28,8 @@ if [[ ! -d $HOME/.zgen ]]; then
   git clone https://github.com/tarjoilija/zgen.git $HOME/.zgen
 fi
 
-ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local)
+ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
+[ -f $HOME/.zshrc.local ] && ZGEN_RESET_ON_CHANGE+=(${HOME}/.zshrc.local)
 
 source $HOME/.zgen/zgen.zsh
 
