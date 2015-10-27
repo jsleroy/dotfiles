@@ -1,15 +1,10 @@
-# Ignore PK configuration
-pktoolsrc
-
 # Ignore VIM swap files anywhere in the tree
 *.sw[opnm]
 
-# Ignore all files in config/
 config/
-
 vim/
 
-ps1.sh
+install.cache
 
 # Except the ones we explicitely wants to track
 !config/Terminal/terminalrc
