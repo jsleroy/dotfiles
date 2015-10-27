@@ -223,8 +223,8 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' check-for-staged-changes true
 zstyle ':vcs_info:*' get-revision true
 
-zstyle ':vcs_info:*' stagedstr   "%B$GREEN*$RST%b"
-zstyle ':vcs_info:*' unstagedstr "%B$RED*$RST%b"
+zstyle ':vcs_info:*' stagedstr   "%B$GREEN+$RST%b"
+zstyle ':vcs_info:*' unstagedstr "%B$RED+$RST%b"
 
 vcs_info_format="(%s:$CYAN%b$RST%u%c%m)"
 
@@ -240,7 +240,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
     git status --porcelain | grep '??' &> /dev/null ; then
       #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
-      hook_com[staged]+='?'
+      hook_com[staged]+="$RED~$RST"
   fi
 }
 
@@ -265,18 +265,16 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
 precmd () {
   vcs_info
 
-  pwdlen=6
-  git_prompt=""
-  header_prompt="%B$YELLOW%t$RST%b [%n@%U%m%u %B$WHITE%$pwdlen~$RST%b]"
+  header_prompt="%B$YELLOW%t$RST%b [%n@%U%m%u %B$WHITE%6~$RST%b]"
+  status_prompt="%B%(?.$WHITE.$RED)❯$RST%b"
 
   if [[ -n ${vcs_info_msg_0_} ]]; then
-    pwdlen=3
-    git_prompt=" ${vcs_info_msg_0_}"
+    git_prompt=" ${vcs_info_msg_0_} "
+  else
+    git_prompt=" "
   fi
 
-  status_prompt=" %B%(?.$WHITE.$RED)${PROMPT_SYMBOL:-❯}$RST%b "
-
-  PROMPT="${header_prompt}${git_prompt}${status_prompt}"
+  PROMPT="%{%f%b%k%}${header_prompt}${git_prompt}${status_prompt} "
   PROMPT2="%B$BLUE\`%_$RST%b> "
   PROMPT3="%B$BLUE?#$RST%b> "
   PROMPT4="%B+$BLUE%N:%i:%_$RST>%b "
