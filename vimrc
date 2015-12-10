@@ -144,17 +144,18 @@ let g:SuperTabDefaultCompletionType="context"
 " Extension specific settings
 "-----------------------------------------------------------------------------
 
+au BufRead,BufNewFile *.sb    set filetype=json
 au BufRead,BufNewFile *.bco   set filetype=json
 au BufRead,BufNewFile *.proto set filetype=proto
 au BufRead,BufNewFile *.v.m4  set filetype=verilog
 au BufRead,BufNewFile *.v     set filetype=verilog
-au BufRead,BufNewFile *.sv    set filetype=systemverilog
+au BufRead,BufNewFile *.sv    set filetype=verilog
 
 " Show doxygen syntax highligthing
 let g:load_doxygen_syntax=1
 
-au FileType python setl shiftwidth=4
-au FileType python setl tabstop=4
+au FileType python setl shiftwidth=2
+au FileType python setl tabstop=2
 
 au FileType verilog set textwidth=105
 
