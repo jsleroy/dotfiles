@@ -51,24 +51,24 @@ ulimit -c unlimited
 [ -f $HOME/.pystartup ] && export PYTHONSTARTUP=$HOME/.pystartup
 
 #------------------------------------------------------------
-# PS1
+# PROMPT
 #------------------------------------------------------------
 
+eval `dircolors -b`
+
 # source ~/dotfiles/promptline.sh
+
+export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]:+${FUNCNAME[0]}():} '
 
 #------------------------------------------------------------
 # ALIAS
 #------------------------------------------------------------
 
-if [ -x /usr/bin/dircolors ]; then
-    eval `dircolors -b`
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
