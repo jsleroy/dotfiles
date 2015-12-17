@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
-
 autoload -U is-at-least
 
 #-------------------------------------------------------------------------------
@@ -21,25 +19,39 @@ if is-at-least 5.0; then
       zgen oh-my-zsh
 
       zgen oh-my-zsh plugins/git
-      zgen oh-my-zsh plugins/sudo
       zgen oh-my-zsh plugin/colored-man-pages
+      # zgen oh-my-zsh plugins/sudo
       # zgen oh-my-zsh plugins/command-not-found
 
-      zgen load zsh-users/zsh-syntax-highlighting
       zgen load zsh-users/zsh-completions src
+      # zgen load tarruda/zsh-autosuggestions
+      zgen load zsh-users/zsh-syntax-highlighting
       zgen load zsh-users/zsh-history-substring-search
-
       zgen load chrissicool/zsh-256color
 
       zgen save
   fi
+
+  # # Enable autosuggestions automatically.
+  # zle-line-init() {
+  #     zle autosuggest-start
+  # }
+  # zle -N zle-line-init
 fi
+
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
 #-------------------------------------------------------------------------------
 # Alias
 #-------------------------------------------------------------------------------
 
 alias ls='ls --color=auto --human-readable --classify'
+
+#-------------------------------------------------------------------------------
+# Oh-my-zsh
+#-------------------------------------------------------------------------------
+DISABLE_AUTO_TITLE="true"
+COMPLETION_WAITING_DOTS="true"
 
 #-------------------------------------------------------------------------------
 # Misc
