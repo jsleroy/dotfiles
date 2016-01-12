@@ -2,6 +2,8 @@
 
 autoload -U is-at-least
 
+eval $(dircolors -b)
+
 #-------------------------------------------------------------------------------
 # Zgen plugin manager
 #-------------------------------------------------------------------------------
@@ -43,12 +45,6 @@ fi
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
 #-------------------------------------------------------------------------------
-# Alias
-#-------------------------------------------------------------------------------
-
-alias ls='ls --color=auto --human-readable --classify'
-
-#-------------------------------------------------------------------------------
 # Oh-my-zsh
 #-------------------------------------------------------------------------------
 DISABLE_AUTO_TITLE="true"
@@ -57,10 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 #-------------------------------------------------------------------------------
 # Misc
 #-------------------------------------------------------------------------------
-PROMPT_EOL_MARK=''
-
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}"  end-of-line
+PROMPT_EOL_MARK=""
 
 # zmv - a command for renaming files by means of shell patterns
 # http://zshwiki.org/home/builtin/functions/zmv
@@ -73,8 +66,6 @@ bindkey "${terminfo[kend]}"  end-of-line
 
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
-
-# eval $(dircolors -b)
 
 # cd will never select the parent directory (e.g.: cd ../<TAB>)
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
@@ -291,3 +282,9 @@ precmd () {
   PROMPT4="%B+$BLUE%N:%i:%_$RST>%b "
   RPROMPT=""
 }
+
+#-------------------------------------------------------------------------------
+# Keys
+#-------------------------------------------------------------------------------
+bindkey $key[Home] "^[OH" beginning-of-line
+bindkey $key[End] "^[OF" end-of-line
