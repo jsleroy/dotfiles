@@ -47,4 +47,3 @@ set filec		# filename complettion
 set norebind		
 
 set prompt="%{\033[00;33m%}%B[%h] %{\033[00;37m%}%.2%{\033[01;35m%}%# "
-

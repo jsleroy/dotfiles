@@ -24,10 +24,11 @@ if is-at-least 5.0; then
       # zgen oh-my-zsh plugins/command-not-found
 
       zgen load zsh-users/zsh-completions src
-      # zgen load tarruda/zsh-autosuggestions
       zgen load zsh-users/zsh-syntax-highlighting
       zgen load zsh-users/zsh-history-substring-search
-      zgen load chrissicool/zsh-256color
+
+      # zgen load tarruda/zsh-autosuggestions
+      # zgen load chrissicool/zsh-256color
 
       zgen save
   fi
@@ -56,20 +57,24 @@ COMPLETION_WAITING_DOTS="true"
 #-------------------------------------------------------------------------------
 # Misc
 #-------------------------------------------------------------------------------
+PROMPT_EOL_MARK=''
+
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}"  end-of-line
 
 # zmv - a command for renaming files by means of shell patterns
 # http://zshwiki.org/home/builtin/functions/zmv
-autoload -U zmv
-alias zmv='noglob zmv -W'
+# autoload -U zmv
+# alias zmv='noglob zmv -W'
 
 # zargs -  an alternative to find -exec and xargs
 # http://zshwiki.org/home/builtin/functions/zargs
-autoload -U zargs
+# autoload -U zargs
 
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
 
-eval $(dircolors -b)
+# eval $(dircolors -b)
 
 # cd will never select the parent directory (e.g.: cd ../<TAB>)
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
@@ -104,12 +109,6 @@ unsetopt share_history
 # TODO: move in a separate zshrc ?
 #-------------------------------------------------------------------------------
 if ! is-at-least 5.0; then
-  bindkey "^[[1~" beginning-of-line # home key
-  bindkey "^[[4~" end-of-line # end key
-  bindkey "^[[3~" delete-char # del key
-  bindkey "^[[A" history-beginning-search-backward
-  bindkey "^[[B" history-beginning-search-forward
-
   # ignore lines prefixed with '#'.
   setopt interactivecomments
 
