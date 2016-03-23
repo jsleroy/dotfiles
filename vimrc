@@ -1,8 +1,10 @@
 set nocompatible
 filetype off
 
-if !isdirectory($HOME . '/.vim/bundle/Vundle.vim')
-  execute '!git clone https://github.com/VundleVim/Vundle.vim.git "' . $HOME . '/.vim/bundle/Vundle.vim"'
+let bootstrap = !isdirectory($HOME . '/.vim/bundle/Vundle.vim')
+
+if bootstrap
+  !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 endif
 
 " set the runtime path to include Vundle and initialize
@@ -15,6 +17,11 @@ Plugin 'ervandew/supertab'
 Plugin 'gmarik/hlmatch.vim'
 Plugin 'vim-scripts/Mark--Karkat'
 Plugin 'itchyny/lightline.vim'
+Plugin 'vim-scripts/Align'
+
+if bootstrap
+  :PluginInstall
+endif
 
 call vundle#end()
 

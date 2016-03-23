@@ -57,8 +57,8 @@ PROMPT_EOL_MARK=""
 
 # zmv - a command for renaming files by means of shell patterns
 # http://zshwiki.org/home/builtin/functions/zmv
-# autoload -U zmv
-# alias zmv='noglob zmv -W'
+autoload -U zmv
+alias zmv='noglob zmv -W'
 
 # zargs -  an alternative to find -exec and xargs
 # http://zshwiki.org/home/builtin/functions/zargs
@@ -286,5 +286,5 @@ precmd () {
 #-------------------------------------------------------------------------------
 # Keys
 #-------------------------------------------------------------------------------
-bindkey $key[Home] "^[OH" beginning-of-line
-bindkey $key[End] "^[OF" end-of-line
+bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line

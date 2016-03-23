@@ -2,15 +2,11 @@
 # ~/.cshrc
 #
 
-if (($?prompt) || !($?term) || ($?SSH_CLIENT)) then
-    set remote
-endif
+unset autologout
+
+if (!($?prompt) || !($?term)) exit 0
 
 source ~/.cshrc.arm
-
-alias ls="ls --color=auto -h" #enable thousands grouping and colour
-alias ll='ls -l'
-alias lla='ls -l -A'
 
 ######################################################
 #       Customization                                #
@@ -28,7 +24,6 @@ set nobeep
 set rmstar
 set symlinks=ignore
 set addsuffix		# add / to directories, ' ' otherwise, for file completion
-set autocorrect	        # correct mis-spelled path components before completion
 set autoexpand	        # invoke expand-history function automatically
 unset autologout	# autologout after <parm1> mins
 #set chase_symlinks	# resolve links on cd etc
@@ -46,4 +41,9 @@ set ignoreeof		# stop EOF shell logout
 set filec		# filename complettion
 set norebind		
 
+alias ls "ls --color=auto -h" #enable thousands grouping and colour
+alias ll 'ls -l'
+alias lla 'ls -l -A'
+
 set prompt="%{\033[00;33m%}%B[%h] %{\033[00;37m%}%.2%{\033[01;35m%}%# "
+# set prompt = `hostname`:`whoami`" \! > "
