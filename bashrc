@@ -13,6 +13,18 @@ export LC_ALL=en_US.utf-8
 [[ $- != *i* ]] && return
 
 #------------------------------------------------------------
+# PROMPT
+#------------------------------------------------------------
+plugin=~/.liquidprompt
+
+if [ ! -d $plugin ] || test $(ls -A $plugin > /dev/null); then
+  mkdir -p $plugin
+  git clone https://github.com/nojhan/liquidprompt.git $plugin
+fi
+
+source $plugin/liquidprompt
+
+#------------------------------------------------------------
 # SETTINGS
 #------------------------------------------------------------
 
