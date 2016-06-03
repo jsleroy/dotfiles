@@ -32,6 +32,8 @@ if is-at-least 5.0; then
       # zgen load tarruda/zsh-autosuggestions
       # zgen load chrissicool/zsh-256color
 
+      zgen load nojhan/liquidprompt
+
       zgen save
   fi
 
@@ -192,96 +194,6 @@ autoload -Uz colors && colors
 # turn on command substitution in the prompt (and parameter expansion and
 # arithmetic expansion)
 setopt prompt_subst
-
-if is-at-least 4.3.7; then
-  BLUE="%F{blue}"
-  RED="%F{red}"
-  GREEN="%F{green}"
-  CYAN="%F{cyan}"
-  MAGENTA="%F{magenta}"
-  YELLOW="%F{yellow}"
-  WHITE="%F{white}"
-  RST="%f"
-else
-  BLUE="%{${fg[blue]}%}"
-  RED="%{${fg_bold[red]}%}"
-  GREEN="%{${fg[green]}%}"
-  CYAN="%{${fg[cyan]}%}"
-  MAGENTA="%{${fg[magenta]}%}"
-  YELLOW="%{${fg[yellow]}%}"
-  WHITE="%{${fg[white]}%}"
-  RST="%{${reset_color}%}"
-fi
-
-# fallback vcs_info function
-if is-at-least 4.3.0; then
-  autoload -U vcs_info
-else
-  vcs_info() { return "" }
-fi
-
-zstyle ':vcs_info:*' enable git svn hg
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' check-for-staged-changes true
-zstyle ':vcs_info:*' get-revision true
-
-zstyle ':vcs_info:*' stagedstr   "%B$GREEN+$RST%b"
-zstyle ':vcs_info:*' unstagedstr "%B$RED+$RST%b"
-
-vcs_info_format="(%s:$CYAN%b$RST%u%c%m)"
-
-zstyle ':vcs_info:*' actionformats "${vcs_info_format} $RED%a$RST"
-zstyle ':vcs_info:*' formats       "${vcs_info_format}"
-
-unset vcs_info_format
-
-zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
-
-# git: display untracked files
-+vi-git-untracked() {
-  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-    git status --porcelain | grep '??' &> /dev/null ; then
-      #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
-      hook_com[staged]+="$RED~$RST"
-  fi
-}
-
-# git: compare local changes to remote changes
-+vi-git-st() {
-  # local ahead behind
-  # local -a gitstatus
-
-  # for git < 1.7
-  # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
-  # ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
-  # (( $ahead )) && gitstatus+=( "+${ahead}" )
-
-  # for git < 1.7
-  # behind=$(git rev-list HEAD..origin/${hook_com[branch]} | wc -l)
-  # behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
-  # (( $behind )) && gitstatus+=( "-${behind}" )
-
-  # hook_com[misc]+=${(j:/:)gitstatus}
-}
-
-precmd () {
-  vcs_info
-
-  header_prompt="%B$YELLOW%t$RST%b [%n@%U%m%u %B$WHITE%6~$RST%b]"
-  status_prompt="%B%(?.$WHITE.$RED)❯$RST%b"
-
-  if [[ -n ${vcs_info_msg_0_} ]]; then
-    git_prompt=" ${vcs_info_msg_0_} "
-  else
-    git_prompt=" "
-  fi
-
-  PROMPT="%{%f%b%k%}${header_prompt}${git_prompt}${status_prompt} "
-  PROMPT2="%B$BLUE\`%_$RST%b> "
-  PROMPT3="%B$BLUE?#$RST%b> "
-  PROMPT4="%B+$BLUE%N:%i:%_$RST>%b "
-  RPROMPT=""
-}
 
 #-------------------------------------------------------------------------------
 # Keys
