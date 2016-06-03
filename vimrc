@@ -31,6 +31,9 @@ filetype plugin indent on
 " General
 "-----------------------------------------------------------------------------
 
+" set exrc
+" set secure
+
 " Automatic configuration reload
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 
