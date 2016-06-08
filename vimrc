@@ -195,7 +195,7 @@ colorscheme xoria256
 if has("gui")
   set mousehide " hide mouse cursor when typing
   set guioptions+=m  "show menu bar
-  " set guioptions-=T  "hide toolbar
+  set guioptions-=T  "hide toolbar
   set guioptions-=r  "hide scrollbar
   set guifont=DejaVu\ Sans\ Mono\ 9
 endif
