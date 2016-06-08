@@ -1,6 +1,10 @@
 set nocompatible
 filetype off
 
+"-----------------------------------------------------------------------------
+" Plugins
+"-----------------------------------------------------------------------------
+
 let bootstrap = !isdirectory($HOME . '/.vim/bundle/Vundle.vim')
 
 if bootstrap
@@ -12,12 +16,13 @@ set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-sensible'
 Plugin 'vim-scripts/xoria256.vim'
 Plugin 'ervandew/supertab'
-Plugin 'gmarik/hlmatch.vim'
 Plugin 'vim-scripts/Mark--Karkat'
 Plugin 'itchyny/lightline.vim'
 Plugin 'vim-scripts/Align'
+" Plugin 'gmarik/hlmatch.vim'
 
 if bootstrap
   :PluginInstall
@@ -25,45 +30,55 @@ endif
 
 call vundle#end()
 
-filetype plugin indent on
-
 "-----------------------------------------------------------------------------
 " General
 "-----------------------------------------------------------------------------
 
-" set exrc
-" set secure
-
 " Automatic configuration reload
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
+
+syntax on
 
 " Check file changes
 au CursorHold * checktime
 
-" Remove existing autocmd
-" autocmd!
-
-syntax on
-syntax enable
-
 " Mouse always enabled
 set mouse=a
 
+" Highlight search
+set hlsearch
+
+"-----------------------------------------------------------------------------
+" Settings defined in vim-sensible
+"-----------------------------------------------------------------------------
+"
+"filetype plugin indent on
+"syntax enable
+"
+" Make backspace a bit more flexible
+" set backspace=indent,eol,start
+"
 " Turn on command line completion wild style
-set wildmenu
+" set wildmenu
 " set wildmode=longest:full
 " set wildmode=list:longest
-
-set hlsearch
-set incsearch
-
-" Make backspace a bit more flexible
-set backspace=indent,eol,start
+"
+" set incsearch
+"
+" set laststatus=2
+"
+" Always show current position
+" set ruler
+"
+" Set number of history lines
+" set history=400
+"
+" set autoindent
+"-----------------------------------------------------------------------------
 
 " Don't make noise
 set noerrorbells
 set novisualbell
-set ttyfast
 
 " Set text width and color last column
 set textwidth=80
@@ -82,17 +97,12 @@ set diffopt=filler
 set list
 set listchars=tab:>-,trail:- " show tabs and trailing
 
-"Highlight current line/column
+" Highlight current line/column
 set cursorline
-
-set lazyredraw
 
 " Show line number (up to 9999)
 set number
 set numberwidth=4
-
-" Always show current position
-set ruler
 
 " Minimum number of lines to keep above and below the cursor
 set scrolloff=4
@@ -110,7 +120,6 @@ set tabstop=2
 set lbr
 
 set splitbelow
-" set splitright
 
 " Keep each line on its own line
 set nowrap
@@ -122,47 +131,50 @@ set noswapfile
 " Simple dialog and gui tabs
 set guioptions=aiceh
 
-" Set number of history lines
-set history=400
-
 " The commandbar is 1 lines high
 set cmdheight=1
 
 " Set magic on
 set magic
 
-" Indent
-set autoindent
-set smartindent
-set cindent
-set formatoptions=tcroq
+" Disable namespace indentation
+set cinoptions=N-s
 
-"disable switch/case and namespace indent
-set cinoptions=l1,N-s
-
-set laststatus=2
-
+" Disable F1 key - conflict with 'help' terminal shortcut
 nmap <F1> <nop>
 
 set completeopt=menuone,longest,preview
 set pumheight=15
 "imap <tab> <c-n>
 "imap <Tab> <C-P>
-let g:SuperTabDefaultCompletionType="context"
+
+" let g:SuperTabDefaultCompletionType="context"
+
+" Show doxygen syntax highligthing
+let g:load_doxygen_syntax=1
+
+"-----------------------------------------------------------------------------
+" Disabled settings
+"-----------------------------------------------------------------------------
+" set ttyfast
+" set lazyredraw
+" set splitright
+"
+" Indent
+" set smartindent
+" set cindent
+" set formatoptions=tcroq
 
 "-----------------------------------------------------------------------------
 " Extension specific settings
 "-----------------------------------------------------------------------------
 
-au BufRead,BufNewFile *.sb    set filetype=json
-au BufRead,BufNewFile *.bco   set filetype=json
+au BufRead,BufNewFile *.sb    set filetype=javascript
+au BufRead,BufNewFile *.bco   set filetype=javascript
 au BufRead,BufNewFile *.proto set filetype=proto
 au BufRead,BufNewFile *.v.m4  set filetype=verilog
 au BufRead,BufNewFile *.v     set filetype=verilog
 au BufRead,BufNewFile *.sv    set filetype=verilog
-
-" Show doxygen syntax highligthing
-let g:load_doxygen_syntax=1
 
 au FileType python setl shiftwidth=4
 au FileType python setl tabstop=4
@@ -170,7 +182,6 @@ au FileType python setl tabstop=4
 au FileType verilog set textwidth=105
 
 au FileType c,cpp setl foldmethod=syntax
-au FileType c,cpp set textwidth=80
 
 augroup commit
   autocmd FileType gitcommit,cvs setlocal spell textwidth=70 colorcolumn=71
@@ -186,7 +197,7 @@ colorscheme xoria256
 if has("gui")
   set mousehide " hide mouse cursor when typing
   set guioptions+=m  "show menu bar
-  set guioptions-=T  "hide toolbar
+  " set guioptions-=T  "hide toolbar
   set guioptions-=r  "hide scrollbar
   set guifont=DejaVu\ Sans\ Mono\ 9
 endif
