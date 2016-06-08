@@ -1,38 +1,35 @@
-set nocompatible
-filetype off
-
 "-----------------------------------------------------------------------------
 " Plugins
 "-----------------------------------------------------------------------------
 
-let bootstrap = !isdirectory($HOME . '/.vim/bundle/Vundle.vim')
+let bootstrap = empty(glob('~/.vim/autoload/plug.vim'))
 
 if bootstrap
-  !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-sensible'
-Plugin 'vim-scripts/xoria256.vim'
-Plugin 'ervandew/supertab'
-Plugin 'vim-scripts/Mark--Karkat'
-Plugin 'itchyny/lightline.vim'
-Plugin 'vim-scripts/Align'
-" Plugin 'gmarik/hlmatch.vim'
+call plug#begin('~/.vim/bundle')
+Plug 'tpope/vim-sensible'
+Plug 'vim-scripts/xoria256.vim'
+Plug 'ervandew/supertab'
+Plug 'vim-scripts/Mark--Karkat'
+Plug 'itchyny/lightline.vim'
+Plug 'vim-scripts/Align', { 'on': 'Align' }
+" Plug 'gmarik/hlmatch.vim'
+call plug#end()
 
 if bootstrap
-  :PluginInstall
-endif
-
-call vundle#end()
+  PlugInstall
+end
 
 "-----------------------------------------------------------------------------
 " General
 "-----------------------------------------------------------------------------
+
+" vi improved
+set nocompatible
 
 " Automatic configuration reload
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
@@ -51,7 +48,7 @@ set hlsearch
 "-----------------------------------------------------------------------------
 " Settings defined in vim-sensible
 "-----------------------------------------------------------------------------
-"
+
 "filetype plugin indent on
 "syntax enable
 "
@@ -156,6 +153,7 @@ let g:load_doxygen_syntax=1
 "-----------------------------------------------------------------------------
 " Disabled settings
 "-----------------------------------------------------------------------------
+
 " set ttyfast
 " set lazyredraw
 " set splitright
