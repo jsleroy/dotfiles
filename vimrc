@@ -117,6 +117,7 @@ set tabstop=2
 set lbr
 
 set splitbelow
+set splitright
 
 " Keep each line on its own line
 set nowrap
@@ -156,7 +157,6 @@ let g:load_doxygen_syntax=1
 
 " set ttyfast
 " set lazyredraw
-" set splitright
 "
 " Indent
 " set smartindent
