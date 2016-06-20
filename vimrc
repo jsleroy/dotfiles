@@ -16,6 +16,7 @@ Plug 'vim-scripts/xoria256.vim'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
 Plug 'itchyny/lightline.vim'
+Plug 'vim-scripts/gprof.vim'
 Plug 'vim-scripts/Align', { 'on': 'Align' }
 " Plug 'gmarik/hlmatch.vim'
 call plug#end()
@@ -176,10 +177,6 @@ au BufRead,BufNewFile *.sv    set filetype=verilog
 
 au FileType python setl shiftwidth=4
 au FileType python setl tabstop=4
-
-au FileType verilog set textwidth=105
-
-au FileType c,cpp setl foldmethod=syntax
 
 augroup commit
   autocmd FileType gitcommit,cvs setlocal spell textwidth=70 colorcolumn=71
