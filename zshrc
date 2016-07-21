@@ -97,6 +97,9 @@ setopt hash_list_all
 # don't share history
 unsetopt share_history
 
+# don't exist interactive sessions
+set ignoreeof on
+
 #-------------------------------------------------------------------------------
 # Configuration settings for zsh < 5.0
 # TODO: move in a separate zshrc ?

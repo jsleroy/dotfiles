@@ -18,6 +18,7 @@ Plug 'vim-scripts/Mark--Karkat'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/gprof.vim'
 Plug 'vim-scripts/Align', { 'on': 'Align' }
+Plug 'vim-scripts/Mixed-sourceassembly-syntax-objdump'
 " Plug 'gmarik/hlmatch.vim'
 call plug#end()
 
