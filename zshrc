@@ -29,6 +29,8 @@ if is-at-least 5.0; then
       zgen load zsh-users/zsh-syntax-highlighting
       zgen load zsh-users/zsh-history-substring-search
 
+      zgen load djui/alias-tips
+
       # zgen load tarruda/zsh-autosuggestions
       # zgen load chrissicool/zsh-256color
 
