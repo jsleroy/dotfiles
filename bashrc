@@ -86,3 +86,5 @@ alias mozilla='firefox'
 lsext() {
   find $1 -type f | cut -d '.' -f2- | sort -u
 }
+
+umask 007

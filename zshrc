@@ -205,3 +205,5 @@ setopt prompt_subst
 #-------------------------------------------------------------------------------
 bindkey "^[OH" beginning-of-line
 bindkey "^[OF" end-of-line
+
+umask 007
