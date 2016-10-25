@@ -9,3 +9,4 @@
 # set demangle-style auto
 # set print object on
 # set history save on
+set auto-load safe-path /
