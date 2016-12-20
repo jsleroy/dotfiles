@@ -12,14 +12,14 @@ endif
 
 call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-sensible'
-Plug 'vim-scripts/xoria256.vim'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/gprof.vim'
 Plug 'vim-scripts/Align', { 'on': 'Align' }
 Plug 'vim-scripts/Mixed-sourceassembly-syntax-objdump'
-" Plug 'gmarik/hlmatch.vim'
+Plug 'vim-scripts/xoria256.vim'
+
 call plug#end()
 
 if bootstrap
@@ -145,25 +145,9 @@ nmap <F1> <nop>
 
 set completeopt=menuone,longest,preview
 set pumheight=15
-"imap <tab> <c-n>
-"imap <Tab> <C-P>
-
-" let g:SuperTabDefaultCompletionType="context"
 
 " Show doxygen syntax highligthing
 let g:load_doxygen_syntax=1
-
-"-----------------------------------------------------------------------------
-" Disabled settings
-"-----------------------------------------------------------------------------
-
-" set ttyfast
-" set lazyredraw
-"
-" Indent
-" set smartindent
-" set cindent
-" set formatoptions=tcroq
 
 "-----------------------------------------------------------------------------
 " Extension specific settings
@@ -191,9 +175,13 @@ set t_Co=256
 colorscheme xoria256
 
 if has("gui")
-  set mousehide " hide mouse cursor when typing
-  set guioptions+=m  "show menu bar
-  set guioptions-=T  "hide toolbar
-  set guioptions-=r  "hide scrollbar
+  set mousehide     " hide mouse cursor when typing
+  set guioptions+=m " show menu bar
+  set guioptions-=T " show toolbar
+  set guioptions-=r " hide scrollbar
   set guifont=DejaVu\ Sans\ Mono\ 9
 endif
+
+nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
+nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
