@@ -20,19 +20,15 @@ if is-at-least 5.0; then
   if ! zgen saved; then
       zgen oh-my-zsh
 
-      zgen oh-my-zsh plugins/git
-      zgen oh-my-zsh plugin/colored-man-pages
-      # zgen oh-my-zsh plugins/sudo
-      # zgen oh-my-zsh plugins/command-not-found
-
-      zgen load zsh-users/zsh-completions src
+      zgen load zsh-users/zsh-completions # src
       zgen load zsh-users/zsh-syntax-highlighting
-      zgen load zsh-users/zsh-history-substring-search
 
-      zgen load djui/alias-tips
+      zgen oh-my-zsh plugins/git
+      zgen oh-my-zsh plugins/colored-man-pages
+      zgen oh-my-zsh plugins/history-substring-search
 
       # zgen load tarruda/zsh-autosuggestions
-      # zgen load chrissicool/zsh-256color
+      zgen load chrissicool/zsh-256color
 
       zgen load nojhan/liquidprompt
 
