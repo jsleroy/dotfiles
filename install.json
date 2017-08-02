@@ -1,0 +1,17 @@
+{
+  "link": {
+    "ackrc":         "~/.ackrc",
+    "bashrc":        "~/.bashrc",
+    "cshrc":         "~/.cshrc",
+    "gdbinit":       "~/.gdbinit",
+    "gitconfig":     "~/.gitconfig",
+    "gitexcludes":   "~/.gitexcludes",
+    "pystartup":     "~/.pystartup",
+    "vimrc":         "~/.vimrc",
+    "zshenv":        "~/.zshenv",
+    "zshrc":         "~/.zshrc"
+  },
+  "copy": {
+    "rhythmdb.xml":  "~/.local/share/rhythmbox/rhythmdb.xml"
+  }
+}

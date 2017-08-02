@@ -15,10 +15,12 @@ Plug 'tpope/vim-sensible'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
 Plug 'itchyny/lightline.vim'
-Plug 'vim-scripts/gprof.vim'
-Plug 'vim-scripts/Align', { 'on': 'Align' }
-Plug 'vim-scripts/Mixed-sourceassembly-syntax-objdump'
+" Plug 'vim-scripts/gprof.vim'
+" Plug 'vim-scripts/Align', { 'on': 'Align' }
+" Plug 'vim-scripts/Mixed-sourceassembly-syntax-objdump'
 Plug 'vim-scripts/xoria256.vim'
+Plug 'google/vim-colorscheme-primary'
+Plug 'google/vim-searchindex'
 
 call plug#end()
 
@@ -172,7 +174,7 @@ augroup END
 "-----------------------------------------------------------------------------
 
 set t_Co=256
-colorscheme xoria256
+" set background=dark
 
 if has("gui")
   set mousehide     " hide mouse cursor when typing
@@ -180,7 +182,11 @@ if has("gui")
   set guioptions-=T " show toolbar
   set guioptions-=r " hide scrollbar
   set guifont=DejaVu\ Sans\ Mono\ 9
+  " set background=light
 endif
+
+" colorscheme primary
+colorscheme xoria256
 
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>

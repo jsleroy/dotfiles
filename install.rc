@@ -1,7 +1,0 @@
-# Exclude list (files not to be installed)
-EXCLUDE=(
-  "install.rc"
-  "README.rst"
-  "zsh-history-substring-search"
-  "zsh-syntax-highlighting"
-)
