@@ -11,7 +11,11 @@
     "zshenv":        "~/.zshenv",
     "zshrc":         "~/.zshrc"
   },
+
   "copy": {
     "rhythmdb.xml":  "~/.local/share/rhythmbox/rhythmdb.xml"
+  },
+
+  "commands": {
   }
 }
