@@ -21,6 +21,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/xoria256.vim'
 Plug 'google/vim-colorscheme-primary'
 Plug 'google/vim-searchindex'
+Plug 'fatih/vim-go'
+Plug 'vhda/verilog_systemverilog.vim'
 
 call plug#end()
 
@@ -151,6 +153,8 @@ set pumheight=15
 " Show doxygen syntax highligthing
 let g:load_doxygen_syntax=1
 
+let g:go_fmt_options='-tabs=false -tabwidth=2'
+
 "-----------------------------------------------------------------------------
 " Extension specific settings
 "-----------------------------------------------------------------------------
@@ -160,7 +164,7 @@ au BufRead,BufNewFile *.bco   set filetype=javascript
 au BufRead,BufNewFile *.proto set filetype=proto
 au BufRead,BufNewFile *.v.m4  set filetype=verilog
 au BufRead,BufNewFile *.v     set filetype=verilog
-au BufRead,BufNewFile *.sv    set filetype=verilog
+" au BufRead,BufNewFile *.sv    set filetype=verilog
 
 au FileType python setl shiftwidth=4
 au FileType python setl tabstop=4
