@@ -9,13 +9,7 @@
     "pystartup":     "~/.pystartup",
     "vimrc":         "~/.vimrc",
     "zshenv":        "~/.zshenv",
-    "zshrc":         "~/.zshrc"
-  },
-
-  "copy": {
-    "rhythmdb.xml":  "~/.local/share/rhythmbox/rhythmdb.xml"
-  },
-
-  "commands": {
+    "zshrc":         "~/.zshrc",
+    "i3/config":     "~/.i3/config"
   }
 }
