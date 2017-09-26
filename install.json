@@ -1,15 +1,16 @@
 {
   "link": {
-    "ackrc":         "~/.ackrc",
-    "bashrc":        "~/.bashrc",
-    "cshrc":         "~/.cshrc",
-    "gdbinit":       "~/.gdbinit",
-    "gitconfig":     "~/.gitconfig",
-    "gitexcludes":   "~/.gitexcludes",
-    "pystartup":     "~/.pystartup",
-    "vimrc":         "~/.vimrc",
-    "zshenv":        "~/.zshenv",
-    "zshrc":         "~/.zshrc",
-    "i3/config":     "~/.i3/config"
+    "ackrc":           "~/.ackrc",
+    "bashrc":          "~/.bashrc",
+    "cshrc":           "~/.cshrc",
+    "gdbinit":         "~/.gdbinit",
+    "gitconfig":       "~/.gitconfig",
+    "gitexcludes":     "~/.gitexcludes",
+    "pystartup":       "~/.pystartup",
+    "vimrc":           "~/.vimrc",
+    "zshenv":          "~/.zshenv",
+    "zshrc":           "~/.zshrc",
+    "i3.config":       "~/.i3/config",
+    "i3status.config": "~/.config/i3status/config"
   }
 }
