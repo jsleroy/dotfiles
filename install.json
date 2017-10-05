@@ -1,6 +1,7 @@
 {
   "directories": [
     "~/.i3",
+    "~/.config/i3",
     "~/.config/i3status"
   ],
 
@@ -15,7 +16,7 @@
     "vimrc":           "~/.vimrc",
     "zshenv":          "~/.zshenv",
     "zshrc":           "~/.zshrc",
-    "i3.config":       "~/.i3/config",
+    "i3.config":       "~/.config/i3/config",
     "i3status.config": "~/.config/i3status/config"
   }
 }
