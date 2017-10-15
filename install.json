@@ -1,4 +1,9 @@
 {
+  "directories": [
+    "~/.i3",
+    "~/.config/i3status"
+  ],
+
   "link": {
     "ackrc":           "~/.ackrc",
     "bashrc":          "~/.bashrc",
