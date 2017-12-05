@@ -98,6 +98,9 @@ unsetopt share_history
 # don't exist interactive sessions
 set ignoreeof on
 
+# automatic rehash
+zstyle ':completion:*' rehash true
+
 #-------------------------------------------------------------------------------
 # Configuration settings for zsh < 5.0
 # TODO: move in a separate zshrc ?
