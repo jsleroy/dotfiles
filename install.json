@@ -16,6 +16,7 @@
     "vimrc":           "~/.vimrc",
     "zshenv":          "~/.zshenv",
     "zshrc":           "~/.zshrc",
+    "liquidpromptrc":  "~/.config/liquidpromptrc",
     "i3.config":       "~/.config/i3/config",
     "i3status.config": "~/.config/i3status/config"
   }
