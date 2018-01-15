@@ -23,7 +23,7 @@ if is-at-least 5.0; then
       zgen load zsh-users/zsh-completions # src
       zgen load zsh-users/zsh-syntax-highlighting
 
-      zgen oh-my-zsh plugins/git
+      # zgen oh-my-zsh plugins/git
       zgen oh-my-zsh plugins/colored-man-pages
       zgen oh-my-zsh plugins/history-substring-search
 
@@ -205,4 +205,6 @@ setopt prompt_subst
 bindkey "^[OH" beginning-of-line
 bindkey "^[OF" end-of-line
 
-umask 007
+umask 027
+
+alias ack='ack-grep'

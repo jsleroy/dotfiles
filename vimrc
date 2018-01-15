@@ -151,7 +151,7 @@ set completeopt=menuone,longest,preview
 set pumheight=15
 
 " Show doxygen syntax highligthing
-let g:load_doxygen_syntax=1
+" let g:load_doxygen_syntax=1
 
 let g:go_fmt_options='-tabs=false -tabwidth=2'
 
