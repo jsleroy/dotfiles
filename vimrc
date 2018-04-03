@@ -15,14 +15,19 @@ Plug 'tpope/vim-sensible'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
 Plug 'itchyny/lightline.vim'
-" Plug 'vim-scripts/gprof.vim'
-" Plug 'vim-scripts/Align', { 'on': 'Align' }
-" Plug 'vim-scripts/Mixed-sourceassembly-syntax-objdump'
 Plug 'vim-scripts/xoria256.vim'
 Plug 'google/vim-colorscheme-primary'
 Plug 'google/vim-searchindex'
 Plug 'fatih/vim-go'
 Plug 'vhda/verilog_systemverilog.vim'
+Plug 'hzchirs/vim-material'
+Plug 'crusoexia/vim-monokai'
+Plug 'lifepillar/vim-solarized8'
+Plug 'altercation/vim-colors-solarized'
+
+" Plug 'vim-scripts/gprof.vim'
+" Plug 'vim-scripts/Align', { 'on': 'Align' }
+" Plug 'vim-scripts/Mixed-sourceassembly-syntax-objdump'
 
 call plug#end()
 
@@ -178,7 +183,7 @@ augroup END
 "-----------------------------------------------------------------------------
 
 set t_Co=256
-" set background=dark
+set background=dark
 
 if has("gui")
   set mousehide     " hide mouse cursor when typing
@@ -189,8 +194,13 @@ if has("gui")
   " set background=light
 endif
 
+" let g:solarized_termcolors=256
+" colorscheme solarized
 " colorscheme primary
 colorscheme xoria256
+" colorscheme vim-material
+" colorscheme monokai
+" colorscheme solarized8
 
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
