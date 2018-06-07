@@ -183,7 +183,7 @@ augroup END
 "-----------------------------------------------------------------------------
 
 set t_Co=256
-set background=dark
+" set background=dark
 
 if has("gui")
   set mousehide     " hide mouse cursor when typing
@@ -197,7 +197,7 @@ endif
 " let g:solarized_termcolors=256
 " colorscheme solarized
 " colorscheme primary
-colorscheme xoria256
+" colorscheme xoria256
 " colorscheme vim-material
 " colorscheme monokai
 " colorscheme solarized8
@@ -205,3 +205,6 @@ colorscheme xoria256
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
+
+" Remove go support warning with some old vim versions
+let g:go_version_warning = 0

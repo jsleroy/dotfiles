@@ -7,7 +7,7 @@ eval $(dircolors -b)
 #-------------------------------------------------------------------------------
 # Zgen plugin manager
 #-------------------------------------------------------------------------------
-if is-at-least 5.0; then
+if is-at-least 4.3; then
   if [[ ! -d $HOME/.zgen ]]; then
     git clone https://github.com/tarjoilija/zgen.git $HOME/.zgen
   fi
@@ -18,10 +18,15 @@ if is-at-least 5.0; then
   source $HOME/.zgen/zgen.zsh
 
   if ! zgen saved; then
-      zgen oh-my-zsh
+      if is-at-least 4.3.17; then
+        zgen oh-my-zsh
+      fi
 
       zgen load zsh-users/zsh-completions # src
-      zgen load zsh-users/zsh-syntax-highlighting
+
+      if is-at-least 4.3.17; then
+        zgen load zsh-users/zsh-syntax-highlighting
+      fi
 
       # zgen oh-my-zsh plugins/git
       zgen oh-my-zsh plugins/colored-man-pages
