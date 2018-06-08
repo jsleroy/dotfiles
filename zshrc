@@ -4,6 +4,8 @@ autoload -U is-at-least
 
 eval $(dircolors -b)
 
+ZSH_THEME=jreese
+
 #-------------------------------------------------------------------------------
 # Zgen plugin manager
 #-------------------------------------------------------------------------------
@@ -18,36 +20,44 @@ if is-at-least 4.3; then
   source $HOME/.zgen/zgen.zsh
 
   if ! zgen saved; then
+      # autoupdate of zgen and plugins
+      zgen load unixorn/autoupdate-zgen
+
       if is-at-least 4.3.17; then
         zgen oh-my-zsh
+      # zgen oh-my-zsh plugins/git
+      # zgen oh-my-zsh plugins/history-substring-search
+        zgen oh-my-zsh plugins/colored-man-pages
       fi
 
-      zgen load zsh-users/zsh-completions # src
+      zgen load zsh-users/zsh-completions
+      zgen load zsh-users/zsh-autosuggestions
+      zgen load zsh-users/zsh-history-substring-search
 
       if is-at-least 4.3.17; then
         zgen load zsh-users/zsh-syntax-highlighting
       fi
 
-      # zgen oh-my-zsh plugins/git
-      zgen oh-my-zsh plugins/colored-man-pages
-      zgen oh-my-zsh plugins/history-substring-search
-
-      # zgen load tarruda/zsh-autosuggestions
+      # set terminal to 256 colors if available
       zgen load chrissicool/zsh-256color
 
-      zgen load nojhan/liquidprompt
+      # zgen load nojhan/liquidprompt
+      # zgen load mafredri/zsh-async
+      # zgen load sindresorhus/pure
+      # zgen load dfurnes/purer
+      # zgen load therealklanni/purity
 
       zgen save
   fi
-
-  # # Enable autosuggestions automatically.
-  # zle-line-init() {
-  #     zle autosuggest-start
-  # }
-  # zle -N zle-line-init
 fi
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
+# Auto suggestions configuration
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE
+# ZSH_AUTOSUGGEST_STRATEGY
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 #-------------------------------------------------------------------------------
 # Oh-my-zsh
@@ -59,6 +69,11 @@ COMPLETION_WAITING_DOTS="true"
 # Misc
 #-------------------------------------------------------------------------------
 PROMPT_EOL_MARK=""
+
+autoload -Uz colors && colors
+
+# autoload -U promptinit && promptinit
+# prompt walters
 
 # zmv - a command for renaming files by means of shell patterns
 # http://zshwiki.org/home/builtin/functions/zmv
@@ -105,6 +120,18 @@ set ignoreeof on
 
 # automatic rehash
 zstyle ':completion:*' rehash true
+
+# turn on command substitution in the prompt (and parameter expansion and
+# arithmetic expansion)
+setopt prompt_subst
+
+#-------------------------------------------------------------------------------
+# Keys
+#-------------------------------------------------------------------------------
+bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line
+
+umask 027
 
 #-------------------------------------------------------------------------------
 # Configuration settings for zsh < 5.0
@@ -193,23 +220,5 @@ if ! is-at-least 5.0; then
   # not just at the end
   setopt completeinword
 fi
-
-#-------------------------------------------------------------------------------
-# Prompt
-#-------------------------------------------------------------------------------
-
-autoload -Uz colors && colors
-
-# turn on command substitution in the prompt (and parameter expansion and
-# arithmetic expansion)
-setopt prompt_subst
-
-#-------------------------------------------------------------------------------
-# Keys
-#-------------------------------------------------------------------------------
-bindkey "^[OH" beginning-of-line
-bindkey "^[OF" end-of-line
-
-umask 027
 
 alias ack='ack-grep'

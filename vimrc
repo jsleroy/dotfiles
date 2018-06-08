@@ -169,6 +169,8 @@ au BufRead,BufNewFile *.bco   set filetype=javascript
 au BufRead,BufNewFile *.proto set filetype=proto
 au BufRead,BufNewFile *.v.m4  set filetype=verilog
 au BufRead,BufNewFile *.v     set filetype=verilog
+au BufRead,BufNewFile *.mds   set filetype=verilog
+au BufRead,BufNewFile *.app   set filetype=verilog
 " au BufRead,BufNewFile *.sv    set filetype=verilog
 
 au FileType python setl shiftwidth=4
