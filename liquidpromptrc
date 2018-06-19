@@ -14,16 +14,16 @@
 
 # Display the battery level when the level is below this threshold.
 # Recommended value is 75
-LP_BATTERY_THRESHOLD=75
+# LP_BATTERY_THRESHOLD=75
 
 # Display the load average when the load is above this threshold.
 # Recommended value is 60
-LP_LOAD_THRESHOLD=60
+# LP_LOAD_THRESHOLD=60
 
 # Display the temperature when the temperate is above this threshold (in
 # degrees Celsius).
 # Recommended value is 60
-LP_TEMP_THRESHOLD=60
+# LP_TEMP_THRESHOLD=60
 
 # Use the shorten path feature if the path is too long to fit in the prompt
 # line.
@@ -61,7 +61,7 @@ LP_USER_ALWAYS=1
 # Display the percentages of load/batteries along with their
 # corresponding marks. Set to 0 to only print the colored marks.
 # Defaults to 1 (display percentages)
-LP_PERCENTS_ALWAYS=1
+# LP_PERCENTS_ALWAYS=1
 
 # Use the permissions feature and display a red ':' before the prompt to show
 # when you don't have write permission to the current directory.
