@@ -24,6 +24,7 @@ Plug 'hzchirs/vim-material'
 Plug 'crusoexia/vim-monokai'
 Plug 'lifepillar/vim-solarized8'
 Plug 'altercation/vim-colors-solarized'
+Plug 'connorholyday/vim-snazzy'
 
 " Plug 'vim-scripts/gprof.vim'
 " Plug 'vim-scripts/Align', { 'on': 'Align' }

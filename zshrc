@@ -7,10 +7,6 @@ autoload -U is-at-least
 
 eval $(dircolors -b)
 
-# Fix main_highlighter issue
-# see https://github.com/robbyrussell/oh-my-zsh/issues/4664
-# local interactive_comments= # set to empty
-
 #-------------------------------------------------------------------------------
 # Zgen plugin manager
 #-------------------------------------------------------------------------------
@@ -37,33 +33,38 @@ if ! zgen saved; then
       zgen load zsh-users/zsh-autosuggestions
     fi
 
-    zgen load nojhan/liquidprompt
+    if is-at-least 4.3.11; then
+      zgen load supercrabtree/k
+    fi
 
+    zgen oh-my-zsh plugins/screen
+
+    # zgen oh-my-zsh plugins/themes
     # zgen load zsh-users/zsh-history-substring-search
-    # zgen oh-my-zsh plugins/git
     # zgen oh-my-zsh plugins/history-substring-search
-    # zgen load mafredri/zsh-async
-    # zgen load sindresorhus/pure
+
+    # zgen load nojhan/liquidprompt
+    zgen load mafredri/zsh-async
+    zgen load sindresorhus/pure
     # zgen load dfurnes/purer
     # zgen load therealklanni/purity
+    # zgen load 22a/purest
 
     zgen save
 fi
 
-[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
-
-# # Auto suggestions configuration
-# # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE
-# # ZSH_AUTOSUGGEST_STRATEGY
+# Auto suggestions configuration
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE
+# ZSH_AUTOSUGGEST_STRATEGY
 # ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # ZSH_AUTOSUGGEST_USE_ASYNC=1
-# 
+
 # #-------------------------------------------------------------------------------
 # # Oh-my-zsh
 # #-------------------------------------------------------------------------------
 # DISABLE_AUTO_TITLE="true"
 # COMPLETION_WAITING_DOTS="true"
-# 
+
 # #-------------------------------------------------------------------------------
 # # Misc
 # #-------------------------------------------------------------------------------
