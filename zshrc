@@ -1,5 +1,16 @@
 #!/bin/zsh
 
+# make setopt safe (only set supported option by current shell version)
+alias setopt=setopt_
+
+setopt_() {
+  local opts
+  zmodload zsh/parameter
+  for opt in "$@"; do
+    (( $+options[$opt] )) && builtin setopt $opt
+  done
+}
+
 # Enable debug messages
 # setopt XTRACE VERBOSE
 
@@ -138,3 +149,7 @@ fi
 # #-------------------------------------------------------------------------------
 # 
 # alias ack='ack-grep'
+
+[ -f $HOME/.zshrc.local ] && source ${HOME}/.zshrc.local
+
+unalias setopt

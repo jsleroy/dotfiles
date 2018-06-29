@@ -193,7 +193,8 @@ if has("gui")
   set guioptions+=m " show menu bar
   set guioptions-=T " show toolbar
   set guioptions-=r " hide scrollbar
-  set guifont=DejaVu\ Sans\ Mono\ 9
+  set guifont=Monospace\ Regular\ 9
+  " set guifont=DejaVu\ Sans\ Mono\ 9
   " set background=light
 endif
 
