@@ -153,3 +153,8 @@ fi
 [ -f $HOME/.zshrc.local ] && source ${HOME}/.zshrc.local
 
 unalias setopt
+
+# Tilix VTE fix (only relevant on laptop)
+if [ $TILIX_ID ] || [ $VTE_VERSION ];
+  [ -f /etc/profile.d/vte-2.91.sh ] && source /etc/profile.d/vte-2.91.sh
+fi
