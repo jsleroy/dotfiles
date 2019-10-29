@@ -15,20 +15,20 @@ export LC_ALL=en_US.utf-8
 #------------------------------------------------------------
 # PROMPT
 #------------------------------------------------------------
-plugin=~/.liquidprompt
-
-if [ ! -d $plugin ] || test $(ls -A $plugin > /dev/null); then
-  mkdir -p $plugin
-  git clone https://github.com/nojhan/liquidprompt.git $plugin
-fi
-
-source $plugin/liquidprompt
+# plugin=~/.liquidprompt
+# 
+# if [ ! -d $plugin ] || test $(ls -A $plugin > /dev/null); then
+#   mkdir -p $plugin
+#   git clone https://github.com/nojhan/liquidprompt.git $plugin
+# fi
+# 
+# source $plugin/liquidprompt
 
 #------------------------------------------------------------
 # SETTINGS
 #------------------------------------------------------------
 
-export MAKEFLAGS='-j8'
+# export MAKEFLAGS='-j8'
 
 # Make Bash append rather than overwrite the history on disk:
 shopt -s histappend
@@ -58,21 +58,12 @@ ulimit -c unlimited
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 #------------------------------------------------------------
-# PATH
-#------------------------------------------------------------
-
-[ -d $HOME/bin ]        && export PATH=$HOME/bin:$PATH
-[ -d $HOME/share/man ]  && export MANPATH=:$MANPATH:$HOME/share/man
-[ -d $HOME/python ]     && export PYTHONPATH=$HOME/python:$PYTHONPATH
-[ -f $HOME/.pystartup ] && export PYTHONSTARTUP=$HOME/.pystartup
-
-#------------------------------------------------------------
 # PROMPT
 #------------------------------------------------------------
 
-eval `dircolors -b`
-source ~/dotfiles/promptline.sh
-export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]:+${FUNCNAME[0]}():} '
+# eval `dircolors -b`
+# source ~/dotfiles/promptline.sh
+# export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]:+${FUNCNAME[0]}():} '
 
 #------------------------------------------------------------
 # ALIAS

@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+umask 007
+
 # make setopt safe (only set supported option by current shell version)
 alias setopt=setopt_
 
@@ -14,9 +16,7 @@ setopt_() {
 # Enable debug messages
 # setopt XTRACE VERBOSE
 
-autoload -U is-at-least
-
-eval $(dircolors -b)
+# eval $(dircolors -b)
 
 #-------------------------------------------------------------------------------
 # Zgen plugin manager
@@ -31,15 +31,15 @@ ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
 source $HOME/.zgen/zgen.zsh
 
 if ! zgen saved; then
-    # zgen load unixorn/autoupdate-zgen
+    autoload -U is-at-least
 
     zgen oh-my-zsh
 
+    # zgen load unixorn/autoupdate-zgen
     zgen load chrissicool/zsh-256color
     zgen load zsh-users/zsh-completions
 
     if is-at-least 4.3.17; then
-      zgen oh-my-zsh plugins/colored-man-pages
       zgen load zsh-users/zsh-syntax-highlighting
       zgen load zsh-users/zsh-autosuggestions
     fi
@@ -48,27 +48,21 @@ if ! zgen saved; then
       zgen load supercrabtree/k
     fi
 
-    zgen oh-my-zsh plugins/screen
-
+    # zgen oh-my-zsh plugins/screen
     # zgen oh-my-zsh plugins/themes
     # zgen load zsh-users/zsh-history-substring-search
     # zgen oh-my-zsh plugins/history-substring-search
-
     # zgen load nojhan/liquidprompt
-    zgen load mafredri/zsh-async
-    zgen load sindresorhus/pure
+    # zgen load sindresorhus/pure
     # zgen load dfurnes/purer
     # zgen load therealklanni/purity
-    # zgen load 22a/purest
+    zgen load mafredri/zsh-async
+    zgen load jsleroy/purest
 
     zgen save
 fi
 
-# Auto suggestions configuration
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE
-# ZSH_AUTOSUGGEST_STRATEGY
-# ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-# ZSH_AUTOSUGGEST_USE_ASYNC=1
+PUREST_PATH_EXPANSION=%d
 
 # #-------------------------------------------------------------------------------
 # # Oh-my-zsh
@@ -76,85 +70,6 @@ fi
 # DISABLE_AUTO_TITLE="true"
 # COMPLETION_WAITING_DOTS="true"
 
-# #-------------------------------------------------------------------------------
-# # Misc
-# #-------------------------------------------------------------------------------
-# PROMPT_EOL_MARK=""
-# 
-# autoload -U compinit && compinit
-# 
-# zstyle ':completion:*' menu select=2
-# zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-# zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-# 
-# # zmv - a command for renaming files by means of shell patterns
-# # http://zshwiki.org/home/builtin/functions/zmv
-# autoload -U zmv
-# alias zmv='noglob zmv -W'
-# 
-# # automatically remove duplicates from these arrays
-# typeset -U path cdpath fpath manpath
-# 
-# # cd will never select the parent directory (e.g.: cd ../<TAB>)
-# zstyle ':completion:*:cd:*' ignore-parents parent pwd
-# 
-# # provide .. as a completion
-# zstyle ':completion:*' special-dirs ..
-# 
-# # ctrl-x-e to open current line in $EDITOR, awesome when writting functions
-# # or editing multiline commands.
-# autoload -U edit-command-line
-# zle -N edit-command-line
-# bindkey '^x^e' edit-command-line
-# 
-# # nobody need flow control anymore
-# setopt noflowcontrol
-# 
-# # we don't want to quote/espace URLs on our own...
-# if autoload -U url-quote-magic; then
-#   zle -N self-insert url-quote-magic
-#   zstyle ':url-quote-magic:*' url-metas '*?[]^()~#{}='
-# fi
-# 
-# # whenever a command completion is attempted, make sure the entire command path
-# # is hashed first.
-# setopt hash_list_all
-# 
-# # don't share history
-# unsetopt share_history
-# 
-# # don't exit interactive sessions
-# set ignoreeof on
-# 
-# # automatic rehash
-# zstyle ':completion:*' rehash true
-# 
-# # turn on command substitution in the prompt (and parameter expansion and
-# # arithmetic expansion)
-# setopt prompt_subst
-# 
-# # ignore lines prefixed with '#'.
-# setopt interactivecomments
-# 
-# #-------------------------------------------------------------------------------
-# # Keys
-# #-------------------------------------------------------------------------------
-# bindkey "^[OH" beginning-of-line
-# bindkey "^[OF" end-of-line
-# 
-# umask 027
-# 
-# #-------------------------------------------------------------------------------
-# # Aliases
-# #-------------------------------------------------------------------------------
-# 
-# alias ack='ack-grep'
-
 [ -f $HOME/.zshrc.local ] && source ${HOME}/.zshrc.local
 
 unalias setopt
-
-# Tilix VTE fix (only relevant on laptop)
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-  [ -f /etc/profile.d/vte-2.91.sh ] && source /etc/profile.d/vte-2.91.sh
-fi

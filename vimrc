@@ -11,24 +11,19 @@ if bootstrap
 endif
 
 call plug#begin('~/.vim/bundle')
+
 Plug 'tpope/vim-sensible'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/xoria256.vim'
-Plug 'google/vim-colorscheme-primary'
-Plug 'google/vim-searchindex'
 Plug 'fatih/vim-go'
 Plug 'vhda/verilog_systemverilog.vim'
-Plug 'hzchirs/vim-material'
-Plug 'crusoexia/vim-monokai'
-Plug 'lifepillar/vim-solarized8'
-Plug 'altercation/vim-colors-solarized'
-Plug 'connorholyday/vim-snazzy'
 
-" Plug 'vim-scripts/gprof.vim'
-" Plug 'vim-scripts/Align', { 'on': 'Align' }
-" Plug 'vim-scripts/Mixed-sourceassembly-syntax-objdump'
+Plug 'ncm2/ncm2'
+
+Plug 'google/vim-searchindex'
+Plug 'google/vim-colorscheme-primary'
 
 call plug#end()
 
@@ -47,6 +42,7 @@ set nocompatible
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 
 syntax on
+syntax enable
 
 " Check file changes
 au CursorHold * checktime
@@ -62,7 +58,6 @@ set hlsearch
 "-----------------------------------------------------------------------------
 
 "filetype plugin indent on
-"syntax enable
 "
 " Make backspace a bit more flexible
 " set backspace=indent,eol,start
@@ -193,18 +188,13 @@ if has("gui")
   set guioptions+=m " show menu bar
   set guioptions-=T " show toolbar
   set guioptions-=r " hide scrollbar
-  set guifont=Monospace\ Regular\ 9
+  " set guifont=Monospace\ Regular\ 9
   " set guifont=DejaVu\ Sans\ Mono\ 9
   " set background=light
 endif
 
 " let g:solarized_termcolors=256
-" colorscheme solarized
 " colorscheme primary
-" colorscheme xoria256
-" colorscheme vim-material
-" colorscheme monokai
-" colorscheme solarized8
 
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
