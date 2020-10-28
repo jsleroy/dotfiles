@@ -1,5 +1,5 @@
 [user]
-    name = Jean-Sebastien Leroy
+    name = Jean-Sébastien Leroy
     email = jean.sebastien.leroy@gmail.com
 [color]
     diff = auto
@@ -24,6 +24,6 @@
 [rerere]
     enabled = 1
 [include]
-    path = ~/.gitconfig.arm
+    path = ~/.gitconfig.local
 [push]
     default = nothing
