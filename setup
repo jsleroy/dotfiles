@@ -1,0 +1,7 @@
+#!/bin/bash
+
+vim
+scons
+valgrind
+flex
+yacc

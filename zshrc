@@ -1,22 +1,11 @@
-#!/bin/zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 umask 007
-
-# make setopt safe (only set supported option by current shell version)
-alias setopt=setopt_
-
-setopt_() {
-  local opts
-  zmodload zsh/parameter
-  for opt in "$@"; do
-    (( $+options[$opt] )) && builtin setopt $opt
-  done
-}
-
-# Enable debug messages
-# setopt XTRACE VERBOSE
-
-# eval $(dircolors -b)
 
 #-------------------------------------------------------------------------------
 # Zgen plugin manager
@@ -35,8 +24,6 @@ if ! zgen saved; then
 
     zgen oh-my-zsh
 
-    # zgen load unixorn/autoupdate-zgen
-    zgen load chrissicool/zsh-256color
     zgen load zsh-users/zsh-completions
 
     if is-at-least 4.3.17; then
@@ -48,28 +35,29 @@ if ! zgen saved; then
       zgen load supercrabtree/k
     fi
 
-    # zgen oh-my-zsh plugins/screen
-    # zgen oh-my-zsh plugins/themes
-    # zgen load zsh-users/zsh-history-substring-search
-    # zgen oh-my-zsh plugins/history-substring-search
-    # zgen load nojhan/liquidprompt
-    # zgen load sindresorhus/pure
-    # zgen load dfurnes/purer
-    # zgen load therealklanni/purity
-    zgen load mafredri/zsh-async
-    zgen load jsleroy/purest
+    zgen oh-my-zsh plugins/themes
+    zgen oh-my-zsh plugins/history-substring-search
+    zgen oh-my-zsh plugins/colored-man-pages
+    zgen oh-my-zsh plugins/common-aliases
+
+    # zgen oh-my-zsh themes/random
+    # zgen oh-my-zsh themes/risto
+
+    zgen load chrissicool/zsh-256color
+    # zgen load unixorn/autoupdate-zgen
+
+    zgen load romkatv/powerlevel10k powerlevel10k
 
     zgen save
 fi
 
-PUREST_PATH_EXPANSION=%d
-
-# #-------------------------------------------------------------------------------
-# # Oh-my-zsh
-# #-------------------------------------------------------------------------------
+# Oh-my-zsh configuration.
+UPDATE_ZSH_DAYS=5
 # DISABLE_AUTO_TITLE="true"
 # COMPLETION_WAITING_DOTS="true"
 
-[ -f $HOME/.zshrc.local ] && source ${HOME}/.zshrc.local
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-unalias setopt
+# Not track under git dotfiles (e.g. containing sensible informations).
+[ -f $HOME/.zshrc.local ] && source ${HOME}/.zshrc.local

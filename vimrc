@@ -16,14 +16,9 @@ Plug 'tpope/vim-sensible'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
 Plug 'itchyny/lightline.vim'
-Plug 'vim-scripts/xoria256.vim'
-Plug 'fatih/vim-go'
 Plug 'vhda/verilog_systemverilog.vim'
-
-Plug 'ncm2/ncm2'
-
-Plug 'google/vim-searchindex'
-Plug 'google/vim-colorscheme-primary'
+Plug 'vim-scripts/xoria256.vim'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -35,11 +30,11 @@ end
 " General
 "-----------------------------------------------------------------------------
 
-" vi improved
-set nocompatible
-
 " Automatic configuration reload
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
+
+" vi improved
+set nocompatible
 
 syntax on
 syntax enable
@@ -52,33 +47,6 @@ set mouse=a
 
 " Highlight search
 set hlsearch
-
-"-----------------------------------------------------------------------------
-" Settings defined in vim-sensible
-"-----------------------------------------------------------------------------
-
-"filetype plugin indent on
-"
-" Make backspace a bit more flexible
-" set backspace=indent,eol,start
-"
-" Turn on command line completion wild style
-" set wildmenu
-" set wildmode=longest:full
-" set wildmode=list:longest
-"
-" set incsearch
-"
-" set laststatus=2
-"
-" Always show current position
-" set ruler
-"
-" Set number of history lines
-" set history=400
-"
-" set autoindent
-"-----------------------------------------------------------------------------
 
 " Don't make noise
 set noerrorbells
@@ -154,14 +122,13 @@ set pumheight=15
 " Show doxygen syntax highligthing
 " let g:load_doxygen_syntax=1
 
-let g:go_fmt_options='-tabs=false -tabwidth=2'
-
 "-----------------------------------------------------------------------------
 " Extension specific settings
 "-----------------------------------------------------------------------------
 
 au BufRead,BufNewFile *.sb    set filetype=javascript
 au BufRead,BufNewFile *.bco   set filetype=javascript
+au BufRead,BufNewFile *.bcd   set filetype=javascript
 au BufRead,BufNewFile *.proto set filetype=proto
 au BufRead,BufNewFile *.v.m4  set filetype=verilog
 au BufRead,BufNewFile *.v     set filetype=verilog
@@ -172,15 +139,11 @@ au BufRead,BufNewFile *.app   set filetype=verilog
 au FileType python setl shiftwidth=4
 au FileType python setl tabstop=4
 
-augroup commit
-  autocmd FileType gitcommit,cvs setlocal spell textwidth=70 colorcolumn=71
-augroup END
-
 "-----------------------------------------------------------------------------
-" Colorscheme settings
+" GUI settings
 "-----------------------------------------------------------------------------
 
-set t_Co=256
+" set t_Co=256
 " set background=dark
 
 if has("gui")
@@ -195,10 +158,3 @@ endif
 
 " let g:solarized_termcolors=256
 " colorscheme primary
-
-nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
-nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
-
-" Remove go support warning with some old vim versions
-let g:go_version_warning = 0
