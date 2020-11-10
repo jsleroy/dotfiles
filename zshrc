@@ -51,13 +51,15 @@ if ! zgen saved; then
     zgen save
 fi
 
+unalias rm
+
 # Oh-my-zsh configuration.
 UPDATE_ZSH_DAYS=5
 # DISABLE_AUTO_TITLE="true"
 # COMPLETION_WAITING_DOTS="true"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Not track under git dotfiles (e.g. containing sensible informations).
 [ -f $HOME/.zshrc.local ] && source ${HOME}/.zshrc.local
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

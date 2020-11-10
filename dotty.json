@@ -1,4 +1,7 @@
 {
+  "directories": [
+  ],
+
   "link": {
     "p10k.zsh":       "~/.p10k.zsh",
     "ackrc":          "~/.ackrc",
@@ -13,6 +16,7 @@
     "liquidpromptrc": "~/.config/liquidpromptrc",
     "fonts":          "~/.local/share/fonts"
   },
+
   "commands": [
     "fc-cache -f"
   ]

@@ -1,5 +1,5 @@
 "-----------------------------------------------------------------------------
-" Plugins
+" Plugins.
 "-----------------------------------------------------------------------------
 
 let bootstrap = empty(glob('~/.vim/autoload/plug.vim'))
@@ -15,10 +15,8 @@ call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-sensible'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
-Plug 'itchyny/lightline.vim'
 Plug 'vhda/verilog_systemverilog.vim'
-Plug 'vim-scripts/xoria256.vim'
-Plug 'preservim/nerdtree'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -27,15 +25,14 @@ if bootstrap
 end
 
 "-----------------------------------------------------------------------------
-" General
+" Settings.
 "-----------------------------------------------------------------------------
 
-" Automatic configuration reload
+" Automatic configuration reload.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 
 " vi improved
 set nocompatible
-
 syntax on
 syntax enable
 
@@ -122,39 +119,24 @@ set pumheight=15
 " Show doxygen syntax highligthing
 " let g:load_doxygen_syntax=1
 
-"-----------------------------------------------------------------------------
-" Extension specific settings
-"-----------------------------------------------------------------------------
-
 au BufRead,BufNewFile *.sb    set filetype=javascript
-au BufRead,BufNewFile *.bco   set filetype=javascript
 au BufRead,BufNewFile *.bcd   set filetype=javascript
 au BufRead,BufNewFile *.proto set filetype=proto
-au BufRead,BufNewFile *.v.m4  set filetype=verilog
 au BufRead,BufNewFile *.v     set filetype=verilog
-au BufRead,BufNewFile *.mds   set filetype=verilog
-au BufRead,BufNewFile *.app   set filetype=verilog
-" au BufRead,BufNewFile *.sv    set filetype=verilog
 
 au FileType python setl shiftwidth=4
 au FileType python setl tabstop=4
 
-"-----------------------------------------------------------------------------
-" GUI settings
-"-----------------------------------------------------------------------------
-
-" set t_Co=256
-" set background=dark
+" let g:lightline = { 'colorscheme': 'solarized' }
 
 if has("gui")
   set mousehide     " hide mouse cursor when typing
   set guioptions+=m " show menu bar
   set guioptions-=T " show toolbar
   set guioptions-=r " hide scrollbar
-  " set guifont=Monospace\ Regular\ 9
-  " set guifont=DejaVu\ Sans\ Mono\ 9
-  " set background=light
 endif
 
-" let g:solarized_termcolors=256
-" colorscheme primary
+if !has("gui_running")
+  " set t_Co=256
+else
+endif
