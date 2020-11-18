@@ -40,11 +40,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/colored-man-pages
     zgen oh-my-zsh plugins/common-aliases
 
-    # zgen oh-my-zsh themes/random
-    # zgen oh-my-zsh themes/risto
-
     zgen load chrissicool/zsh-256color
-    # zgen load unixorn/autoupdate-zgen
 
     zgen load romkatv/powerlevel10k powerlevel10k
 
@@ -55,11 +51,12 @@ unalias rm
 
 # Oh-my-zsh configuration.
 UPDATE_ZSH_DAYS=5
-# DISABLE_AUTO_TITLE="true"
-# COMPLETION_WAITING_DOTS="true"
 
-# Not track under git dotfiles (e.g. containing sensible informations).
+# Untrack dotfiles.
 [ -f $HOME/.zshrc.local ] && source ${HOME}/.zshrc.local
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/p10k.zsh.
+[[ ! -f ~/dotfiles/p10k.zsh ]] || source ~/dotfiles/p10k.zsh

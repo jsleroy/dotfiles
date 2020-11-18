@@ -134,6 +134,7 @@ if has("gui")
   set guioptions+=m " show menu bar
   set guioptions-=T " show toolbar
   set guioptions-=r " hide scrollbar
+  set guifont="MesloLGS Nerd Font 10"
 endif
 
 if !has("gui_running")
