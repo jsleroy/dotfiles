@@ -20,31 +20,33 @@ ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
 source $HOME/.zgen/zgen.zsh
 
 if ! zgen saved; then
-    autoload -U is-at-least
+  autoload zmv
 
-    zgen oh-my-zsh
+  autoload -U is-at-least
 
-    zgen load zsh-users/zsh-completions
+  zgen oh-my-zsh
 
-    if is-at-least 4.3.17; then
-      zgen load zsh-users/zsh-syntax-highlighting
-      zgen load zsh-users/zsh-autosuggestions
-    fi
+  zgen load zsh-users/zsh-completions
 
-    if is-at-least 4.3.11; then
-      zgen load supercrabtree/k
-    fi
+  if is-at-least 4.3.17; then
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-autosuggestions
+  fi
 
-    zgen oh-my-zsh plugins/themes
-    zgen oh-my-zsh plugins/history-substring-search
-    zgen oh-my-zsh plugins/colored-man-pages
-    zgen oh-my-zsh plugins/common-aliases
+  if is-at-least 4.3.11; then
+    zgen load supercrabtree/k
+  fi
 
-    zgen load chrissicool/zsh-256color
+  zgen oh-my-zsh plugins/themes
+  zgen oh-my-zsh plugins/history-substring-search
+  zgen oh-my-zsh plugins/colored-man-pages
+  zgen oh-my-zsh plugins/common-aliases
 
-    zgen load romkatv/powerlevel10k powerlevel10k
+  zgen load chrissicool/zsh-256color
 
-    zgen save
+  zgen load romkatv/powerlevel10k powerlevel10k
+
+  zgen save
 fi
 
 unalias rm
