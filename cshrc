@@ -47,3 +47,5 @@ alias lla 'ls -l -A'
 
 set prompt="%{\033[00;33m%}%B[%h] %{\033[00;37m%}%.2%{\033[01;35m%}%# "
 # set prompt = `hostname`:`whoami`" \! > "
+
+set path=( $path "/home/jleroy/.local/bin" )

@@ -17,6 +17,11 @@ Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'zxqfl/tabnine-vim'
+Plug 'kylelaker/riscv.vim'
+
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
