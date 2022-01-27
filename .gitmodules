@@ -1,3 +1,6 @@
 [submodule "dotty"]
 	path = dotty
 	url = git@github.com:jsleroy/dotty.git
+[submodule "private"]
+	path = private
+	url = git@github.com:jsleroy/dotfiles-private.git
