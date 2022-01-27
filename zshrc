@@ -63,4 +63,12 @@ UPDATE_ZSH_DAYS=5
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/p10k.zsh.
 [[ ! -f ~/dotfiles/p10k.zsh ]] || source ~/dotfiles/p10k.zsh
 
-export PATH="$PATH:/home/jleroy/.local/bin"
+export PATH=$PATH:/home/jleroy/.local/bin
+export PATH=$PATH:~/.platformio/penv/bin
+
+# Use ccache if available.
+if command -v ccache &> /dev/null; then
+  export OBJCACHE="ccache"
+  export CC="ccache gcc"
+  export CXX="ccache g++"
+fi
