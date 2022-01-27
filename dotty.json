@@ -3,18 +3,19 @@
   ],
 
   "link": {
-    "p10k.zsh":       "~/.p10k.zsh",
-    "ackrc":          "~/.ackrc",
-    "bashrc":         "~/.bashrc",
-    "cshrc":          "~/.cshrc",
-    "gitconfig":      "~/.gitconfig",
-    "gitexcludes":    "~/.gitexcludes",
-    "gtkwaverc":      "~/.gtkwaverc",
-    "vimrc":          "~/.vimrc",
-    "zshenv":         "~/.zshenv",
-    "zshrc":          "~/.zshrc",
-    "liquidpromptrc": "~/.config/liquidpromptrc",
-    "fonts":          "~/.local/share/fonts"
+    "p10k.zsh":               "~/.p10k.zsh",
+    "ackrc":                  "~/.ackrc",
+    "bashrc":                 "~/.bashrc",
+    "cshrc":                  "~/.cshrc",
+    "gitconfig":              "~/.gitconfig",
+    "gitexcludes":            "~/.gitexcludes",
+    "gtkwaverc":              "~/.gtkwaverc",
+    "vimrc":                  "~/.vimrc",
+    "zshenv":                 "~/.zshenv",
+    "zshrc":                  "~/.zshrc",
+    "liquidpromptrc":         "~/.config/liquidpromptrc",
+    "fonts":                  "~/.local/share/fonts",
+    "dotfiles-private/zshrc": "~/.zshrc.private"
   },
 
   "commands": [
