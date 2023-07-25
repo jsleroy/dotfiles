@@ -5,6 +5,7 @@
 
 # Source ARM definitions
 [ -e $HOME/.bashrc.arm ] && source $HOME/.bashrc.arm
+[ -e $HOME/.bashrc.codasip ] && source $HOME/.bashrc.codasip
 
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
@@ -15,14 +16,7 @@ export LC_ALL=en_US.utf-8
 #------------------------------------------------------------
 # PROMPT
 #------------------------------------------------------------
-# plugin=~/.liquidprompt
-# 
-# if [ ! -d $plugin ] || test $(ls -A $plugin > /dev/null); then
-#   mkdir -p $plugin
-#   git clone https://github.com/nojhan/liquidprompt.git $plugin
-# fi
-# 
-# source $plugin/liquidprompt
+source $HOME/.liquidprompt/liquidprompt
 
 #------------------------------------------------------------
 # SETTINGS
@@ -58,14 +52,6 @@ ulimit -c unlimited
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 #------------------------------------------------------------
-# PROMPT
-#------------------------------------------------------------
-
-# eval `dircolors -b`
-# source ~/dotfiles/promptline.sh
-# export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]:+${FUNCNAME[0]}():} '
-
-#------------------------------------------------------------
 # ALIAS
 #------------------------------------------------------------
 
@@ -80,7 +66,14 @@ alias l='ls -CF'
 alias tree='tree --dirsfirst -C'
 alias mozilla='firefox'
 
-umask 027
-source "$HOME/.cargo/env"
+umask 007
+# source "$HOME/.cargo/env"
 
 export PATH="$PATH:/home/jleroy/.local/bin"
+
+# Use ccache if available.
+if command -v ccache &> /dev/null; then
+  export OBJCACHE="ccache"
+  export CC="ccache gcc"
+  export CXX="ccache g++"
+fi

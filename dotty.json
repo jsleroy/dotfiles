@@ -13,6 +13,7 @@
     "vimrc":          "~/.vimrc",
     "zshenv":         "~/.zshenv",
     "zshrc":          "~/.zshrc",
+    "liquidprompt":   "~/.liquidprompt",
     "liquidpromptrc": "~/.config/liquidpromptrc",
     "fonts":          "~/.local/share/fonts",
     "private/zshrc":  "~/.zshrc.private"

@@ -4,3 +4,6 @@
 [submodule "private"]
 	path = private
 	url = git@github.com:jsleroy/dotfiles-private.git
+[submodule "liquidprompt"]
+	path = liquidprompt
+	url = git@github.com:nojhan/liquidprompt.git
