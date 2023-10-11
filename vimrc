@@ -19,6 +19,7 @@ Plug 'vhda/verilog_systemverilog.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'zxqfl/tabnine-vim'
 Plug 'kylelaker/riscv.vim'
+Plug 'ziglang/zig.vim'
 
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ayu-theme/ayu-vim'
@@ -32,6 +33,9 @@ end
 "-----------------------------------------------------------------------------
 " Settings.
 "-----------------------------------------------------------------------------
+
+" Disable zig autoformat on save.
+let g:zig_fmt_autosave = 0
 
 " Automatic configuration reload.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
