@@ -12,6 +12,7 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
+Plug 'vim-scripts/bats.vim'
 Plug 'tpope/vim-sensible'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
@@ -20,6 +21,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'zxqfl/tabnine-vim'
 Plug 'kylelaker/riscv.vim'
 Plug 'ziglang/zig.vim'
+Plug 'dcharbon/vim-flatbuffers'
 
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ayu-theme/ayu-vim'
