@@ -67,7 +67,8 @@ alias tree='tree --dirsfirst -C'
 alias mozilla='firefox'
 
 umask 007
-# source "$HOME/.cargo/env"
+
+[ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
 
 export PATH="$PATH:/home/jleroy/.local/bin"
 
