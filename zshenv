@@ -9,4 +9,4 @@ export VISUAL=$EDITOR
 
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
 [ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
-[ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
+[ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
