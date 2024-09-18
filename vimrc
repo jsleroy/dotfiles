@@ -138,6 +138,9 @@ au BufRead,BufNewFile *.v     set filetype=verilog
 au FileType python setl shiftwidth=4
 au FileType python setl tabstop=4
 
+au BufRead,BufNewFile SConstruct set filetype=python
+au BufRead,BufNewFile SConscript set filetype=python
+
 " let g:lightline = { 'colorscheme': 'solarized' }
 
 if has("gui")
@@ -149,6 +152,6 @@ if has("gui")
 endif
 
 if !has("gui_running")
-  " set t_Co=256
+  set t_Co=256
 else
 endif
