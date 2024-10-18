@@ -11,6 +11,7 @@
     "gitexcludes":         "~/.gitexcludes",
     "gtkwaverc":           "~/.gtkwaverc",
     "vimrc":               "~/.vimrc",
+    "init.vim":            "~/.config/nvim/init.vim",
     "zshenv":              "~/.zshenv",
     "zshrc":               "~/.zshrc",
     "liquidprompt":        "~/.liquidprompt",

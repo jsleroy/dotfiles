@@ -51,6 +51,8 @@ fi
 
 unalias rm
 
+[ -f $HOME/.cargo/env ] && source "$HOME/.cargo/env"
+
 # Oh-my-zsh configuration.
 UPDATE_ZSH_DAYS=5
 

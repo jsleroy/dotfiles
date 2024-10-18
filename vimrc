@@ -18,7 +18,7 @@ Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'zxqfl/tabnine-vim'
+Plug 'codota/tabnine-vim', { 'branch': 'python3' }
 Plug 'kylelaker/riscv.vim'
 Plug 'ziglang/zig.vim'
 Plug 'dcharbon/vim-flatbuffers'
