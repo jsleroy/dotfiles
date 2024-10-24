@@ -1,8 +1,10 @@
 {
   "directories": [
+    "~/.config/nvim/"
   ],
 
   "link": {
+    "nvchad/":             "~/.config/nvim",
     "p10k.zsh":            "~/.p10k.zsh",
     "ackrc":               "~/.ackrc",
     "bashrc":              "~/.bashrc",
@@ -11,12 +13,12 @@
     "gitexcludes":         "~/.gitexcludes",
     "gtkwaverc":           "~/.gtkwaverc",
     "vimrc":               "~/.vimrc",
-    "init.vim":            "~/.config/nvim/init.vim",
     "zshenv":              "~/.zshenv",
     "zshrc":               "~/.zshrc",
     "liquidprompt":        "~/.liquidprompt",
     "liquidpromptrc":      "~/.config/liquidpromptrc",
     "fonts":               "~/.local/share/fonts",
+    "fonts":               "~/.fonts",
     "private/zshrc":       "~/.zshrc.private",
     "private/ssh/config":  "~/.ssh/config"
   },

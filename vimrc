@@ -1,3 +1,7 @@
+if !has("nvim")
+  finish
+endif
+
 "-----------------------------------------------------------------------------
 " Plugins.
 "-----------------------------------------------------------------------------
@@ -42,30 +46,44 @@ let g:zig_fmt_autosave = 0
 " Automatic configuration reload.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 
-" vi improved
-set nocompatible
-syntax on
-syntax enable
+if !has("nvim")
+  " vi improved
+  set nocompatible
+  syntax on
+  syntax enable
 
-" Check file changes
-au CursorHold * checktime
+  " Check file changes
+  au CursorHold * checktime
 
-" Mouse always enabled
-set mouse=a
+  " Mouse always enabled
+  set mouse=a
 
-" Highlight search
-set hlsearch
+  " Highlight search
+  set hlsearch
 
-" Don't make noise
-set noerrorbells
-set novisualbell
+  " Don't make noise
+  set noerrorbells
+  set novisualbell
+
+  " Necessary to show Unicode glyphs
+  set encoding=utf-8
+
+  " Simple dialog and gui tabs
+  set guioptions=aiceh
+
+  " The commandbar is 1 lines high
+  set cmdheight=1
+
+  " Set magic on
+  set magic
+
+  set completeopt=menuone,longest,preview
+  set pumheight=15
+endif
 
 " Set text width and color last column
 set textwidth=80
 set cc=+1
-
-" Necessary to show Unicode glyphs
-set encoding=utf-8
 
 " Suffixes that get lower priority when doing tab completion for filenames
 set suffixes=.bak,~,.swp,.o
@@ -109,23 +127,11 @@ set nowrap
 set nobackup
 set noswapfile
 
-" Simple dialog and gui tabs
-set guioptions=aiceh
-
-" The commandbar is 1 lines high
-set cmdheight=1
-
-" Set magic on
-set magic
-
 " Disable namespace indentation
 set cinoptions=N-s
 
 " Disable F1 key - conflict with 'help' terminal shortcut
 nmap <F1> <nop>
-
-set completeopt=menuone,longest,preview
-set pumheight=15
 
 " Show doxygen syntax highligthing
 " let g:load_doxygen_syntax=1
@@ -143,15 +149,16 @@ au BufRead,BufNewFile SConscript set filetype=python
 
 " let g:lightline = { 'colorscheme': 'solarized' }
 
-if has("gui")
-  set mousehide     " hide mouse cursor when typing
-  set guioptions+=m " show menu bar
-  set guioptions-=T " show toolbar
-  set guioptions-=r " hide scrollbar
-  set guifont="MesloLGS Nerd Font 10"
-endif
+if !has("nvim")
+  if has("gui")
+    set mousehide     " hide mouse cursor when typing
+    set guioptions+=m " show menu bar
+    set guioptions-=T " show toolbar
+    set guioptions-=r " hide scrollbar
+    set guifont="MesloLGS Nerd Font 10"
+  endif
 
-if !has("gui_running")
-  set t_Co=256
-else
+  if !has("gui_running")
+    set t_Co=256
+  endif
 endif
