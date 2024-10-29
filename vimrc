@@ -1,4 +1,4 @@
-if !has("nvim")
+if has("nvim")
   finish
 endif
 
@@ -46,40 +46,38 @@ let g:zig_fmt_autosave = 0
 " Automatic configuration reload.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 
-if !has("nvim")
-  " vi improved
-  set nocompatible
-  syntax on
-  syntax enable
+" vi improved
+set nocompatible
+syntax on
+syntax enable
 
-  " Check file changes
-  au CursorHold * checktime
+" Check file changes
+au CursorHold * checktime
 
-  " Mouse always enabled
-  set mouse=a
+" Mouse always enabled
+set mouse=a
 
-  " Highlight search
-  set hlsearch
+" Highlight search
+set hlsearch
 
-  " Don't make noise
-  set noerrorbells
-  set novisualbell
+" Don't make noise
+set noerrorbells
+set novisualbell
 
-  " Necessary to show Unicode glyphs
-  set encoding=utf-8
+" Necessary to show Unicode glyphs
+set encoding=utf-8
 
-  " Simple dialog and gui tabs
-  set guioptions=aiceh
+" Simple dialog and gui tabs
+set guioptions=aiceh
 
-  " The commandbar is 1 lines high
-  set cmdheight=1
+" The commandbar is 1 lines high
+set cmdheight=1
 
-  " Set magic on
-  set magic
+" Set magic on
+set magic
 
-  set completeopt=menuone,longest,preview
-  set pumheight=15
-endif
+set completeopt=menuone,longest,preview
+set pumheight=15
 
 " Set text width and color last column
 set textwidth=80
@@ -149,16 +147,14 @@ au BufRead,BufNewFile SConscript set filetype=python
 
 " let g:lightline = { 'colorscheme': 'solarized' }
 
-if !has("nvim")
-  if has("gui")
-    set mousehide     " hide mouse cursor when typing
-    set guioptions+=m " show menu bar
-    set guioptions-=T " show toolbar
-    set guioptions-=r " hide scrollbar
-    set guifont="MesloLGS Nerd Font 10"
-  endif
+if has("gui")
+set mousehide     " hide mouse cursor when typing
+set guioptions+=m " show menu bar
+set guioptions-=T " show toolbar
+set guioptions-=r " hide scrollbar
+set guifont="MesloLGS Nerd Font 10"
+endif
 
-  if !has("gui_running")
-    set t_Co=256
-  endif
+if !has("gui_running")
+set t_Co=256
 endif
