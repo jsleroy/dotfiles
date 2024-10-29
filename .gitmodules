@@ -9,13 +9,7 @@
 	url = git@github.com:nojhan/liquidprompt.git
 [submodule "lazyvim"]
 	path = lazyvim
-	url = https://github.com/LazyVim/starter
-[submodule "nvchad"]
-	path = nvchad
-	url = https://github.com/NvChad/starter
+	url = git@github.com:jsleroy/lazyvim.git
 [submodule "kickstart.nvim"]
 	path = kickstart.nvim
 	url = git@github.com:jsleroy/kickstart.nvim.git
-[submodule "astrovim"]
-	path = astrovim
-	url = https://github.com/AstroNvim/template
