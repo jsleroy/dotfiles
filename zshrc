@@ -56,6 +56,9 @@ unalias rm
 # Oh-my-zsh configuration.
 UPDATE_ZSH_DAYS=5
 
+# Load rust.
+[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
+
 # Sensitive configuration.
 [ -f $HOME/.zshrc.private ] && source ${HOME}/.zshrc.private
 

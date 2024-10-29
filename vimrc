@@ -26,7 +26,7 @@ Plug 'codota/tabnine-vim', { 'branch': 'python3' }
 Plug 'kylelaker/riscv.vim'
 Plug 'ziglang/zig.vim'
 Plug 'dcharbon/vim-flatbuffers'
-
+Plug 'editorconfig/editorconfig-vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ayu-theme/ayu-vim'
 
