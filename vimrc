@@ -1,34 +1,36 @@
-if has("nvim")
-  finish
-endif
-
 "-----------------------------------------------------------------------------
-" Plugins.
+" Plugins
 "-----------------------------------------------------------------------------
 
-let bootstrap = empty(glob('~/.vim/autoload/plug.vim'))
+let directory = has("nvim") ? stdpath("data") . "/site" : "~/.vim"
+let filename = directory . "/autoload/plug.vim"
+let bootstrap = empty(glob(filename))
 
 if bootstrap
-  !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+  silent execute "!curl -fLo ".filename."/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/bundle')
+call plug#begin()
 
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-scripts/bats.vim'
-Plug 'tpope/vim-sensible'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/Mark--Karkat'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'codota/tabnine-vim', { 'branch': 'python3' }
 Plug 'kylelaker/riscv.vim'
 Plug 'ziglang/zig.vim'
 Plug 'dcharbon/vim-flatbuffers'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'ayu-theme/ayu-vim'
+
+if !has("nvim")
+Plug 'tpope/vim-sensible'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+else
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+endif
 
 call plug#end()
 
@@ -37,102 +39,76 @@ if bootstrap
 end
 
 "-----------------------------------------------------------------------------
-" Settings.
+" Settings
 "-----------------------------------------------------------------------------
 
-" Disable zig autoformat on save.
-let g:zig_fmt_autosave = 0
+if !has("nvim")
+  colorscheme catppuccin_mocha
+else
+  colorscheme catppuccin-mocha
+endif
 
-" Automatic configuration reload.
-autocmd BufWritePost ~/.vimrc source ~/.vimrc
+let g:lightline = { 'colorscheme': 'catppuccin_mocha' }
 
-" vi improved
-set nocompatible
-syntax on
-syntax enable
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
 
-" Check file changes
-au CursorHold * checktime
+autocmd BufWritePost ~/.vimrc source ~/.vimrc " Automatic configuration reload.
 
-" Mouse always enabled
-set mouse=a
+let g:zig_fmt_autosave = 0  " Disable zig autoformat on save.
 
-" Highlight search
-set hlsearch
-
-" Don't make noise
-set noerrorbells
-set novisualbell
-
-" Necessary to show Unicode glyphs
-set encoding=utf-8
-
-" Simple dialog and gui tabs
-set guioptions=aiceh
-
-" The commandbar is 1 lines high
-set cmdheight=1
-
-" Set magic on
-set magic
-
-set completeopt=menuone,longest,preview
-set pumheight=15
-
-" Set text width and color last column
-set textwidth=80
-set cc=+1
-
-" Suffixes that get lower priority when doing tab completion for filenames
-set suffixes=.bak,~,.swp,.o
-
-" Append line to keep windows synchronized and ignore whitespace differences
-set diffopt=filler
-
-" Highlight special characters
-set list
-set listchars=tab:>-,trail:- " show tabs and trailing
-
-" Highlight current line/column
-set cursorline
-
-" Show line number (up to 9999)
-set number
-set numberwidth=4
-
-" Minimum number of lines to keep above and below the cursor
-set scrolloff=4
-
-" Show matching brackets
-set showmatch
-
-" How many tenths of a second to blink
-set mat=2
-
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set termguicolors            "
+set nocompatible             " Disable compatibility to vi
+set ttyfast                  " Speed up scrolling in Vim
+set clipboard=unnamedplus    " Using system clipboard
+set showmatch                " Show matching brackets
+set ignorecase               " Case insensitive
+set mouse=v                  " middle-click paste with
+set mouse=a                  " Mouse always enabled
+set hlsearch                 " Highlight search
+set incsearch                " Incremental search
+set noerrorbells             " Don't make noise
+set novisualbell             " Don't make noise
+set encoding=utf-8           " Necessary to show Unicode glyphs
+set guioptions=aiceh         " Simple dialog and gui tabs
+set textwidth=80             " Set text width
+set cc=+1                    " Color last column
+set suffixes=.bak,~,.swp,.o  " Not in completion for filenames
+set diffopt=filler           " Append line to keep windows synchronized and ignore whitespace differences
+set list                     " Highlight special characters
+set listchars=tab:>-,trail:- " Show tabs and trailing
+set cursorline               " Highlight current line/column
+set number                   " Show line numbers
+set numberwidth=4            " (up to 9999)
+set scrolloff=4              " Minimum number of lines to keep above and below the cursor
+set tabstop=2                " Number of columns occupied by a tab
+set softtabstop=2            " See multiple spaces as tabstops so <BS> does the right thing
+set expandtab                " Converts tabs to white space
+set shiftwidth=2             " Width for autoindents
+set mat=2                    " How many tenths of a second to blink
+set nowrap                   " Keep each line on its own line
+set nobackup                 " Turn backup off
+set noswapfile               " Turn swap off
 set lbr
-
 set splitbelow
 set splitright
+set cinoptions=N-s           " Disable namespace indentation
 
-" Keep each line on its own line
-set nowrap
+if !has("nvim")
+  " set wildmode=longest,list    " Get bash-like tab completions
+  set magic                    " Set magic on
+  set cmdheight=1              " The commandbar is 1 lines high
+  set completeopt=menuone,longest,preview
+  set pumheight=15
 
-" Turn backup and swap off
-set nobackup
-set noswapfile
+  au CursorHold * checktime    " Check file changes
+endif
 
-" Disable namespace indentation
-set cinoptions=N-s
+syntax on
+syntax enable
+filetype plugin on
 
-" Disable F1 key - conflict with 'help' terminal shortcut
 nmap <F1> <nop>
-
-" Show doxygen syntax highligthing
-" let g:load_doxygen_syntax=1
 
 au BufRead,BufNewFile *.sb    set filetype=javascript
 au BufRead,BufNewFile *.bcd   set filetype=javascript
@@ -145,16 +121,12 @@ au FileType python setl tabstop=4
 au BufRead,BufNewFile SConstruct set filetype=python
 au BufRead,BufNewFile SConscript set filetype=python
 
-" let g:lightline = { 'colorscheme': 'solarized' }
-
-if has("gui")
-set mousehide     " hide mouse cursor when typing
-set guioptions+=m " show menu bar
-set guioptions-=T " show toolbar
-set guioptions-=r " hide scrollbar
-set guifont="MesloLGS Nerd Font 10"
-endif
-
-if !has("gui_running")
-set t_Co=256
+if !has("nvim")
+  if has("gui")
+    set mousehide     " hide mouse cursor when typing
+    set guioptions+=m " show menu bar
+    set guioptions-=T " show toolbar
+    set guioptions-=r " hide scrollbar
+    set guifont="MesloLGS Nerd Font 10"
+  endif
 endif

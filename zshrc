@@ -77,3 +77,9 @@ if command -v ccache &> /dev/null; then
   export CC="ccache gcc"
   export CXX="ccache g++"
 fi
+
+# Neovim distribution selector
+vv() {
+  select config in lazyvim kickstart nvchad astrovim lunarvim
+  do NVIM_APPNAME=nvim-$config nvim $@; break; done
+}

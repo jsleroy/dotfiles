@@ -1,10 +1,14 @@
 {
   "directories": [
-    "~/.config/nvim/"
+    "~/.config/nvim/",
+    "~/.config/nvim-kickstart/",
+    "~/.config/nvim-lazyvim/"
   ],
 
   "link": {
-    "nvchad/":             "~/.config/nvim",
+    "kickstart.nvim/":     "~/.config/nvim-kickstart",
+    "lazyvim/":            "~/.config/nvim-lazyvim",
+    "vimrc":               "~/.config/nvim/init.vim",
     "p10k.zsh":            "~/.p10k.zsh",
     "ackrc":               "~/.ackrc",
     "bashrc":              "~/.bashrc",
