@@ -7,9 +7,6 @@
 [submodule "liquidprompt"]
 	path = liquidprompt
 	url = git@github.com:nojhan/liquidprompt.git
-[submodule "lazyvim"]
-	path = lazyvim
-	url = git@github.com:jsleroy/lazyvim.git
 [submodule "kickstart.nvim"]
 	path = kickstart.nvim
 	url = git@github.com:jsleroy/kickstart.nvim.git
