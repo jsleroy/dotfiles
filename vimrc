@@ -24,13 +24,8 @@ Plug 'kylelaker/riscv.vim'
 Plug 'ziglang/zig.vim'
 Plug 'dcharbon/vim-flatbuffers'
 Plug 'editorconfig/editorconfig-vim'
-
-if !has("nvim")
 Plug 'tpope/vim-sensible'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-else
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-endif
 
 call plug#end()
 
@@ -42,11 +37,7 @@ end
 " Settings
 "-----------------------------------------------------------------------------
 
-if !has("nvim")
-  colorscheme catppuccin_mocha
-else
-  colorscheme catppuccin-mocha
-endif
+colorscheme catppuccin-mocha
 
 let g:lightline = { 'colorscheme': 'catppuccin_mocha' }
 
@@ -94,15 +85,13 @@ set splitbelow
 set splitright
 set cinoptions=N-s           " Disable namespace indentation
 
-if !has("nvim")
-  " set wildmode=longest,list    " Get bash-like tab completions
-  set magic                    " Set magic on
-  set cmdheight=1              " The commandbar is 1 lines high
-  set completeopt=menuone,longest,preview
-  set pumheight=15
+" set wildmode=longest,list    " Get bash-like tab completions
+set magic                    " Set magic on
+set cmdheight=1              " The commandbar is 1 lines high
+set completeopt=menuone,longest,preview
+set pumheight=15
 
-  au CursorHold * checktime    " Check file changes
-endif
+au CursorHold * checktime    " Check file changes
 
 syntax on
 syntax enable
@@ -121,12 +110,10 @@ au FileType python setl tabstop=4
 au BufRead,BufNewFile SConstruct set filetype=python
 au BufRead,BufNewFile SConscript set filetype=python
 
-if !has("nvim")
-  if has("gui")
-    set mousehide     " hide mouse cursor when typing
-    set guioptions+=m " show menu bar
-    set guioptions-=T " show toolbar
-    set guioptions-=r " hide scrollbar
-    set guifont="MesloLGS Nerd Font 10"
-  endif
+if has("gui")
+  set mousehide     " hide mouse cursor when typing
+  set guioptions+=m " show menu bar
+  set guioptions-=T " show toolbar
+  set guioptions-=r " hide scrollbar
+  set guifont="MesloLGS Nerd Font 10"
 endif
