@@ -37,7 +37,7 @@ end
 " Settings
 "-----------------------------------------------------------------------------
 
-colorscheme catppuccin-mocha
+colorscheme catppuccin_mocha
 
 let g:lightline = { 'colorscheme': 'catppuccin_mocha' }
 
