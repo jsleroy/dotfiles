@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 umask 007
 
@@ -44,7 +44,7 @@ if ! zgen saved; then
 
   zgen load chrissicool/zsh-256color
 
-  zgen load romkatv/powerlevel10k powerlevel10k
+  # zgen load romkatv/powerlevel10k powerlevel10k
 
   zgen save
 fi
@@ -66,10 +66,10 @@ UPDATE_ZSH_DAYS=5
 [ -f $HOME/.zshrc.local ] && source ${HOME}/.zshrc.local
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/p10k.zsh.
-[[ ! -f ~/dotfiles/p10k.zsh ]] || source ~/dotfiles/p10k.zsh
+# [[ ! -f ~/dotfiles/p10k.zsh ]] || source ~/dotfiles/p10k.zsh
 
 # Use ccache if available.
 if command -v ccache &> /dev/null; then
@@ -83,3 +83,5 @@ vv() {
   select config in lazyvim kickstart nvchad astrovim lunarvim
   do NVIM_APPNAME=nvim-$config nvim $@; break; done
 }
+
+eval "$(starship init zsh)"
