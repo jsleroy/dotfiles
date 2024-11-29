@@ -1,20 +1,16 @@
-# Place this line directly under the `command_timeout` entry at the top of the file
 palette = "catppuccin_mocha"
-
-# Don't print a new line at the start of the prompt
 add_newline = true
-
-# Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
 
 [character]
-error_symbol = "[✖](bold red) "
+success_symbol = '[❱](bold green)'
+error_symbol = '[❱](bold red)'
 
 [directory]
 truncate_to_repo = false
 truncation_length = 3
 truncation_symbol = "…/"
-format = "[$path]($style)[$lock_symbol]($lock_style)"
+format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -32,12 +28,17 @@ disabled = true
 
 [c]
 format = '\[[$symbol($version(-$name))]($style)\]'
+detect_extensions = ["c", "cpp", "h", "hpp"]
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
 
 [cmd_duration]
 format = '\[[⏱ $duration]($style)\]'
+min_time = 1
+show_milliseconds = false
+disabled = false
+# style = "bold italic red"
 
 [conda]
 format = '\[[$symbol$environment]($style)\]'
@@ -52,7 +53,13 @@ format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
 format = '\[[$symbol$branch]($style)\]'
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+# format = '([\[$all_status$ahead_behind\]]($style))'
+
+[git_metrics]
+disabled = false
 
 [golang]
 format = '\[[$symbol($version)]($style)\]'
@@ -115,7 +122,12 @@ format = '\[[as $symbol]($style)\]'
 format = '\[[$time]($style)\]'
 
 [username]
-format = '\[[$user]($style)\]'
+style_user = "green bold"
+style_root = "red bold"
+# format = "[$user]($style) "
+disabled = false
+show_always = true
+format = '[$user]($style)@'
 
 [zig]
 format = '\[[$symbol($version)]($style)\]'

@@ -4,6 +4,7 @@
   ],
 
   "link": {
+    "starship.toml":       "~/.config/starship.toml",
     "kickstart.nvim/":     "~/.config/nvim",
     "p10k.zsh":            "~/.p10k.zsh",
     "ackrc":               "~/.ackrc",
