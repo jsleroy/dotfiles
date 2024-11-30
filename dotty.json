@@ -4,6 +4,8 @@
   ],
 
   "link": {
+    "profile":             "~/.profile",
+    "config.fish":         "~/.config/fish/config.fish",
     "starship.toml":       "~/.config/starship.toml",
     "kickstart.nvim/":     "~/.config/nvim",
     "p10k.zsh":            "~/.p10k.zsh",
