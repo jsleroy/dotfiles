@@ -2,6 +2,19 @@ palette = "catppuccin_mocha"
 add_newline = true
 scan_timeout = 10
 
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡"
+discharging_symbol = "💧"
+
+# [time]
+# format = '\[[$time]($style)\]'
+[time]
+disabled = true
+format = '[\[$time\]]($style) '
+time_format = '%T'
+utc_time_offset = '+1'
+
 [character]
 success_symbol = '[❱](bold green)'
 error_symbol = '[❱](bold red)'
@@ -20,7 +33,7 @@ format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [hostname]
 ssh_only = false
-format = '[$ssh_symbol](bold blue)[$hostname](bold red) '
+format = '[$ssh_symbol](bold blue)[$hostname]() '
 disabled = false
 
 [aws]
@@ -35,7 +48,7 @@ format = '\[[$symbol($version)]($style)\]'
 
 [cmd_duration]
 format = '\[[⏱ $duration]($style)\]'
-min_time = 1
+min_time = 500 # milliseconds
 show_milliseconds = false
 disabled = false
 # style = "bold italic red"
@@ -118,13 +131,9 @@ format = '\[[$symbol($version)]($style)\]'
 [sudo]
 format = '\[[as $symbol]($style)\]'
 
-[time]
-format = '\[[$time]($style)\]'
-
 [username]
-style_user = "green bold"
+style_user = ""
 style_root = "red bold"
-# format = "[$user]($style) "
 disabled = false
 show_always = true
 format = '[$user]($style)@'
