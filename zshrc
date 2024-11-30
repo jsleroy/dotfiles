@@ -84,4 +84,7 @@ vv() {
   do NVIM_APPNAME=nvim-$config nvim $@; break; done
 }
 
+. "$HOME/.cargo/env"
+. "$HOME/.rye/env"
+
 eval "$(starship init zsh)"

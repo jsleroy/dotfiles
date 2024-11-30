@@ -78,4 +78,8 @@ if command -v ccache &> /dev/null; then
   export CC="ccache gcc"
   export CXX="ccache g++"
 fi
+
 . "$HOME/.cargo/env"
+. "$HOME/.rye/env"
+
+eval "$(starship init bash)"
