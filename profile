@@ -26,5 +26,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [ -d "$HOME/.platformio/penv/bin" ] ; then
+    PATH="$HOME/.platformio/penv/bin:$PATH"
+fi
+
 . "$HOME/.cargo/env"
 . "$HOME/.rye/env"
