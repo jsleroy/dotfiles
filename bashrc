@@ -51,26 +51,11 @@ ulimit -c unlimited
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-#------------------------------------------------------------
-# ALIAS
-#------------------------------------------------------------
-
-alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
-alias tree='tree --dirsfirst -C'
-alias mozilla='firefox'
+if [ -f ~/.aliases ]; then
+  source ~/.aliases
+fi
 
 umask 007
-
-[ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
-
-export PATH="$PATH:/home/jleroy/.local/bin"
 
 # Use ccache if available.
 if command -v ccache &> /dev/null; then
@@ -79,7 +64,12 @@ if command -v ccache &> /dev/null; then
   export CXX="ccache g++"
 fi
 
-. "$HOME/.cargo/env"
-. "$HOME/.rye/env"
+# [ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
+# [ -d "$HOME/.platformio" ] && source "$HOME/.platformio/penv/bin"
+# 
+# export PATH="$PATH:/home/jleroy/.local/bin"
+
+# . "$HOME/.cargo/env"
+# . "$HOME/.rye/env"
 
 eval "$(starship init bash)"

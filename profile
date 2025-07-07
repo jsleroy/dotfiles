@@ -12,23 +12,23 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+      . "$HOME/.bashrc"
     fi
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "$HOME/.platformio/penv/bin" ] ; then
-    PATH="$HOME/.platformio/penv/bin:$PATH"
-fi
+# if [ -d "$HOME/.platformio/penv/bin" ] ; then
+#     export PATH="$HOME/.platformio/penv/bin:$PATH"
+# fi
 
 . "$HOME/.cargo/env"
 . "$HOME/.rye/env"

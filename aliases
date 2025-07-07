@@ -1,0 +1,8 @@
+alias dir='dir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ls="exa --icons"
+alias ll="exa --icons -F -H -l --group-directories-first"
+alias lla="exa --icons -F -H -l -a --group-directories-first"
+alias tree='tree --dirsfirst -C'

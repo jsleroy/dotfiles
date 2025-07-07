@@ -87,8 +87,8 @@ vv() {
 . "$HOME/.cargo/env"
 . "$HOME/.rye/env"
 
-alias ls="exa --icons"
-alias ll="exa --icons -F -H -l --group-directories-first"
-alias lla="exa --icons -F -H -l -a --group-directories-first"
+# alias ls="exa --icons"
+# alias ll="exa --icons -F -H -l --group-directories-first"
+# alias lla="exa --icons -F -H -l -a --group-directories-first"
 
 eval "$(starship init zsh)"
