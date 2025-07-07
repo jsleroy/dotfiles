@@ -25,8 +25,6 @@
 [alias]
     st = status
     co = checkout
-    cp = cherry-pick
-    lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    subcommit = "!f() { s=${*}; m=$(mktemp); (echo "$s: update submodule"; echo; git submodule status $s; echo; git submodule summary $s)>$m; git add -- $s; git commit --file=$m; rm $m; }; f"
-[maintenance]
-	repo = /home/jean/work/brick/brick
+    chp = cherry-pick
+[includeIf "gitdir:/home/jean/work/dv-infra/**"]
+    path = /home/jean/.gitconfig-codasip
