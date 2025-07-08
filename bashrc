@@ -1,11 +1,10 @@
-# .bashrc
+safe_source() {
+  [[ -f "$1" ]] && source "$1"
+}
 
-# Source global definitions
-[ -f /etc/bashrc ] && . /etc/bashrc
-
-# Source ARM definitions
-[ -e $HOME/.bashrc.arm ] && source $HOME/.bashrc.arm
-[ -e $HOME/.bashrc.codasip ] && source $HOME/.bashrc.codasip
+safe_source /etc/bashrc
+safe_source $HOME/.bashrc.codasip
+safe_source $HOME/.aliases
 
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
@@ -51,10 +50,6 @@ ulimit -c unlimited
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-if [ -f ~/.aliases ]; then
-  source ~/.aliases
-fi
-
 umask 007
 
 # Use ccache if available.
@@ -66,10 +61,8 @@ fi
 
 # [ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
 # [ -d "$HOME/.platformio" ] && source "$HOME/.platformio/penv/bin"
-# 
-# export PATH="$PATH:/home/jleroy/.local/bin"
 
-# . "$HOME/.cargo/env"
-# . "$HOME/.rye/env"
+safe_source $HOME/.cargo/env
+safe_source $HOME/.rye/env
 
 eval "$(starship init bash)"

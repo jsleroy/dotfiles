@@ -30,5 +30,5 @@ fi
 #     export PATH="$HOME/.platformio/penv/bin:$PATH"
 # fi
 
-. "$HOME/.cargo/env"
-. "$HOME/.rye/env"
+# . "$HOME/.cargo/env"
+# . "$HOME/.rye/env"

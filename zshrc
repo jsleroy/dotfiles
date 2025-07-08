@@ -51,25 +51,18 @@ fi
 
 unalias rm
 
-[ -f $HOME/.cargo/env ] && source "$HOME/.cargo/env"
-
 # Oh-my-zsh configuration.
 UPDATE_ZSH_DAYS=5
 
-# Load rust.
-[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
+safe_source() {
+  [[ -f "$1" ]] && source "$1"
+}
 
-# Sensitive configuration.
-[ -f $HOME/.zshrc.private ] && source ${HOME}/.zshrc.private
-
-# Local configuration.
-[ -f $HOME/.zshrc.local ] && source ${HOME}/.zshrc.local
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/dotfiles/p10k.zsh.
-# [[ ! -f ~/dotfiles/p10k.zsh ]] || source ~/dotfiles/p10k.zsh
+safe_source $HOME/.cargo/env
+safe_source $HOME/.rye/env
+safe_source ${HOME}/.zshrc.private
+safe_source ${HOME}/.zshrc.local
+safe_source ${HOME}/.aliases
 
 # Use ccache if available.
 if command -v ccache &> /dev/null; then
@@ -83,12 +76,5 @@ vv() {
   select config in lazyvim kickstart nvchad astrovim lunarvim
   do NVIM_APPNAME=nvim-$config nvim $@; break; done
 }
-
-. "$HOME/.cargo/env"
-. "$HOME/.rye/env"
-
-# alias ls="exa --icons"
-# alias ll="exa --icons -F -H -l --group-directories-first"
-# alias lla="exa --icons -F -H -l -a --group-directories-first"
 
 eval "$(starship init zsh)"
