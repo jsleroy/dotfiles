@@ -1,6 +1,7 @@
 {
   "directories": [
-    "~/.config/nvim/"
+    "~/.config/nvim/",
+    "~/.config/runon/"
   ],
 
   "link": {
@@ -25,7 +26,8 @@
     "fonts":               "~/.local/share/fonts",
     "fonts":               "~/.fonts",
     "private/zshrc":       "~/.zshrc.private",
-    "private/ssh/config":  "~/.ssh/config"
+    "private/ssh/config":  "~/.ssh/config",
+    "runon":               "~/.config/runon/runon.conf"
   },
 
   "commands": [
