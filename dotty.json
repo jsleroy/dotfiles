@@ -27,7 +27,7 @@
     "fonts":               "~/.fonts",
     "private/zshrc":       "~/.zshrc.private",
     "private/ssh/config":  "~/.ssh/config",
-    "runon":               "~/.config/runon/runon.conf"
+    "runon.conf":          "~/.config/runon/runon.conf"
   },
 
   "commands": [
