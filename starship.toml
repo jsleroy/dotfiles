@@ -1,6 +1,6 @@
 palette = "catppuccin_mocha"
 add_newline = true
-scan_timeout = 10
+scan_timeout = 50
 command_timeout = 3600000
 
 [battery]
@@ -109,7 +109,7 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$cloud(\($project\))]($style)\]'
 
 [os]
-disabled = false
+# disabled = false
 format = '$symbol($style)'
 
 [package]
@@ -133,7 +133,7 @@ format = '\[[$symbol($version)]($style)\]'
 
 [shell]
 fish_indicator = '󰈺'
-disabled = false
+# disabled = false
 
 [sudo]
 format = '\[[as $symbol]($style)\]'

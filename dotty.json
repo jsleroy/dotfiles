@@ -27,7 +27,8 @@
     "fonts":               "~/.fonts",
     "private/zshrc":       "~/.zshrc.private",
     "private/ssh/config":  "~/.ssh/config",
-    "runon.conf":          "~/.config/runon/runon.conf"
+    "runon.conf":          "~/.config/runon/runon.conf",
+    "MangoHud.conf":       "~/.config/MangoHud/MangoHud.conf"
   },
 
   "commands": [
